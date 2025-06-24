@@ -1,0 +1,6 @@
+﻿services:
+  electronflowsim.api:
+    image: electronflowsim.api
+    build:
+      context: .
+      dockerfile: ElectronFlowSim.API/Dockerfile

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.API", "ElectronFlowSim.API\ElectronFlowSim.API.csproj", "{B7A08D9C-0AA7-4A25-9370-0A359B998295}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9451074-051D-4AC9-836B-CA19C9F4F4B9}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Analysis", "Analysis", "{67750878-4B43-463B-9F57-7F039BAB742D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService", "ElectronFlowSim.AnalysisService\ElectronFlowSim.AnalysisService.csproj", "{47FA6BB9-07F7-4F01-B470-59BC50EAD936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService.GRPC", "ElectronFlowSim.AnalysisService.GRPC\ElectronFlowSim.AnalysisService.GRPC.csproj", "{50DE37E0-90E3-42AC-B3D5-A40978836925}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.DTO", "ElectronFlowSim.DTO\ElectronFlowSim.DTO.csproj", "{D4B534D9-C56C-4B5F-81C6-564EBF392954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.Common", "ElectronFlowSim.Common\ElectronFlowSim.Common.csproj", "{BDA45A7F-B842-4863-8E5D-072505B7C330}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7A08D9C-0AA7-4A25-9370-0A359B998295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A08D9C-0AA7-4A25-9370-0A359B998295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A08D9C-0AA7-4A25-9370-0A359B998295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A08D9C-0AA7-4A25-9370-0A359B998295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47FA6BB9-07F7-4F01-B470-59BC50EAD936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47FA6BB9-07F7-4F01-B470-59BC50EAD936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47FA6BB9-07F7-4F01-B470-59BC50EAD936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47FA6BB9-07F7-4F01-B470-59BC50EAD936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50DE37E0-90E3-42AC-B3D5-A40978836925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50DE37E0-90E3-42AC-B3D5-A40978836925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50DE37E0-90E3-42AC-B3D5-A40978836925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50DE37E0-90E3-42AC-B3D5-A40978836925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B534D9-C56C-4B5F-81C6-564EBF392954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B534D9-C56C-4B5F-81C6-564EBF392954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B534D9-C56C-4B5F-81C6-564EBF392954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B534D9-C56C-4B5F-81C6-564EBF392954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47FA6BB9-07F7-4F01-B470-59BC50EAD936} = {67750878-4B43-463B-9F57-7F039BAB742D}
+		{50DE37E0-90E3-42AC-B3D5-A40978836925} = {67750878-4B43-463B-9F57-7F039BAB742D}
+	EndGlobalSection
+EndGlobal

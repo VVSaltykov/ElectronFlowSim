@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+package electronflow;
+
+service MagneticFields {
+  rpc GetMagneticFields (DataRequest) returns (OutputResponse);
+}
+
+message DataRequest {
+  double startPoint = 1;
+  double endPoint = 2;
+  double step =3;
+}
+
+message OutputResponse {
+  repeated double magneticFieldsPoints = 1;
+  repeated double magneticFieldsValues = 2;
+  double magneticFieldMaxValues = 3;
+}

@@ -1,0 +1,97 @@
+﻿syntax = "proto3";
+
+package electronflow;
+
+service ElectronFlow {
+  rpc ParseFile (FileRequest) returns (OutputDataResponse);
+}
+
+message FileRequest {
+  string folderid = 1;
+}
+
+message OutputDataResponse {
+  repeated TrajectoryPoint trajectoryPoints = 1;
+  FinalParameters finalParams = 2;
+  repeated UekvipEntry uekvipList = 3;
+  repeated MicrowaveData microwavePoints = 4;
+  CathodeCurrentDensity cathodeDensity = 5;
+  BMData bmData = 6;
+  CalculationParameters calcParams = 7;
+  FinalResult result = 8;
+  repeated EkvData ekvList = 9;
+  repeated EkvPointData ekvPointList = 10;
+}
+
+message TrajectoryPoint {
+  int32 i = 1;
+  double r = 2;
+  double z = 3;
+  double u = 4;
+  int32 absl = 5;
+  int32 l = 6;
+}
+
+message FinalParameters {
+  int32 ig = 1;
+  int32 km = 2;
+  int32 kp = 3;
+  int32 kq = 4;
+  int32 nl = 5;
+  double rk = 6;
+  double u0 = 7;
+  double bnorm = 8;
+  double abm = 9;
+  double zcentr = 10;
+  int32 icr = 11;
+  double tck = 12;
+}
+
+message UekvipEntry {
+  int32 i = 1;
+  double value = 2;
+}
+
+message MicrowaveData {
+  double microperevance = 1;
+  double beamCurrent = 2;
+}
+
+message CathodeCurrentDensity {
+  repeated DoubleArray ajtacm = 1;
+}
+
+message BMData {
+  repeated DoubleArray rows = 1;
+}
+
+message CalculationParameters {
+  double dz = 1;
+  double dtok = 2;
+  double ht = 3;
+  double dmaxmm = 4;
+  int32 l0 = 5;
+}
+
+message FinalResult {
+  double tunnelBeamCurrent = 1;
+  int32 trajectorySteps = 2;
+  int32 nl1 = 3;
+  int32 nl4 = 4;
+}
+
+message DoubleArray {
+  repeated double values = 1;
+}
+
+message EkvData {
+  int32 i = 1;
+  double orekv = 2;
+  double ozekv = 3;
+}
+
+message EkvPointData {
+  int32 k = 1;
+  double orep = 2;
+  double ozep = 3;
+}
