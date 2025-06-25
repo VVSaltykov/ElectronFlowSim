@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ElectronFlowSim.AnalysisService.GRPC/ElectronFlowSim.AnalysisService.GRPC.csproj", "ElectronFlowSim.AnalysisService.GRPC/"]
+COPY ["ElectronFlowSim.DTO/ElectronFlowSim.DTO.csproj", "ElectronFlowSim.DTO/"]
 RUN dotnet restore "ElectronFlowSim.AnalysisService.GRPC/ElectronFlowSim.AnalysisService.GRPC.csproj"
 COPY . .
 WORKDIR "/src/ElectronFlowSim.AnalysisService.GRPC"

@@ -1,6 +1,0 @@
-@ElectronFlowSim.API_HostAddress = http://localhost:5236
-
-GET {{ElectronFlowSim.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

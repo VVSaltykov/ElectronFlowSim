@@ -1,6 +1,97 @@
 ﻿services:
-  electronflowsim.api:
-    image: electronflowsim.api
-    build:
-      context: .
-      dockerfile: ElectronFlowSim.API/Dockerfile
+  
+  analysisservice-grpc:
+    image: electronflowsim.analysisservice.grpc:latest
+    container_name: grpc
+    environment:
+      - FilePaths__ExcelFilePath=/data
+      - FilePaths__OutFilePath=/outfile
+    volumes:
+      - type: bind
+        source: C:\Users\vitya\RiderProjects\ElectronFlowSim\exceldata\exceldata.xlsx
+        target: /data
+        read_only: true
+      - type: bind
+        source: C:\Users\vitya\RiderProjects\ElectronFlowSim\exec
+        target: /outfile
+    networks:
+      - kafka-network
+  
+  analysisservice:
+    image: electronflowsim.analysisservice:latest
+    container_name: analysisservice
+    depends_on:
+      - kafka
+      - redis
+    volumes:
+      - type: bind
+        source: C:\Users\vitya\RiderProjects\ElectronFlowSim\exec
+        target: /exec
+    environment:
+      - Kafka__BootstrapServers=kafka:9092
+      - Redis__Connection=redis:6379
+      - DirectoryPaths__WatchDirectory=/exec/
+    networks:
+      - kafka-network
+      
+      # frontend:
+      #   image: nginx:stable
+      #   volumes:
+      #   - .\ElectronFlowSim.Frontend\dist:/usr/share/nginx/html
+      #   - .\nginx.conf:/etc/nginx/conf.d/default.conf
+      #   container_name: efsim-frontend
+      #   ports:
+      #     - 80:80
+  
+  api:
+    image: electronflowsim.api:latest
+    container_name: flowsim-api
+    depends_on:
+      - kafka
+    environment:
+      - Kafka__BootstrapServers=kafka:9092
+      - Redis__Connection=redis:6379
+      - GrpcServices__WorkerService=http://analysisservice-grpc:8080
+    ports:
+      - "32770:8080"
+    networks:
+      - kafka-network
+  
+  
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.2.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - kafka-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.2.1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - kafka-network
+
+  redis:
+    image: "redis:7.0"
+    ports:
+      - "6379:6379"
+    networks:
+      - kafka-network
+
+networks:
+  kafka-network:
+    driver: bridge

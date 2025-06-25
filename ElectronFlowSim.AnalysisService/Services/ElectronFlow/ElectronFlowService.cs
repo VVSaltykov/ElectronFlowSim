@@ -55,13 +55,19 @@ public class ElectronFlowService : IElectronFlowService
 
                 var startInfo = new ProcessStartInfo
                 {
-                    FileName = "wine",
-                    Arguments = $"./888.exe",
+                    FileName = "/usr/local/bin/winewrap",
+                    Arguments = $"\"{exeCopy}\"",
                     WorkingDirectory = sessionDir,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,
-                    CreateNoWindow = true
+                    CreateNoWindow = true,
+                    EnvironmentVariables =
+                    {
+                        ["DISPLAY"] = ":99",
+                        ["WINEDLLOVERRIDES"] = "vulkan-1=n",
+                        ["WINEDEBUG"] = "-all,err+all"
+                    }
                 };
 
                 var process = new Process { StartInfo = startInfo };

@@ -8,6 +8,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ElectronFlowSim.API/ElectronFlowSim.API.csproj", "ElectronFlowSim.API/"]
+COPY ["ElectronFlowSim.Common/ElectronFlowSim.Common.csproj", "ElectronFlowSim.Common/"]
+COPY ["ElectronFlowSim.DTO/ElectronFlowSim.DTO.csproj", "ElectronFlowSim.DTO/"]
+
 RUN dotnet restore "ElectronFlowSim.API/ElectronFlowSim.API.csproj"
 COPY . .
 WORKDIR "/src/ElectronFlowSim.API"
