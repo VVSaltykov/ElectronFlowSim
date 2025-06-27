@@ -14,7 +14,7 @@ COPY ["ElectronFlowSim.AnalysisService/ElectronFlowSim.AnalysisService.csproj", 
 COPY ["ElectronFlowSim.Common/ElectronFlowSim.Common.csproj", "ElectronFlowSim.Common/"]
 RUN dotnet restore "ElectronFlowSim.AnalysisService/ElectronFlowSim.AnalysisService.csproj"
 
-# Копируем остальные исходники и собираем проект
+# Копируем исходники и собираем
 COPY . .
 WORKDIR "/src/ElectronFlowSim.AnalysisService"
 RUN dotnet build -c $BUILD_CONFIGURATION -o /app/build
@@ -24,61 +24,106 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Финальный образ с wine и xvfb
+# Финальный образ с Wine и Xvfb
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 USER root
 WORKDIR /app
 
-# Устанавливаем необходимые пакеты для Wine
+# Устанавливаем системные пакеты
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         wget \
         gnupg2 \
-        software-properties-common && \
-    # Добавляем архитектуру i386
+        software-properties-common \
+        xvfb \
+        xauth \
+        x11vnc \
+        fluxbox \
+        xterm \
+        libxcursor1 \
+        libxrandr2 \
+        libxi6 \
+        libgl1-mesa-dri \
+        libgl1-mesa-glx \
+        libxtst6 \
+        libxrender1 \
+        procps \
+        x11-utils \
+        cabextract \
+        unzip \
+        curl \
+        fonts-freefont-ttf && \
+    # Устанавливаем winetricks вручную
+    curl -fsSL https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -o /usr/local/bin/winetricks && \
+    chmod +x /usr/local/bin/winetricks && \
+    # Добавляем i386-архитектуру и репозиторий WineHQ
     dpkg --add-architecture i386 && \
-    # Добавляем репозиторий WineHQ
     mkdir -pm755 /etc/apt/keyrings && \
     wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
-    echo "deb [signed-by=/etc/apt/keyrings/winehq-archive.key] https://dl.winehq.org/wine-builds/debian/ bookworm main" | tee /etc/apt/sources.list.d/winehq.list && \
+    echo "deb [signed-by=/etc/apt/keyrings/winehq-archive.key] https://dl.winehq.org/wine-builds/debian/ bookworm main" \
+      | tee /etc/apt/sources.list.d/winehq.list && \
     apt-get update && \
-    # Устанавливаем Wine и зависимости (явно указываем wine32)
     apt-get install -y --no-install-recommends \
         winehq-stable \
         wine32 \
-        xvfb \
-        xauth \
         winbind \
-        fonts-freefont-ttf \
-        cabextract \
-        unzip \
-        p7zip-full && \
-    # Устанавливаем winetricks
-    wget -q https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/local/bin/winetricks && \
-    chmod +x /usr/local/bin/winetricks && \
-    # Очищаем кеш
+        fonts-freefont-ttf && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Инициализируем Wine prefix с явным указанием архитектуры
-RUN WINEARCH=win32 WINEDEBUG=-all xvfb-run --auto-servernum --server-args="-screen 0 1024x768x16" wineboot --init && \
-    # Даем больше времени на инициализацию
-    sleep 30 && \
-    # Настраиваем Windows 7 compatibility
-    WINEARCH=win32 WINEDEBUG=-all xvfb-run --auto-servernum winetricks -q win7 && \
-    # Устанавливаем основные шрифты Windows
-    WINEARCH=win32 WINEDEBUG=-all xvfb-run --auto-servernum winetricks -q corefonts && \
-    # Настраиваем глубину цвета
-    echo '[HKEY_CURRENT_USER\Control Panel\Colors]' > /tmp/colors.reg && \
-    echo '"BitDepth"="16"' >> /tmp/colors.reg && \
-    WINEARCH=win32 xvfb-run --auto-servernum wine regedit /tmp/colors.reg && \
-    rm /tmp/colors.reg
+# Переменные окружения для Wine
+ENV WINEPREFIX=/root/.wine \
+    WINEARCH=win32 \
+    DISPLAY=:99 \
+    XVFB_ARGS="-screen 0 1024x768x16 -ac +extension GLX +render -noreset" \
+    WINEDEBUG=-all
 
-# Создаем скрипт-обертку для запуска wine через xvfb
-RUN echo '#!/bin/sh\nXvfb :99 -screen 0 1024x768x16 &\nPID=$!\nexport DISPLAY=:99\nWINEARCH=win32 wine "$@"\nkill $PID' > /usr/local/bin/winewrap && \
-    chmod +x /usr/local/bin/winewrap
+# Создаём префикс Wine
+RUN mkdir -p /root/.wine && chown -R root:root /root/.wine
 
-# Копируем собранное .NET приложение
+# Файл для отключения ненужных служб
+RUN printf 'REGEDIT4\n\n\
+[HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\winebth]\n"Start"=dword:00000004\n\n\
+[HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\PlugPlay]\n"Start"=dword:00000004\n\n\
+[HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Eventlog]\n"Start"=dword:00000004\n' \
+  > /root/disable_wine_services.reg
+
+# Тест Xvfb
+RUN Xvfb $DISPLAY $XVFB_ARGS & \
+    sleep 3 && \
+    xdpyinfo -display $DISPLAY >/dev/null 2>&1 && \
+    pkill Xvfb
+
+# Инициализация Wine (доработано с подавлением exit-кодов)
+RUN Xvfb $DISPLAY $XVFB_ARGS & \
+    sleep 5 && \
+    wine wineboot --init || true && \
+    sleep 10 && \
+    pkill Xvfb || true
+
+# Отключаем ненужные службы в реестре
+RUN Xvfb $DISPLAY $XVFB_ARGS & \
+    sleep 3 && \
+    wine regedit /root/disable_wine_services.reg || true && \
+    pkill Xvfb || true && \
+    rm /root/disable_wine_services.reg
+
+# Настройка цветности
+RUN Xvfb $DISPLAY $XVFB_ARGS & \
+    sleep 3 && \
+    printf 'REGEDIT4\n\n[HKEY_CURRENT_USER\\Control Panel\\Colors]\n"BitDepth"="16"\n' \
+      > /root/color.reg && \
+    wine regedit /root/color.reg || true && \
+    pkill Xvfb || true && \
+    rm /root/color.reg
+
+# Установка компонентов через winetricks (с подавлением ошибок)
+RUN Xvfb $DISPLAY $XVFB_ARGS & sleep 3 && winetricks -q corefonts || true && pkill Xvfb || true
+RUN Xvfb $DISPLAY $XVFB_ARGS & sleep 3 && winetricks -q vb6run    || true && pkill Xvfb || true
+RUN Xvfb $DISPLAY $XVFB_ARGS & sleep 3 && winetricks -q mfc42    || true && pkill Xvfb || true
+RUN Xvfb $DISPLAY $XVFB_ARGS & sleep 3 && winetricks -q d3d9    || true && pkill Xvfb || true
+
+# Копируем готовое .NET-приложение
 COPY --from=publish /app/publish .
 
 # Точка входа

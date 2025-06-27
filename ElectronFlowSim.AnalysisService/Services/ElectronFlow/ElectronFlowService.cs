@@ -55,25 +55,46 @@ public class ElectronFlowService : IElectronFlowService
 
                 var startInfo = new ProcessStartInfo
                 {
-                    FileName = "/usr/local/bin/winewrap",
-                    Arguments = $"\"{exeCopy}\"",
+                    FileName = "xvfb-run",
+                    Arguments = $"-a -s \"-screen 0 1024x768x16 -ac +extension GLX\" wine \"{exeCopy}\"",
                     WorkingDirectory = sessionDir,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,
                     CreateNoWindow = true,
-                    EnvironmentVariables =
+                    Environment =
                     {
+                        ["WINEPREFIX"] = "/root/.wine",
+                        ["WINEARCH"] = "win32",
                         ["DISPLAY"] = ":99",
-                        ["WINEDLLOVERRIDES"] = "vulkan-1=n",
-                        ["WINEDEBUG"] = "-all,err+all"
+                        ["WINEDEBUG"] = "-all",
+                        ["WINEDLLOVERRIDES"] = "mscoree,mshtml=",
+                        ["COLORTERM"] = "falsecolor",
+                        ["XVFB_ARGS"] = "-screen 0 1024x768x16 -ac +extension GLX"
                     }
                 };
 
                 var process = new Process { StartInfo = startInfo };
+
+                // Обработка вывода
+                process.OutputDataReceived += (s, e) =>
+                {
+                    if (e.Data != null)
+                        _logger.LogInformation("[stdout] {line}", e.Data);
+                };
+
+                process.ErrorDataReceived += (s, e) =>
+                {
+                    if (e.Data != null)
+                        _logger.LogWarning("[stderr] {line}", e.Data);
+                };
+
                 process.Start();
 
                 _logger.LogInformation("Процесс запущен (PID {pid}) из директории {dir}", process.Id, sessionDir);
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
 
                 _ = MonitorFinishedFileAsync(process, finishedPath, requestId, connectionId);
             }
