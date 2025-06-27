@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ElectronFlowSim.AnalysisService
+/ElectronFlowSim.AnalysisService.GRPC
+/ElectronFlowSim.API
+/ElectronFlowSim.Common/obj/Debug/net8.0
+/ElectronFlowSim.DTO/obj
+/.vs/ElectronFlowSim
+/ElectronFlowSim.Common
+/ElectronFlowSim.DTO/bin/Debug/net8.0

@@ -2,14 +2,17 @@
 
 package electronflow;
 
+import "google/protobuf/empty.proto";
+
 service MagneticFields {
-  rpc GetMagneticFields (DataRequest) returns (OutputResponse);
+  rpc GetMagneticFieldsFromFile (MagneticFieldsFileRequest) returns (OutputResponse);
 }
 
-message DataRequest {
+message MagneticFieldsFileRequest {
   double startPoint = 1;
   double endPoint = 2;
-  double step =3;
+  double step = 3;
+  bytes fileContent = 4;
 }
 
 message OutputResponse {

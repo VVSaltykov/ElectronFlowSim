@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Electronflow;
+﻿using Electronflow;
 using ElectronFlowSim.API.Services.ElectronFlow;
 using ElectronFlowSim.DTO.AnalysisService;
+using ElectronFlowSim.DTO.API;
+using Google.Protobuf;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace ElectronFlowSim.API.Controllers;
 
@@ -48,15 +50,25 @@ public class ElectronFlowController : ControllerBase
         return Ok(grpcResponse);
     }
 
-    [HttpGet("get-magnetic-fields")]
-    public async Task<IActionResult> GetMagneticFields(
-        [FromQuery] double startPoint,
-        [FromQuery] double endPoint,
-        [FromQuery, Range(0.1, 5)] double step)
+    [HttpPost("get-magnetic-fields")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> GetMagneticFields([FromForm] MagneticFieldsDTO magneticFieldsDTO)
     {
-        var grpcRequest = new DataRequest { StartPoint = startPoint, EndPoint = endPoint, Step = step };
-        var grpcResponse = await _magneticFieldsGrpcClient.GetMagneticFieldsAsync(grpcRequest);
+        if (magneticFieldsDTO.File == null || magneticFieldsDTO.File.Length == 0)
+            return BadRequest("Файл не загружен.");
+
+        using var stream = magneticFieldsDTO.File.OpenReadStream();
+
+        var grpcRequest = new MagneticFieldsFileRequest
+        {
+            StartPoint = magneticFieldsDTO.StartPoint,
+            EndPoint = magneticFieldsDTO.EndPoint,
+            Step = magneticFieldsDTO.Step,
+            FileContent = await ByteString.FromStreamAsync(stream)
+        };
+
+        var grpcResponse = await _magneticFieldsGrpcClient.GetMagneticFieldsFromFileAsync(grpcRequest);
 
         return Ok(grpcResponse);
     }
-} 
+}
