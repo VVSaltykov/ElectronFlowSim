@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.API", "ElectronFlowSim.API\ElectronFlowSim.API.csproj", "{B7A08D9C-0AA7-4A25-9370-0A359B998295}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronFlowSim.API", "ElectronFlowSim.API\ElectronFlowSim.API.csproj", "{B7A08D9C-0AA7-4A25-9370-0A359B998295}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9451074-051D-4AC9-836B-CA19C9F4F4B9}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,13 +12,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Analysis", "Analysis", "{67750878-4B43-463B-9F57-7F039BAB742D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService", "ElectronFlowSim.AnalysisService\ElectronFlowSim.AnalysisService.csproj", "{47FA6BB9-07F7-4F01-B470-59BC50EAD936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronFlowSim.AnalysisService", "ElectronFlowSim.AnalysisService\ElectronFlowSim.AnalysisService.csproj", "{47FA6BB9-07F7-4F01-B470-59BC50EAD936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService.GRPC", "ElectronFlowSim.AnalysisService.GRPC\ElectronFlowSim.AnalysisService.GRPC.csproj", "{50DE37E0-90E3-42AC-B3D5-A40978836925}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronFlowSim.AnalysisService.GRPC", "ElectronFlowSim.AnalysisService.GRPC\ElectronFlowSim.AnalysisService.GRPC.csproj", "{50DE37E0-90E3-42AC-B3D5-A40978836925}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.DTO", "ElectronFlowSim.DTO\ElectronFlowSim.DTO.csproj", "{D4B534D9-C56C-4B5F-81C6-564EBF392954}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronFlowSim.DTO", "ElectronFlowSim.DTO\ElectronFlowSim.DTO.csproj", "{D4B534D9-C56C-4B5F-81C6-564EBF392954}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.Common", "ElectronFlowSim.Common\ElectronFlowSim.Common.csproj", "{BDA45A7F-B842-4863-8E5D-072505B7C330}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronFlowSim.Common", "ElectronFlowSim.Common\ElectronFlowSim.Common.csproj", "{BDA45A7F-B842-4863-8E5D-072505B7C330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService.Common", "ElectronFlowSim.AnalysisService.Common\ElectronFlowSim.AnalysisService.Common.csproj", "{AB6D0D1A-3F55-49B6-99C9-18690EDCFDA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService.Data", "ElectronFlowSim.AnalysisService.Data\ElectronFlowSim.AnalysisService.Data.csproj", "{71740F0E-8718-4E48-925C-93EFF6A91D8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.AnalysisService.Domain", "ElectronFlowSim.AnalysisService.Domain\ElectronFlowSim.AnalysisService.Domain.csproj", "{E9DB7892-BD05-4F58-A849-F7B1006CCF46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronFlowSim.Domain.Base", "ElectronFlowSim.Domain.Base\ElectronFlowSim.Domain.Base.csproj", "{A40D9782-DD56-4381-BFEF-3782707CFCE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,9 +54,34 @@ Global
 		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDA45A7F-B842-4863-8E5D-072505B7C330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6D0D1A-3F55-49B6-99C9-18690EDCFDA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6D0D1A-3F55-49B6-99C9-18690EDCFDA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6D0D1A-3F55-49B6-99C9-18690EDCFDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6D0D1A-3F55-49B6-99C9-18690EDCFDA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71740F0E-8718-4E48-925C-93EFF6A91D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71740F0E-8718-4E48-925C-93EFF6A91D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71740F0E-8718-4E48-925C-93EFF6A91D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71740F0E-8718-4E48-925C-93EFF6A91D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DB7892-BD05-4F58-A849-F7B1006CCF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DB7892-BD05-4F58-A849-F7B1006CCF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DB7892-BD05-4F58-A849-F7B1006CCF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DB7892-BD05-4F58-A849-F7B1006CCF46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A40D9782-DD56-4381-BFEF-3782707CFCE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A40D9782-DD56-4381-BFEF-3782707CFCE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A40D9782-DD56-4381-BFEF-3782707CFCE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A40D9782-DD56-4381-BFEF-3782707CFCE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{47FA6BB9-07F7-4F01-B470-59BC50EAD936} = {67750878-4B43-463B-9F57-7F039BAB742D}
 		{50DE37E0-90E3-42AC-B3D5-A40978836925} = {67750878-4B43-463B-9F57-7F039BAB742D}
+		{AB6D0D1A-3F55-49B6-99C9-18690EDCFDA0} = {67750878-4B43-463B-9F57-7F039BAB742D}
+		{71740F0E-8718-4E48-925C-93EFF6A91D8E} = {67750878-4B43-463B-9F57-7F039BAB742D}
+		{E9DB7892-BD05-4F58-A849-F7B1006CCF46} = {67750878-4B43-463B-9F57-7F039BAB742D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02745FE8-FC2D-4798-A50A-9796BB49DE28}
 	EndGlobalSection
 EndGlobal
