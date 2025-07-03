@@ -4,6 +4,7 @@ option csharp_namespace = "ElectronFlowSim.AnalysisService.GRPC.Protos";
 
 service DBCommunication {
   rpc CreateSave (InputDataDTO) returns (EmptyResponse);
+  rpc GetSave (EmptyResponse) returns (InputDataDTO);
 }
 
 message InputDataDTO {

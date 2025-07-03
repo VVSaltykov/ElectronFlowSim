@@ -33,10 +33,11 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
             "ARIKCgJ1MBgTIAEoARIOCgZ1ZWt2aXAYFCADKAESDQoFYm5vcm0YFSABKAES",
             "CwoDYWJtGBYgASgBEgoKAmJtGBcgAygBEgsKA2FpaxgYIAMoARIKCgJodBgZ",
             "IAEoARIKCgJkehgaIAEoARIMCgRkdG9rGBsgASgBEgsKA2hxMRgcIAEoARIM",
-            "CgRhcjFzGB0gASgBIg8KDUVtcHR5UmVzcG9uc2UyPgoPREJDb21tdW5pY2F0",
+            "CgRhcjFzGB0gASgBIg8KDUVtcHR5UmVzcG9uc2UyaAoPREJDb21tdW5pY2F0",
             "aW9uEisKCkNyZWF0ZVNhdmUSDS5JbnB1dERhdGFEVE8aDi5FbXB0eVJlc3Bv",
-            "bnNlQi6qAitFbGVjdHJvbkZsb3dTaW0uQW5hbHlzaXNTZXJ2aWNlLkdSUEMu",
-            "UHJvdG9zYgZwcm90bzM="));
+            "bnNlEigKB0dldFNhdmUSDi5FbXB0eVJlc3BvbnNlGg0uSW5wdXREYXRhRFRP",
+            "Qi6qAitFbGVjdHJvbkZsb3dTaW0uQW5hbHlzaXNTZXJ2aWNlLkdSUEMuUHJv",
+            "dG9zYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

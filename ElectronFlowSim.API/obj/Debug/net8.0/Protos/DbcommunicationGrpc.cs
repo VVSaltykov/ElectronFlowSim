@@ -58,6 +58,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         __Marshaller_InputDataDTO,
         __Marshaller_EmptyResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> __Method_GetSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetSave",
+        __Marshaller_EmptyResponse,
+        __Marshaller_InputDataDTO);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -110,6 +118,26 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       public virtual grpc::AsyncUnaryCall<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> CreateSaveAsync(global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateSave, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO GetSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSave(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO GetSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetSave, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> GetSaveAsync(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSaveAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> GetSaveAsync(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetSave, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

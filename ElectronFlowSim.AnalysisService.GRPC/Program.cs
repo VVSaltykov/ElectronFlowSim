@@ -24,12 +24,15 @@ public class Program
 
         builder.Services.AddUnitOfWork<AppDbContext>();
 
+        builder.Services.AddAutoMapper(typeof(InputDataRepository).Assembly);
+
         builder.Services.AddTransient<InputDataRepository>();
 
         var app = builder.Build();
 
         app.MapGrpcService<ElectronFlowGrpcService>();
         app.MapGrpcService<MagneticFieldsGrpcService>();
+        app.MapGrpcService<DBCommunicationGrpcService>();
 
         app.Services.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>().Database.Migrate();
 

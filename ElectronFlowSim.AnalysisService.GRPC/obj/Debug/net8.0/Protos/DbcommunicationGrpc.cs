@@ -58,6 +58,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         __Marshaller_InputDataDTO,
         __Marshaller_EmptyResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> __Method_GetSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetSave",
+        __Marshaller_EmptyResponse,
+        __Marshaller_InputDataDTO);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -74,6 +82,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> GetSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -82,7 +96,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     public static grpc::ServerServiceDefinition BindService(DBCommunicationBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_CreateSave, serviceImpl.CreateSave).Build();
+          .AddMethod(__Method_CreateSave, serviceImpl.CreateSave)
+          .AddMethod(__Method_GetSave, serviceImpl.GetSave).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -93,6 +108,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DBCommunicationBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_CreateSave, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse>(serviceImpl.CreateSave));
+      serviceBinder.AddMethod(__Method_GetSave, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(serviceImpl.GetSave));
     }
 
   }

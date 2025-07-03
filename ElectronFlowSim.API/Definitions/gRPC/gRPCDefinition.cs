@@ -1,4 +1,5 @@
 ﻿using Electronflow;
+using ElectronFlowSim.AnalysisService.GRPC.Protos;
 using ElectronFlowSim.API.Utils.AppDefinition;
 
 namespace ElectronFlowSim.API.Definitions.gRPC;
@@ -14,6 +15,12 @@ public class gRPCDefinition : AppDefinition
         });
 
         services.AddGrpcClient<MagneticFields.MagneticFieldsClient>(options =>
+        {
+            options.Address = new Uri(builder.Configuration["GrpcServices:WorkerService"]
+                                      ?? "https://localhost:7189");
+        });
+
+        services.AddGrpcClient<DBCommunication.DBCommunicationClient>(options =>
         {
             options.Address = new Uri(builder.Configuration["GrpcServices:WorkerService"]
                                       ?? "https://localhost:7189");

@@ -4,6 +4,7 @@ using ElectronFlowSim.AnalysisService.Common.Interfaces;
 using ElectronFlowSim.AnalysisService.Domain.Entities;
 using ElectronFlowSim.DTO.AnalysisService;
 using Microsoft.EntityFrameworkCore.Query;
+using System;
 using System.Linq.Expressions;
 
 namespace ElectronFlowSim.AnalysisService.Common.Repositories
@@ -23,11 +24,11 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
         {
             try
             {
-                await unitOfWork.BeginTransactionAsync();
-
                 var inputData = mapper.Map<InputData>(entity);
 
                 var repository = unitOfWork.GetRepository<InputData>();
+
+                inputData.SaveDateTime = DateTime.UtcNow;
 
                 await repository.InsertAsync(inputData);
 
@@ -95,6 +96,12 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             {
                 throw new Exception();
             }
+        }
+
+        public async Task<DateTime?> GetMaxSaveDateTime()
+        {
+            var repository = unitOfWork.GetRepository<InputData>();
+            return await repository.MaxAsync(x => x.SaveDateTime);
         }
     }
 }
