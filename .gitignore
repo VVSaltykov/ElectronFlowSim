@@ -3,8 +3,6 @@
 ################################################################################
 
 /ElectronFlowSim.AnalysisService
-/ElectronFlowSim.AnalysisService.GRPC
-/ElectronFlowSim.API
 /ElectronFlowSim.Common/obj/Debug/net8.0
 /ElectronFlowSim.DTO/obj
 /.vs/ElectronFlowSim
@@ -15,3 +13,8 @@
 /ElectronFlowSim.AnalysisService.Data
 /ElectronFlowSim.AnalysisService.Domain
 /ElectronFlowSim.Domain.Base
+/ElectronFlowSim.API/obj
+/ElectronFlowSim.API/bin/Debug/net8.0
+/ElectronFlowSim.AnalysisService.GRPC/obj/Debug/net8.0
+/ElectronFlowSim.AnalysisService.GRPC/bin/Debug/net8.0
+/ElectronFlowSim.AnalysisService.GRPC/obj
