@@ -11,3 +11,7 @@
 /ElectronFlowSim.Common
 /ElectronFlowSim.DTO/bin/Debug/net8.0
 /.vs/ProjectEvaluation
+/ElectronFlowSim.AnalysisService.Common
+/ElectronFlowSim.AnalysisService.Data
+/ElectronFlowSim.AnalysisService.Domain
+/ElectronFlowSim.Domain.Base
