@@ -23,7 +23,7 @@ public class TxtFileService : ITxtFileService
 
         sb.AppendLine($"r       {FormatArrayWithLineBreak(input.r, 8)}");
         sb.AppendLine($"z       {FormatArrayWithLineBreak(input.z, 8)}");
-        sb.AppendLine($"u       {FormatArrayWithLineBreak(input.u, 8)}");
+        sb.AppendLine($"u       {FormatUArray(input.u)}");
         sb.AppendLine($"l       {FormatArrayWithLineBreak(input.l, 9)}");
 
         sb.AppendLine($"rk      {input.rk.ToString(CultureInfo.InvariantCulture)}");
@@ -51,6 +51,34 @@ public class TxtFileService : ITxtFileService
     public Task GetOutputFile(OutputDataDTO outputDataDTO)
     {
         throw new NotImplementedException();
+    }
+
+    private string FormatUArray(double[] array)
+    {
+        if (array == null || array.Length == 0)
+            return string.Empty;
+
+        var result = new StringBuilder();
+        double currentValue = array[0];
+        int count = 1;
+
+        for (int i = 1; i < array.Length; i++)
+        {
+            if (array[i] == currentValue)
+            {
+                count++;
+            }
+            else
+            {
+                result.Append($"{count}({currentValue.ToString(CultureInfo.InvariantCulture)}),");
+                currentValue = array[i];
+                count = 1;
+            }
+        }
+
+        result.Append($"{count}({currentValue.ToString(CultureInfo.InvariantCulture)})");
+
+        return result.ToString();
     }
 
     private string FormatInlineArray(double[] array)

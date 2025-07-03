@@ -51,27 +51,16 @@ public class ElectronFlowService : IElectronFlowService
 
                 await File.WriteAllTextAsync(txtCopy, fileContent, new UTF8Encoding(false));
 
-                //SetCompatibilitySettings(exeCopy);
+                SetCompatibilitySettings(exeCopy);
 
                 var startInfo = new ProcessStartInfo
                 {
-                    FileName = "xvfb-run",
-                    Arguments = $"-a -s \"-screen 0 1024x768x16 -ac +extension GLX\" wine \"{exeCopy}\"",
+                    FileName = exeCopy,
                     WorkingDirectory = sessionDir,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,
-                    CreateNoWindow = true,
-                    Environment =
-                    {
-                        ["WINEPREFIX"] = "/root/.wine",
-                        ["WINEARCH"] = "win32",
-                        ["DISPLAY"] = ":99",
-                        ["WINEDEBUG"] = "-all",
-                        ["WINEDLLOVERRIDES"] = "mscoree,mshtml=",
-                        ["COLORTERM"] = "falsecolor",
-                        ["XVFB_ARGS"] = "-screen 0 1024x768x16 -ac +extension GLX"
-                    }
+                    CreateNoWindow = true
                 };
 
                 var process = new Process { StartInfo = startInfo };
