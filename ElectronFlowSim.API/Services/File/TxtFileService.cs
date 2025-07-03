@@ -23,7 +23,7 @@ public class TxtFileService : ITxtFileService
 
         sb.AppendLine($"r       {FormatArrayWithLineBreak(input.r, 8)}");
         sb.AppendLine($"z       {FormatArrayWithLineBreak(input.z, 8)}");
-        sb.AppendLine($"u       {FormatUArray(input.u)}");
+        sb.AppendLine($"u       {FormatUArrayWithLineBreaks(input.u, 8)}");
         sb.AppendLine($"l       {FormatArrayWithLineBreak(input.l, 9)}");
 
         sb.AppendLine($"rk      {input.rk.ToString(CultureInfo.InvariantCulture)}");
@@ -53,12 +53,12 @@ public class TxtFileService : ITxtFileService
         throw new NotImplementedException();
     }
 
-    private string FormatUArray(double[] array)
+    private string FormatUArrayWithLineBreaks(double[] array, int elementsPerLine)
     {
         if (array == null || array.Length == 0)
             return string.Empty;
 
-        var result = new StringBuilder();
+        var groupedValues = new List<string>();
         double currentValue = array[0];
         int count = 1;
 
@@ -70,13 +70,24 @@ public class TxtFileService : ITxtFileService
             }
             else
             {
-                result.Append($"{count}({currentValue.ToString(CultureInfo.InvariantCulture)}),");
+                groupedValues.Add($"{count}({currentValue.ToString("F7", CultureInfo.InvariantCulture)})");
                 currentValue = array[i];
                 count = 1;
             }
         }
+        groupedValues.Add($"{count}({currentValue.ToString("F7", CultureInfo.InvariantCulture)})");
 
-        result.Append($"{count}({currentValue.ToString(CultureInfo.InvariantCulture)})");
+        var result = new StringBuilder();
+        for (int i = 0; i < groupedValues.Count; i++)
+        {
+            result.Append(groupedValues[i]);
+
+            if (i < groupedValues.Count - 1)
+                result.Append(",");
+
+            if ((i + 1) % elementsPerLine == 0 && i < groupedValues.Count - 1)
+                result.AppendLine();
+        }
 
         return result.ToString();
     }
