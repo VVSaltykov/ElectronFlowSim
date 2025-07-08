@@ -5,7 +5,9 @@ package electronflow;
 import "google/protobuf/empty.proto";
 
 service MagneticFields {
-  rpc GetMagneticFieldsFromFile (MagneticFieldsFileRequest) returns (OutputResponse);
+  rpc GetMagneticFieldsFromFile (MagneticFieldsFileRequest) returns (MagneticFieldsOutputResponse);
+  rpc GetNZRUTableDataFromFile (NZRUTableDataFileRequest) returns (NZRUTableDataOutputResponse);
+  rpc GetNLTableDataFromFile (NLTableDataFileRequest) returns (NLTableDataOutputResponse);
 }
 
 message MagneticFieldsFileRequest {
@@ -15,8 +17,33 @@ message MagneticFieldsFileRequest {
   bytes fileContent = 4;
 }
 
-message OutputResponse {
+message MagneticFieldsOutputResponse {
   repeated double magneticFieldsPoints = 1;
   repeated double magneticFieldsValues = 2;
   double magneticFieldMaxValues = 3;
+}
+
+message NZRUTableDataFileRequest {
+	bytes fileContent = 1;
+}
+
+message NZRUTableDataOutputResponse {
+    repeated ElectrodeData electrodes = 1;
+}
+
+message ElectrodeData {
+    repeated int32 n = 1;      
+    repeated double z = 2;     
+    repeated double r = 3;     
+    double u = 4;              
+    string workpieceType = 5;   
+}
+
+message NLTableDataFileRequest {
+	bytes fileContent = 1;
+}
+
+message NLTableDataOutputResponse {
+    repeated int32 n = 1; 
+    repeated int32 l = 2;
 }

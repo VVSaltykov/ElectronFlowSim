@@ -71,4 +71,36 @@ public class ElectronFlowController : ControllerBase
 
         return Ok(grpcResponse);
     }
+
+    [HttpPost("get-nzru-data")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> GetNZRUData(IFormFile formFile)
+    {
+        using var stream = formFile.OpenReadStream();
+
+        var grpcRequest = new NZRUTableDataFileRequest
+        {
+            FileContent = await ByteString.FromStreamAsync(stream)
+        };
+
+        var grpcResponse = await _magneticFieldsGrpcClient.GetNZRUTableDataFromFileAsync(grpcRequest);
+
+        return Ok(grpcResponse);
+    }
+
+    [HttpPost("get-nl-data")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> GetNLData(IFormFile formFile)
+    {
+        using var stream = formFile.OpenReadStream();
+
+        var grpcRequest = new NLTableDataFileRequest
+        {
+            FileContent = await ByteString.FromStreamAsync(stream)
+        };
+
+        var grpcResponse = await _magneticFieldsGrpcClient.GetNLTableDataFromFileAsync(grpcRequest);
+
+        return Ok(grpcResponse);
+    }
 }

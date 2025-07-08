@@ -48,15 +48,39 @@ namespace Electronflow {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Electronflow.MagneticFieldsFileRequest> __Marshaller_electronflow_MagneticFieldsFileRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.MagneticFieldsFileRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Electronflow.OutputResponse> __Marshaller_electronflow_OutputResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.OutputResponse.Parser));
+    static readonly grpc::Marshaller<global::Electronflow.MagneticFieldsOutputResponse> __Marshaller_electronflow_MagneticFieldsOutputResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.MagneticFieldsOutputResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Electronflow.NZRUTableDataFileRequest> __Marshaller_electronflow_NZRUTableDataFileRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.NZRUTableDataFileRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Electronflow.NZRUTableDataOutputResponse> __Marshaller_electronflow_NZRUTableDataOutputResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.NZRUTableDataOutputResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Electronflow.NLTableDataFileRequest> __Marshaller_electronflow_NLTableDataFileRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.NLTableDataFileRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Electronflow.NLTableDataOutputResponse> __Marshaller_electronflow_NLTableDataOutputResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Electronflow.NLTableDataOutputResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Electronflow.MagneticFieldsFileRequest, global::Electronflow.OutputResponse> __Method_GetMagneticFieldsFromFile = new grpc::Method<global::Electronflow.MagneticFieldsFileRequest, global::Electronflow.OutputResponse>(
+    static readonly grpc::Method<global::Electronflow.MagneticFieldsFileRequest, global::Electronflow.MagneticFieldsOutputResponse> __Method_GetMagneticFieldsFromFile = new grpc::Method<global::Electronflow.MagneticFieldsFileRequest, global::Electronflow.MagneticFieldsOutputResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetMagneticFieldsFromFile",
         __Marshaller_electronflow_MagneticFieldsFileRequest,
-        __Marshaller_electronflow_OutputResponse);
+        __Marshaller_electronflow_MagneticFieldsOutputResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Electronflow.NZRUTableDataFileRequest, global::Electronflow.NZRUTableDataOutputResponse> __Method_GetNZRUTableDataFromFile = new grpc::Method<global::Electronflow.NZRUTableDataFileRequest, global::Electronflow.NZRUTableDataOutputResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetNZRUTableDataFromFile",
+        __Marshaller_electronflow_NZRUTableDataFileRequest,
+        __Marshaller_electronflow_NZRUTableDataOutputResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Electronflow.NLTableDataFileRequest, global::Electronflow.NLTableDataOutputResponse> __Method_GetNLTableDataFromFile = new grpc::Method<global::Electronflow.NLTableDataFileRequest, global::Electronflow.NLTableDataOutputResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetNLTableDataFromFile",
+        __Marshaller_electronflow_NLTableDataFileRequest,
+        __Marshaller_electronflow_NLTableDataOutputResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -69,7 +93,19 @@ namespace Electronflow {
     public abstract partial class MagneticFieldsBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Electronflow.OutputResponse> GetMagneticFieldsFromFile(global::Electronflow.MagneticFieldsFileRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Electronflow.MagneticFieldsOutputResponse> GetMagneticFieldsFromFile(global::Electronflow.MagneticFieldsFileRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Electronflow.NZRUTableDataOutputResponse> GetNZRUTableDataFromFile(global::Electronflow.NZRUTableDataFileRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Electronflow.NLTableDataOutputResponse> GetNLTableDataFromFile(global::Electronflow.NLTableDataFileRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -82,7 +118,9 @@ namespace Electronflow {
     public static grpc::ServerServiceDefinition BindService(MagneticFieldsBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetMagneticFieldsFromFile, serviceImpl.GetMagneticFieldsFromFile).Build();
+          .AddMethod(__Method_GetMagneticFieldsFromFile, serviceImpl.GetMagneticFieldsFromFile)
+          .AddMethod(__Method_GetNZRUTableDataFromFile, serviceImpl.GetNZRUTableDataFromFile)
+          .AddMethod(__Method_GetNLTableDataFromFile, serviceImpl.GetNLTableDataFromFile).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -92,7 +130,9 @@ namespace Electronflow {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, MagneticFieldsBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetMagneticFieldsFromFile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Electronflow.MagneticFieldsFileRequest, global::Electronflow.OutputResponse>(serviceImpl.GetMagneticFieldsFromFile));
+      serviceBinder.AddMethod(__Method_GetMagneticFieldsFromFile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Electronflow.MagneticFieldsFileRequest, global::Electronflow.MagneticFieldsOutputResponse>(serviceImpl.GetMagneticFieldsFromFile));
+      serviceBinder.AddMethod(__Method_GetNZRUTableDataFromFile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Electronflow.NZRUTableDataFileRequest, global::Electronflow.NZRUTableDataOutputResponse>(serviceImpl.GetNZRUTableDataFromFile));
+      serviceBinder.AddMethod(__Method_GetNLTableDataFromFile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Electronflow.NLTableDataFileRequest, global::Electronflow.NLTableDataOutputResponse>(serviceImpl.GetNLTableDataFromFile));
     }
 
   }
