@@ -2,9 +2,13 @@ syntax = "proto3";
 
 option csharp_namespace = "ElectronFlowSim.AnalysisService.GRPC.Protos";
 
+import "google/protobuf/timestamp.proto";
+
 service DBCommunication {
   rpc CreateSave (InputDataDTO) returns (EmptyResponse);
-  rpc GetSave (EmptyResponse) returns (InputDataDTO);
+  rpc GetLastSave (EmptyRequest) returns (InputDataDTO);
+  rpc GetSaveNames (EmptyRequest) returns (SaveNames);
+  rpc GetSave (GetSaveRequest) returns (SaveData);
 }
 
 message InputDataDTO {
@@ -38,60 +42,112 @@ message InputDataDTO {
   // количество итераций
   int32 jcr = 10;
   
-  // значения точек радиальная координата по оси ординат
-  repeated double r = 11;
-  
-  // значения точек продольная координата по оси абсцисс
-  repeated double z = 12;
-  
-  // массив потенциалов в узловых точках (нормирован)
-  repeated double u = 13;
-  
-  // количество интервалов, на которые разбит контур
-  repeated int32 l = 14;
+  NZRUTableData nzruData = 11;
+  NLTableData nlTableData = 12;
   
   // радиус кривизны катода
-  double rk = 15;
+  double rk = 13;
   
   // наибольшее значение поперечной тепловой скорости
-  double utep = 16;
+  double utep = 14;
   
   // максимальная координата (постоянная) конец счета траектории
-  double zkon = 17;
+  double zkon = 15;
   
   // радиус пролетного канала
-  double akl1 = 18;
+  double akl1 = 16;
   
   // нормирующий потенциал
-  double u0 = 19;
+  double u0 = 17;
   
   // массив эквипотенциалов
-  repeated double uekvip = 20;
+  repeated double uekvip = 18;
   
   // нормирующее магнитное поле
-  double bnorm = 21;
+  double bnorm = 19;
   
   // кэоффициент корректировки магнитного поля
-  double abm = 22;
+  double abm = 20;
   
   // массив значений магнитных полей
-  repeated double bm = 23;
+  repeated double bm = 21;
   
   // массив значений тока режим заданного тока
-  repeated double aik = 24;
+  repeated double aik = 22;
   
   // шаг интегрирования по времени
-  double ht = 25;
+  double ht = 23;
   
   // расстояние от точек старта до поверхности
-  double dz = 26;
+  double dz = 24;
   
   // расстояние от катода до поверхности, где ток считается по закону 3/2
-  double dtok = 27;
+  double dtok = 25;
   
-  double hq1 = 28;
+  double hq1 = 26;
   
-  double ar1s = 29;
+  double ar1s = 27;
+
+  string saveName = 28;
+}
+
+message SaveNames{
+	repeated string names = 1;
+}
+
+message GetSaveRequest {
+  string saveName = 1;
+  google.protobuf.Timestamp saveDateTime = 2;
+}
+
+message SaveData{
+    int32 ig = 1;
+    int32 nmas = 2;
+    int32 km = 3;
+    int32 kp = 4;
+    int32 kq = 5;
+    int32 kpj6 = 6;
+    int32 ik = 7;
+    int32 j1 = 8;
+    int32 icr = 9;
+    int32 jcr = 10;
+    NZRUTableData nzruData = 11;
+    NLTableData nlTableData = 12;
+    double rk = 13;
+    double utep = 14;
+    double zkon = 15;
+    double akl1 = 16;
+    double u0 = 17;
+    repeated double uekvip = 18;
+    double bnorm = 19;
+    double abm = 20;
+    repeated double bm = 21;
+    repeated double aik = 22;
+    double ht = 23;
+    double dz = 24;
+    double dtok = 25;
+    double hq1 = 26;
+    double ar1s = 27;
+    string saveName = 28;
+    google.protobuf.Timestamp saveDateTime = 29;
+} 
+
+message NZRUTableData{
+    repeated ElectrodeData electrodes = 1;
+}
+
+message ElectrodeData {
+    repeated int32 n = 1;      
+    repeated double z = 2;     
+    repeated double r = 3;     
+    double u = 4;              
+    string workpieceType = 5;   
+}
+
+message NLTableData {
+    repeated int32 n = 1; 
+    repeated int32 l = 2;
 }
 
 message EmptyResponse {}
+message EmptyRequest {}

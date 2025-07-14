@@ -3,13 +3,14 @@ using Calabonga.UnitOfWork;
 using ElectronFlowSim.AnalysisService.Common.Interfaces;
 using ElectronFlowSim.AnalysisService.Domain.Entities;
 using ElectronFlowSim.DTO.AnalysisService;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Linq.Expressions;
 
 namespace ElectronFlowSim.AnalysisService.Common.Repositories
 {
-    public class InputDataRepository : IBaseRepository<InputData, InputDataDTO> 
+    public class InputDataRepository : IBaseRepository<InputData, InputDataForSaveDTO> 
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
@@ -20,7 +21,7 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             this.mapper = mapper;
         }
 
-        public async Task Create(InputDataDTO entity)
+        public async Task Create(InputDataForSaveDTO entity)
         {
             try
             {
@@ -78,7 +79,7 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             return result.ToList();
         }
 
-        public async Task Update(InputDataDTO entity)
+        public async Task Update(InputDataForSaveDTO entity)
         {
             try
             {
@@ -102,6 +103,24 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
         {
             var repository = unitOfWork.GetRepository<InputData>();
             return await repository.MaxAsync(x => x.SaveDateTime);
+        }
+
+        public async Task<List<string>?> GetSaveNames()
+        {
+            var repository = unitOfWork.GetRepository<InputData>();
+            var data = repository.GetAll(trackingType: TrackingType.NoTracking).ToList();
+
+            return data.Select(x => x.SaveName).ToList();
+        }
+
+        public async Task<InputData> GetSaveData(string saveName, DateTime dateTime)
+        {
+            var repository = unitOfWork.GetRepository<InputData>();
+
+            var data = await repository.GetFirstOrDefaultAsync(predicate: x => x.SaveName == saveName && x.SaveDateTime == dateTime.ToUniversalTime(),
+                include: x => x.Include(x => x.NLTableData).Include(x => x.NLTableData));
+
+            return data;
         }
     }
 }

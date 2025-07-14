@@ -49,6 +49,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> __Marshaller_InputDataDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> __Marshaller_EmptyResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest> __Marshaller_EmptyRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames> __Marshaller_SaveNames = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest> __Marshaller_GetSaveRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData> __Marshaller_SaveData = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> __Method_CreateSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse>(
@@ -59,12 +67,28 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         __Marshaller_EmptyResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> __Method_GetSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(
+    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> __Method_GetLastSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetLastSave",
+        __Marshaller_EmptyRequest,
+        __Marshaller_InputDataDTO);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames> __Method_GetSaveNames = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetSaveNames",
+        __Marshaller_EmptyRequest,
+        __Marshaller_SaveNames);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData> __Method_GetSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetSave",
-        __Marshaller_EmptyResponse,
-        __Marshaller_InputDataDTO);
+        __Marshaller_GetSaveRequest,
+        __Marshaller_SaveData);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -83,7 +107,19 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> GetSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO> GetLastSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames> GetSaveNames(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData> GetSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -97,6 +133,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateSave, serviceImpl.CreateSave)
+          .AddMethod(__Method_GetLastSave, serviceImpl.GetLastSave)
+          .AddMethod(__Method_GetSaveNames, serviceImpl.GetSaveNames)
           .AddMethod(__Method_GetSave, serviceImpl.GetSave).Build();
     }
 
@@ -108,7 +146,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DBCommunicationBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_CreateSave, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse>(serviceImpl.CreateSave));
-      serviceBinder.AddMethod(__Method_GetSave, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(serviceImpl.GetSave));
+      serviceBinder.AddMethod(__Method_GetLastSave, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO>(serviceImpl.GetLastSave));
+      serviceBinder.AddMethod(__Method_GetSaveNames, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames>(serviceImpl.GetSaveNames));
+      serviceBinder.AddMethod(__Method_GetSave, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData>(serviceImpl.GetSave));
     }
 
   }

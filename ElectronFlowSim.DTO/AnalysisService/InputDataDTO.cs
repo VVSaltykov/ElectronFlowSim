@@ -1,4 +1,7 @@
-﻿namespace ElectronFlowSim.DTO.AnalysisService;
+﻿using ElectronFlowSim.DTO.AnalysisService.Enum;
+using System.Text.Json.Serialization;
+
+namespace ElectronFlowSim.DTO.AnalysisService;
 
 public class InputDataDTO
 {
@@ -191,4 +194,7 @@ public class InputDataDTO
     /// 
     /// </summary>
     public required double ar1s { get; set; }
+
+    [JsonIgnore]
+    public string? SaveName { get; set; }
 }

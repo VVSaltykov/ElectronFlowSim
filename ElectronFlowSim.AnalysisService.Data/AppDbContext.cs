@@ -1,4 +1,5 @@
-﻿using ElectronFlowSim.AnalysisService.Domain.Entities;
+﻿using ElectronFlowSim.AnalysisService.Data.EntityConfigurations;
+using ElectronFlowSim.AnalysisService.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,12 @@ namespace ElectronFlowSim.AnalysisService.Data
 
 
         public DbSet<InputData> InputDatas { get; set; }
+        public DbSet<NLTableData> NLTableDatas { get; set; }
+        public DbSet<NZRUTableData> NZRUTableDatas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new InputDataConfiguration());
+        }
     }
 }

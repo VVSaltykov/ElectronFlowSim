@@ -1,5 +1,6 @@
 ﻿using ElectronFlowSim.AnalysisService.GRPC.Protos;
 using ElectronFlowSim.DTO.AnalysisService;
+using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.Common;
 using InputDataDTO = ElectronFlowSim.DTO.AnalysisService.InputDataDTO;
@@ -18,7 +19,7 @@ namespace ElectronFlowSim.API.Controllers
         }
 
         [HttpPost("save-data")]
-        public async Task<IActionResult> CreateSave([FromBody] InputDataDTO _inputDataDTO)
+        public async Task<IActionResult> CreateSave([FromBody] InputDataForSaveDTO _inputDataDTO, string saveName)
         {
             var inputDataDTO = new AnalysisService.GRPC.Protos.InputDataDTO
             {
@@ -43,26 +44,72 @@ namespace ElectronFlowSim.API.Controllers
                 Dz = _inputDataDTO.dz,
                 Dtok = _inputDataDTO.dtok,
                 Hq1 = _inputDataDTO.hq1,
-                Ar1S = _inputDataDTO.ar1s
+                Ar1S = _inputDataDTO.ar1s,
+                SaveName = saveName
             };
 
-            inputDataDTO.R.AddRange(_inputDataDTO.r);
-            inputDataDTO.Z.AddRange(_inputDataDTO.z);
-            inputDataDTO.U.AddRange(_inputDataDTO.u);
-            inputDataDTO.L.AddRange(_inputDataDTO.l);
+
             inputDataDTO.Uekvip.AddRange(_inputDataDTO.uekvip);
             inputDataDTO.Bm.AddRange(_inputDataDTO.bm);
             inputDataDTO.Aik.AddRange(_inputDataDTO.aik);
+
+            if (_inputDataDTO.NZRUTableDatas != null && _inputDataDTO.NZRUTableDatas.Any())
+            {
+                var nzruData = new NZRUTableData();
+                foreach (var tableDto in _inputDataDTO.NZRUTableDatas)
+                {
+                    var electrode = new ElectrodeData
+                    {
+                        U = tableDto.U,
+                        WorkpieceType = tableDto.WorkpieceType.ToString()
+                    };
+
+                    electrode.N.AddRange(tableDto.N ?? new List<int>());
+                    electrode.Z.AddRange(tableDto.Z ?? new List<double>());
+                    electrode.R.AddRange(tableDto.R ?? new List<double>());
+
+                    nzruData.Electrodes.Add(electrode);
+                }
+                inputDataDTO.NzruData = nzruData;
+            }
+
+            if (_inputDataDTO.NLTableData != null)
+            {
+                var nlTableData = new NLTableData();
+                nlTableData.N.AddRange(_inputDataDTO.NLTableData.N ?? new List<int>());
+                nlTableData.L.AddRange(_inputDataDTO.NLTableData.L ?? new List<int>());
+                inputDataDTO.NlTableData = nlTableData;
+            }
 
             var grpcResponse = await dBCommunicationClient.CreateSaveAsync(inputDataDTO);
 
             return Ok(grpcResponse);
         }
 
-        [HttpGet("get-save")]
-        public async Task<IActionResult> GetData()
+        [HttpGet("get-last-save")]
+        public async Task<IActionResult> GetLastSave()
         {
-            var result = await dBCommunicationClient.GetSaveAsync(new EmptyResponse());
+            var result = await dBCommunicationClient.GetLastSaveAsync(new EmptyRequest());
+            return Ok(result);
+        }
+
+        [HttpGet("get-save-names")]
+        public async Task<IActionResult> GetSaveNames()
+        {
+            var result = await dBCommunicationClient.GetSaveNamesAsync(new EmptyRequest());
+            return Ok(result);
+        }
+
+        [HttpGet("get-save")]
+        public async Task<IActionResult> GetSave([FromBody] string saveName, DateTime saveDateTime)
+        {
+            var getSaveRequest = new AnalysisService.GRPC.Protos.GetSaveRequest
+            {
+                SaveName = saveName,
+                SaveDateTime = saveDateTime.ToTimestamp()
+            };
+
+            var result = await dBCommunicationClient.GetSaveAsync(getSaveRequest);
             return Ok(result);
         }
     }

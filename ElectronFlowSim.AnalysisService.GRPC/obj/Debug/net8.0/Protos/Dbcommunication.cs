@@ -24,25 +24,53 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     static DbcommunicationReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxQcm90b3MvZGJjb21tdW5pY2F0aW9uLnByb3RvIoADCgxJbnB1dERhdGFE",
-            "VE8SCgoCaWcYASABKAUSDAoEbm1hcxgCIAEoBRIKCgJrbRgDIAEoBRIKCgJr",
-            "cBgEIAEoBRIKCgJrcRgFIAEoBRIMCgRrcGo2GAYgASgFEgoKAmlrGAcgASgF",
-            "EgoKAmoxGAggASgFEgsKA2ljchgJIAEoBRILCgNqY3IYCiABKAUSCQoBchgL",
-            "IAMoARIJCgF6GAwgAygBEgkKAXUYDSADKAESCQoBbBgOIAMoBRIKCgJyaxgP",
-            "IAEoARIMCgR1dGVwGBAgASgBEgwKBHprb24YESABKAESDAoEYWtsMRgSIAEo",
-            "ARIKCgJ1MBgTIAEoARIOCgZ1ZWt2aXAYFCADKAESDQoFYm5vcm0YFSABKAES",
-            "CwoDYWJtGBYgASgBEgoKAmJtGBcgAygBEgsKA2FpaxgYIAMoARIKCgJodBgZ",
-            "IAEoARIKCgJkehgaIAEoARIMCgRkdG9rGBsgASgBEgsKA2hxMRgcIAEoARIM",
-            "CgRhcjFzGB0gASgBIg8KDUVtcHR5UmVzcG9uc2UyaAoPREJDb21tdW5pY2F0",
-            "aW9uEisKCkNyZWF0ZVNhdmUSDS5JbnB1dERhdGFEVE8aDi5FbXB0eVJlc3Bv",
-            "bnNlEigKB0dldFNhdmUSDi5FbXB0eVJlc3BvbnNlGg0uSW5wdXREYXRhRFRP",
-            "Qi6qAitFbGVjdHJvbkZsb3dTaW0uQW5hbHlzaXNTZXJ2aWNlLkdSUEMuUHJv",
-            "dG9zYgZwcm90bzM="));
+            "ChxQcm90b3MvZGJjb21tdW5pY2F0aW9uLnByb3RvGh9nb29nbGUvcHJvdG9i",
+            "dWYvdGltZXN0YW1wLnByb3RvIqsDCgxJbnB1dERhdGFEVE8SCgoCaWcYASAB",
+            "KAUSDAoEbm1hcxgCIAEoBRIKCgJrbRgDIAEoBRIKCgJrcBgEIAEoBRIKCgJr",
+            "cRgFIAEoBRIMCgRrcGo2GAYgASgFEgoKAmlrGAcgASgFEgoKAmoxGAggASgF",
+            "EgsKA2ljchgJIAEoBRILCgNqY3IYCiABKAUSIAoIbnpydURhdGEYCyABKAsy",
+            "Di5OWlJVVGFibGVEYXRhEiEKC25sVGFibGVEYXRhGAwgASgLMgwuTkxUYWJs",
+            "ZURhdGESCgoCcmsYDSABKAESDAoEdXRlcBgOIAEoARIMCgR6a29uGA8gASgB",
+            "EgwKBGFrbDEYECABKAESCgoCdTAYESABKAESDgoGdWVrdmlwGBIgAygBEg0K",
+            "BWJub3JtGBMgASgBEgsKA2FibRgUIAEoARIKCgJibRgVIAMoARILCgNhaWsY",
+            "FiADKAESCgoCaHQYFyABKAESCgoCZHoYGCABKAESDAoEZHRvaxgZIAEoARIL",
+            "CgNocTEYGiABKAESDAoEYXIxcxgbIAEoARIQCghzYXZlTmFtZRgcIAEoCSIa",
+            "CglTYXZlTmFtZXMSDQoFbmFtZXMYASADKAkiVAoOR2V0U2F2ZVJlcXVlc3QS",
+            "EAoIc2F2ZU5hbWUYASABKAkSMAoMc2F2ZURhdGVUaW1lGAIgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcCLZAwoIU2F2ZURhdGESCgoCaWcYASAB",
+            "KAUSDAoEbm1hcxgCIAEoBRIKCgJrbRgDIAEoBRIKCgJrcBgEIAEoBRIKCgJr",
+            "cRgFIAEoBRIMCgRrcGo2GAYgASgFEgoKAmlrGAcgASgFEgoKAmoxGAggASgF",
+            "EgsKA2ljchgJIAEoBRILCgNqY3IYCiABKAUSIAoIbnpydURhdGEYCyABKAsy",
+            "Di5OWlJVVGFibGVEYXRhEiEKC25sVGFibGVEYXRhGAwgASgLMgwuTkxUYWJs",
+            "ZURhdGESCgoCcmsYDSABKAESDAoEdXRlcBgOIAEoARIMCgR6a29uGA8gASgB",
+            "EgwKBGFrbDEYECABKAESCgoCdTAYESABKAESDgoGdWVrdmlwGBIgAygBEg0K",
+            "BWJub3JtGBMgASgBEgsKA2FibRgUIAEoARIKCgJibRgVIAMoARILCgNhaWsY",
+            "FiADKAESCgoCaHQYFyABKAESCgoCZHoYGCABKAESDAoEZHRvaxgZIAEoARIL",
+            "CgNocTEYGiABKAESDAoEYXIxcxgbIAEoARIQCghzYXZlTmFtZRgcIAEoCRIw",
+            "CgxzYXZlRGF0ZVRpbWUYHSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wIjMKDU5aUlVUYWJsZURhdGESIgoKZWxlY3Ryb2RlcxgBIAMoCzIOLkVs",
+            "ZWN0cm9kZURhdGEiUgoNRWxlY3Ryb2RlRGF0YRIJCgFuGAEgAygFEgkKAXoY",
+            "AiADKAESCQoBchgDIAMoARIJCgF1GAQgASgBEhUKDXdvcmtwaWVjZVR5cGUY",
+            "BSABKAkiIwoLTkxUYWJsZURhdGESCQoBbhgBIAMoBRIJCgFsGAIgAygFIg8K",
+            "DUVtcHR5UmVzcG9uc2UiDgoMRW1wdHlSZXF1ZXN0Mr0BCg9EQkNvbW11bmlj",
+            "YXRpb24SKwoKQ3JlYXRlU2F2ZRINLklucHV0RGF0YURUTxoOLkVtcHR5UmVz",
+            "cG9uc2USKwoLR2V0TGFzdFNhdmUSDS5FbXB0eVJlcXVlc3QaDS5JbnB1dERh",
+            "dGFEVE8SKQoMR2V0U2F2ZU5hbWVzEg0uRW1wdHlSZXF1ZXN0GgouU2F2ZU5h",
+            "bWVzEiUKB0dldFNhdmUSDy5HZXRTYXZlUmVxdWVzdBoJLlNhdmVEYXRhQi6q",
+            "AitFbGVjdHJvbkZsb3dTaW0uQW5hbHlzaXNTZXJ2aWNlLkdSUEMuUHJvdG9z",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO), global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO.Parser, new[]{ "Ig", "Nmas", "Km", "Kp", "Kq", "Kpj6", "Ik", "J1", "Icr", "Jcr", "R", "Z", "U", "L", "Rk", "Utep", "Zkon", "Akl1", "U0", "Uekvip", "Bnorm", "Abm", "Bm", "Aik", "Ht", "Dz", "Dtok", "Hq1", "Ar1S" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse), global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO), global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO.Parser, new[]{ "Ig", "Nmas", "Km", "Kp", "Kq", "Kpj6", "Ik", "J1", "Icr", "Jcr", "NzruData", "NlTableData", "Rk", "Utep", "Zkon", "Akl1", "U0", "Uekvip", "Bnorm", "Abm", "Bm", "Aik", "Ht", "Dz", "Dtok", "Hq1", "Ar1S", "SaveName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames), global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames.Parser, new[]{ "Names" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest), global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest.Parser, new[]{ "SaveName", "SaveDateTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData), global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData.Parser, new[]{ "Ig", "Nmas", "Km", "Kp", "Kq", "Kpj6", "Ik", "J1", "Icr", "Jcr", "NzruData", "NlTableData", "Rk", "Utep", "Zkon", "Akl1", "U0", "Uekvip", "Bnorm", "Abm", "Bm", "Aik", "Ht", "Dz", "Dtok", "Hq1", "Ar1S", "SaveName", "SaveDateTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData), global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData.Parser, new[]{ "Electrodes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData), global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData.Parser, new[]{ "N", "Z", "R", "U", "WorkpieceType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData), global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData.Parser, new[]{ "N", "L" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse), global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest), global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyRequest.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -94,10 +122,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       j1_ = other.j1_;
       icr_ = other.icr_;
       jcr_ = other.jcr_;
-      r_ = other.r_.Clone();
-      z_ = other.z_.Clone();
-      u_ = other.u_.Clone();
-      l_ = other.l_.Clone();
+      nzruData_ = other.nzruData_ != null ? other.nzruData_.Clone() : null;
+      nlTableData_ = other.nlTableData_ != null ? other.nlTableData_.Clone() : null;
       rk_ = other.rk_;
       utep_ = other.utep_;
       zkon_ = other.zkon_;
@@ -113,6 +139,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       dtok_ = other.dtok_;
       hq1_ = other.hq1_;
       ar1S_ = other.ar1S_;
+      saveName_ = other.saveName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -272,64 +299,32 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       }
     }
 
-    /// <summary>Field number for the "r" field.</summary>
-    public const int RFieldNumber = 11;
-    private static readonly pb::FieldCodec<double> _repeated_r_codec
-        = pb::FieldCodec.ForDouble(90);
-    private readonly pbc::RepeatedField<double> r_ = new pbc::RepeatedField<double>();
-    /// <summary>
-    /// значения точек радиальная координата по оси ординат
-    /// </summary>
+    /// <summary>Field number for the "nzruData" field.</summary>
+    public const int NzruDataFieldNumber = 11;
+    private global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData nzruData_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<double> R {
-      get { return r_; }
+    public global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData NzruData {
+      get { return nzruData_; }
+      set {
+        nzruData_ = value;
+      }
     }
 
-    /// <summary>Field number for the "z" field.</summary>
-    public const int ZFieldNumber = 12;
-    private static readonly pb::FieldCodec<double> _repeated_z_codec
-        = pb::FieldCodec.ForDouble(98);
-    private readonly pbc::RepeatedField<double> z_ = new pbc::RepeatedField<double>();
-    /// <summary>
-    /// значения точек продольная координата по оси абсцисс
-    /// </summary>
+    /// <summary>Field number for the "nlTableData" field.</summary>
+    public const int NlTableDataFieldNumber = 12;
+    private global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData nlTableData_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<double> Z {
-      get { return z_; }
-    }
-
-    /// <summary>Field number for the "u" field.</summary>
-    public const int UFieldNumber = 13;
-    private static readonly pb::FieldCodec<double> _repeated_u_codec
-        = pb::FieldCodec.ForDouble(106);
-    private readonly pbc::RepeatedField<double> u_ = new pbc::RepeatedField<double>();
-    /// <summary>
-    /// массив потенциалов в узловых точках (нормирован)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<double> U {
-      get { return u_; }
-    }
-
-    /// <summary>Field number for the "l" field.</summary>
-    public const int LFieldNumber = 14;
-    private static readonly pb::FieldCodec<int> _repeated_l_codec
-        = pb::FieldCodec.ForInt32(114);
-    private readonly pbc::RepeatedField<int> l_ = new pbc::RepeatedField<int>();
-    /// <summary>
-    /// количество интервалов, на которые разбит контур
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> L {
-      get { return l_; }
+    public global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData NlTableData {
+      get { return nlTableData_; }
+      set {
+        nlTableData_ = value;
+      }
     }
 
     /// <summary>Field number for the "rk" field.</summary>
-    public const int RkFieldNumber = 15;
+    public const int RkFieldNumber = 13;
     private double rk_;
     /// <summary>
     /// радиус кривизны катода
@@ -344,7 +339,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "utep" field.</summary>
-    public const int UtepFieldNumber = 16;
+    public const int UtepFieldNumber = 14;
     private double utep_;
     /// <summary>
     /// наибольшее значение поперечной тепловой скорости
@@ -359,7 +354,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "zkon" field.</summary>
-    public const int ZkonFieldNumber = 17;
+    public const int ZkonFieldNumber = 15;
     private double zkon_;
     /// <summary>
     /// максимальная координата (постоянная) конец счета траектории
@@ -374,7 +369,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "akl1" field.</summary>
-    public const int Akl1FieldNumber = 18;
+    public const int Akl1FieldNumber = 16;
     private double akl1_;
     /// <summary>
     /// радиус пролетного канала
@@ -389,7 +384,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "u0" field.</summary>
-    public const int U0FieldNumber = 19;
+    public const int U0FieldNumber = 17;
     private double u0_;
     /// <summary>
     /// нормирующий потенциал
@@ -404,9 +399,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "uekvip" field.</summary>
-    public const int UekvipFieldNumber = 20;
+    public const int UekvipFieldNumber = 18;
     private static readonly pb::FieldCodec<double> _repeated_uekvip_codec
-        = pb::FieldCodec.ForDouble(162);
+        = pb::FieldCodec.ForDouble(146);
     private readonly pbc::RepeatedField<double> uekvip_ = new pbc::RepeatedField<double>();
     /// <summary>
     /// массив эквипотенциалов
@@ -418,7 +413,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "bnorm" field.</summary>
-    public const int BnormFieldNumber = 21;
+    public const int BnormFieldNumber = 19;
     private double bnorm_;
     /// <summary>
     /// нормирующее магнитное поле
@@ -433,7 +428,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "abm" field.</summary>
-    public const int AbmFieldNumber = 22;
+    public const int AbmFieldNumber = 20;
     private double abm_;
     /// <summary>
     /// кэоффициент корректировки магнитного поля
@@ -448,9 +443,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "bm" field.</summary>
-    public const int BmFieldNumber = 23;
+    public const int BmFieldNumber = 21;
     private static readonly pb::FieldCodec<double> _repeated_bm_codec
-        = pb::FieldCodec.ForDouble(186);
+        = pb::FieldCodec.ForDouble(170);
     private readonly pbc::RepeatedField<double> bm_ = new pbc::RepeatedField<double>();
     /// <summary>
     /// массив значений магнитных полей
@@ -462,9 +457,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "aik" field.</summary>
-    public const int AikFieldNumber = 24;
+    public const int AikFieldNumber = 22;
     private static readonly pb::FieldCodec<double> _repeated_aik_codec
-        = pb::FieldCodec.ForDouble(194);
+        = pb::FieldCodec.ForDouble(178);
     private readonly pbc::RepeatedField<double> aik_ = new pbc::RepeatedField<double>();
     /// <summary>
     /// массив значений тока режим заданного тока
@@ -476,7 +471,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "ht" field.</summary>
-    public const int HtFieldNumber = 25;
+    public const int HtFieldNumber = 23;
     private double ht_;
     /// <summary>
     /// шаг интегрирования по времени
@@ -491,7 +486,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "dz" field.</summary>
-    public const int DzFieldNumber = 26;
+    public const int DzFieldNumber = 24;
     private double dz_;
     /// <summary>
     /// расстояние от точек старта до поверхности
@@ -506,7 +501,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "dtok" field.</summary>
-    public const int DtokFieldNumber = 27;
+    public const int DtokFieldNumber = 25;
     private double dtok_;
     /// <summary>
     /// расстояние от катода до поверхности, где ток считается по закону 3/2
@@ -521,7 +516,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "hq1" field.</summary>
-    public const int Hq1FieldNumber = 28;
+    public const int Hq1FieldNumber = 26;
     private double hq1_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -533,7 +528,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     }
 
     /// <summary>Field number for the "ar1s" field.</summary>
-    public const int Ar1SFieldNumber = 29;
+    public const int Ar1SFieldNumber = 27;
     private double ar1S_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -541,6 +536,18 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       get { return ar1S_; }
       set {
         ar1S_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "saveName" field.</summary>
+    public const int SaveNameFieldNumber = 28;
+    private string saveName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SaveName {
+      get { return saveName_; }
+      set {
+        saveName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -569,10 +576,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       if (J1 != other.J1) return false;
       if (Icr != other.Icr) return false;
       if (Jcr != other.Jcr) return false;
-      if(!r_.Equals(other.r_)) return false;
-      if(!z_.Equals(other.z_)) return false;
-      if(!u_.Equals(other.u_)) return false;
-      if(!l_.Equals(other.l_)) return false;
+      if (!object.Equals(NzruData, other.NzruData)) return false;
+      if (!object.Equals(NlTableData, other.NlTableData)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Rk, other.Rk)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Utep, other.Utep)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Zkon, other.Zkon)) return false;
@@ -588,6 +593,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Dtok, other.Dtok)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Hq1, other.Hq1)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Ar1S, other.Ar1S)) return false;
+      if (SaveName != other.SaveName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -605,10 +611,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       if (J1 != 0) hash ^= J1.GetHashCode();
       if (Icr != 0) hash ^= Icr.GetHashCode();
       if (Jcr != 0) hash ^= Jcr.GetHashCode();
-      hash ^= r_.GetHashCode();
-      hash ^= z_.GetHashCode();
-      hash ^= u_.GetHashCode();
-      hash ^= l_.GetHashCode();
+      if (nzruData_ != null) hash ^= NzruData.GetHashCode();
+      if (nlTableData_ != null) hash ^= NlTableData.GetHashCode();
       if (Rk != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Rk);
       if (Utep != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Utep);
       if (Zkon != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Zkon);
@@ -624,6 +628,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       if (Dtok != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Dtok);
       if (Hq1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Hq1);
       if (Ar1S != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Ar1S);
+      if (SaveName.Length != 0) hash ^= SaveName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -682,60 +687,68 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         output.WriteRawTag(80);
         output.WriteInt32(Jcr);
       }
-      r_.WriteTo(output, _repeated_r_codec);
-      z_.WriteTo(output, _repeated_z_codec);
-      u_.WriteTo(output, _repeated_u_codec);
-      l_.WriteTo(output, _repeated_l_codec);
+      if (nzruData_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(NzruData);
+      }
+      if (nlTableData_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(NlTableData);
+      }
       if (Rk != 0D) {
-        output.WriteRawTag(121);
+        output.WriteRawTag(105);
         output.WriteDouble(Rk);
       }
       if (Utep != 0D) {
-        output.WriteRawTag(129, 1);
+        output.WriteRawTag(113);
         output.WriteDouble(Utep);
       }
       if (Zkon != 0D) {
-        output.WriteRawTag(137, 1);
+        output.WriteRawTag(121);
         output.WriteDouble(Zkon);
       }
       if (Akl1 != 0D) {
-        output.WriteRawTag(145, 1);
+        output.WriteRawTag(129, 1);
         output.WriteDouble(Akl1);
       }
       if (U0 != 0D) {
-        output.WriteRawTag(153, 1);
+        output.WriteRawTag(137, 1);
         output.WriteDouble(U0);
       }
       uekvip_.WriteTo(output, _repeated_uekvip_codec);
       if (Bnorm != 0D) {
-        output.WriteRawTag(169, 1);
+        output.WriteRawTag(153, 1);
         output.WriteDouble(Bnorm);
       }
       if (Abm != 0D) {
-        output.WriteRawTag(177, 1);
+        output.WriteRawTag(161, 1);
         output.WriteDouble(Abm);
       }
       bm_.WriteTo(output, _repeated_bm_codec);
       aik_.WriteTo(output, _repeated_aik_codec);
       if (Ht != 0D) {
-        output.WriteRawTag(201, 1);
+        output.WriteRawTag(185, 1);
         output.WriteDouble(Ht);
       }
       if (Dz != 0D) {
-        output.WriteRawTag(209, 1);
+        output.WriteRawTag(193, 1);
         output.WriteDouble(Dz);
       }
       if (Dtok != 0D) {
-        output.WriteRawTag(217, 1);
+        output.WriteRawTag(201, 1);
         output.WriteDouble(Dtok);
       }
       if (Hq1 != 0D) {
-        output.WriteRawTag(225, 1);
+        output.WriteRawTag(209, 1);
         output.WriteDouble(Hq1);
       }
       if (Ar1S != 0D) {
-        output.WriteRawTag(233, 1);
+        output.WriteRawTag(217, 1);
         output.WriteDouble(Ar1S);
+      }
+      if (SaveName.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(SaveName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -787,60 +800,68 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         output.WriteRawTag(80);
         output.WriteInt32(Jcr);
       }
-      r_.WriteTo(ref output, _repeated_r_codec);
-      z_.WriteTo(ref output, _repeated_z_codec);
-      u_.WriteTo(ref output, _repeated_u_codec);
-      l_.WriteTo(ref output, _repeated_l_codec);
+      if (nzruData_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(NzruData);
+      }
+      if (nlTableData_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(NlTableData);
+      }
       if (Rk != 0D) {
-        output.WriteRawTag(121);
+        output.WriteRawTag(105);
         output.WriteDouble(Rk);
       }
       if (Utep != 0D) {
-        output.WriteRawTag(129, 1);
+        output.WriteRawTag(113);
         output.WriteDouble(Utep);
       }
       if (Zkon != 0D) {
-        output.WriteRawTag(137, 1);
+        output.WriteRawTag(121);
         output.WriteDouble(Zkon);
       }
       if (Akl1 != 0D) {
-        output.WriteRawTag(145, 1);
+        output.WriteRawTag(129, 1);
         output.WriteDouble(Akl1);
       }
       if (U0 != 0D) {
-        output.WriteRawTag(153, 1);
+        output.WriteRawTag(137, 1);
         output.WriteDouble(U0);
       }
       uekvip_.WriteTo(ref output, _repeated_uekvip_codec);
       if (Bnorm != 0D) {
-        output.WriteRawTag(169, 1);
+        output.WriteRawTag(153, 1);
         output.WriteDouble(Bnorm);
       }
       if (Abm != 0D) {
-        output.WriteRawTag(177, 1);
+        output.WriteRawTag(161, 1);
         output.WriteDouble(Abm);
       }
       bm_.WriteTo(ref output, _repeated_bm_codec);
       aik_.WriteTo(ref output, _repeated_aik_codec);
       if (Ht != 0D) {
-        output.WriteRawTag(201, 1);
+        output.WriteRawTag(185, 1);
         output.WriteDouble(Ht);
       }
       if (Dz != 0D) {
-        output.WriteRawTag(209, 1);
+        output.WriteRawTag(193, 1);
         output.WriteDouble(Dz);
       }
       if (Dtok != 0D) {
-        output.WriteRawTag(217, 1);
+        output.WriteRawTag(201, 1);
         output.WriteDouble(Dtok);
       }
       if (Hq1 != 0D) {
-        output.WriteRawTag(225, 1);
+        output.WriteRawTag(209, 1);
         output.WriteDouble(Hq1);
       }
       if (Ar1S != 0D) {
-        output.WriteRawTag(233, 1);
+        output.WriteRawTag(217, 1);
         output.WriteDouble(Ar1S);
+      }
+      if (SaveName.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(SaveName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -882,18 +903,20 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       if (Jcr != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Jcr);
       }
-      size += r_.CalculateSize(_repeated_r_codec);
-      size += z_.CalculateSize(_repeated_z_codec);
-      size += u_.CalculateSize(_repeated_u_codec);
-      size += l_.CalculateSize(_repeated_l_codec);
+      if (nzruData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NzruData);
+      }
+      if (nlTableData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NlTableData);
+      }
       if (Rk != 0D) {
         size += 1 + 8;
       }
       if (Utep != 0D) {
-        size += 2 + 8;
+        size += 1 + 8;
       }
       if (Zkon != 0D) {
-        size += 2 + 8;
+        size += 1 + 8;
       }
       if (Akl1 != 0D) {
         size += 2 + 8;
@@ -924,6 +947,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       }
       if (Ar1S != 0D) {
         size += 2 + 8;
+      }
+      if (SaveName.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SaveName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -967,10 +993,18 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       if (other.Jcr != 0) {
         Jcr = other.Jcr;
       }
-      r_.Add(other.r_);
-      z_.Add(other.z_);
-      u_.Add(other.u_);
-      l_.Add(other.l_);
+      if (other.nzruData_ != null) {
+        if (nzruData_ == null) {
+          NzruData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData();
+        }
+        NzruData.MergeFrom(other.NzruData);
+      }
+      if (other.nlTableData_ != null) {
+        if (nlTableData_ == null) {
+          NlTableData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData();
+        }
+        NlTableData.MergeFrom(other.NlTableData);
+      }
       if (other.Rk != 0D) {
         Rk = other.Rk;
       }
@@ -1009,6 +1043,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       }
       if (other.Ar1S != 0D) {
         Ar1S = other.Ar1S;
+      }
+      if (other.SaveName.Length != 0) {
+        SaveName = other.SaveName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1069,87 +1106,85 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
             Jcr = input.ReadInt32();
             break;
           }
-          case 90:
-          case 89: {
-            r_.AddEntriesFrom(input, _repeated_r_codec);
+          case 90: {
+            if (nzruData_ == null) {
+              NzruData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData();
+            }
+            input.ReadMessage(NzruData);
             break;
           }
-          case 98:
-          case 97: {
-            z_.AddEntriesFrom(input, _repeated_z_codec);
+          case 98: {
+            if (nlTableData_ == null) {
+              NlTableData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData();
+            }
+            input.ReadMessage(NlTableData);
             break;
           }
-          case 106:
           case 105: {
-            u_.AddEntriesFrom(input, _repeated_u_codec);
-            break;
-          }
-          case 114:
-          case 112: {
-            l_.AddEntriesFrom(input, _repeated_l_codec);
-            break;
-          }
-          case 121: {
             Rk = input.ReadDouble();
             break;
           }
-          case 129: {
+          case 113: {
             Utep = input.ReadDouble();
             break;
           }
-          case 137: {
+          case 121: {
             Zkon = input.ReadDouble();
             break;
           }
-          case 145: {
+          case 129: {
             Akl1 = input.ReadDouble();
             break;
           }
-          case 153: {
+          case 137: {
             U0 = input.ReadDouble();
             break;
           }
-          case 162:
-          case 161: {
+          case 146:
+          case 145: {
             uekvip_.AddEntriesFrom(input, _repeated_uekvip_codec);
             break;
           }
-          case 169: {
+          case 153: {
             Bnorm = input.ReadDouble();
             break;
           }
-          case 177: {
+          case 161: {
             Abm = input.ReadDouble();
             break;
           }
-          case 186:
-          case 185: {
+          case 170:
+          case 169: {
             bm_.AddEntriesFrom(input, _repeated_bm_codec);
             break;
           }
-          case 194:
-          case 193: {
+          case 178:
+          case 177: {
             aik_.AddEntriesFrom(input, _repeated_aik_codec);
             break;
           }
-          case 201: {
+          case 185: {
             Ht = input.ReadDouble();
             break;
           }
-          case 209: {
+          case 193: {
             Dz = input.ReadDouble();
             break;
           }
-          case 217: {
+          case 201: {
             Dtok = input.ReadDouble();
             break;
           }
-          case 225: {
+          case 209: {
             Hq1 = input.ReadDouble();
             break;
           }
-          case 233: {
+          case 217: {
             Ar1S = input.ReadDouble();
+            break;
+          }
+          case 226: {
+            SaveName = input.ReadString();
             break;
           }
         }
@@ -1211,87 +1246,2473 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
             Jcr = input.ReadInt32();
             break;
           }
-          case 90:
-          case 89: {
-            r_.AddEntriesFrom(ref input, _repeated_r_codec);
+          case 90: {
+            if (nzruData_ == null) {
+              NzruData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData();
+            }
+            input.ReadMessage(NzruData);
             break;
           }
-          case 98:
-          case 97: {
-            z_.AddEntriesFrom(ref input, _repeated_z_codec);
+          case 98: {
+            if (nlTableData_ == null) {
+              NlTableData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData();
+            }
+            input.ReadMessage(NlTableData);
             break;
           }
-          case 106:
           case 105: {
-            u_.AddEntriesFrom(ref input, _repeated_u_codec);
-            break;
-          }
-          case 114:
-          case 112: {
-            l_.AddEntriesFrom(ref input, _repeated_l_codec);
-            break;
-          }
-          case 121: {
             Rk = input.ReadDouble();
             break;
           }
-          case 129: {
+          case 113: {
             Utep = input.ReadDouble();
             break;
           }
-          case 137: {
+          case 121: {
             Zkon = input.ReadDouble();
             break;
           }
-          case 145: {
+          case 129: {
             Akl1 = input.ReadDouble();
             break;
           }
-          case 153: {
+          case 137: {
             U0 = input.ReadDouble();
             break;
           }
-          case 162:
-          case 161: {
+          case 146:
+          case 145: {
             uekvip_.AddEntriesFrom(ref input, _repeated_uekvip_codec);
             break;
           }
-          case 169: {
+          case 153: {
             Bnorm = input.ReadDouble();
             break;
           }
-          case 177: {
+          case 161: {
             Abm = input.ReadDouble();
             break;
           }
-          case 186:
-          case 185: {
+          case 170:
+          case 169: {
             bm_.AddEntriesFrom(ref input, _repeated_bm_codec);
             break;
           }
-          case 194:
-          case 193: {
+          case 178:
+          case 177: {
             aik_.AddEntriesFrom(ref input, _repeated_aik_codec);
             break;
           }
-          case 201: {
+          case 185: {
             Ht = input.ReadDouble();
             break;
           }
-          case 209: {
+          case 193: {
             Dz = input.ReadDouble();
             break;
           }
-          case 217: {
+          case 201: {
             Dtok = input.ReadDouble();
             break;
           }
-          case 225: {
+          case 209: {
             Hq1 = input.ReadDouble();
             break;
           }
-          case 233: {
+          case 217: {
             Ar1S = input.ReadDouble();
+            break;
+          }
+          case 226: {
+            SaveName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SaveNames : pb::IMessage<SaveNames>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SaveNames> _parser = new pb::MessageParser<SaveNames>(() => new SaveNames());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SaveNames> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveNames() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveNames(SaveNames other) : this() {
+      names_ = other.names_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveNames Clone() {
+      return new SaveNames(this);
+    }
+
+    /// <summary>Field number for the "names" field.</summary>
+    public const int NamesFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_names_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> names_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<string> Names {
+      get { return names_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SaveNames);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SaveNames other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!names_.Equals(other.names_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= names_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      names_.WriteTo(output, _repeated_names_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      names_.WriteTo(ref output, _repeated_names_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += names_.CalculateSize(_repeated_names_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SaveNames other) {
+      if (other == null) {
+        return;
+      }
+      names_.Add(other.names_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            names_.AddEntriesFrom(input, _repeated_names_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            names_.AddEntriesFrom(ref input, _repeated_names_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class GetSaveRequest : pb::IMessage<GetSaveRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetSaveRequest> _parser = new pb::MessageParser<GetSaveRequest>(() => new GetSaveRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetSaveRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetSaveRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetSaveRequest(GetSaveRequest other) : this() {
+      saveName_ = other.saveName_;
+      saveDateTime_ = other.saveDateTime_ != null ? other.saveDateTime_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetSaveRequest Clone() {
+      return new GetSaveRequest(this);
+    }
+
+    /// <summary>Field number for the "saveName" field.</summary>
+    public const int SaveNameFieldNumber = 1;
+    private string saveName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SaveName {
+      get { return saveName_; }
+      set {
+        saveName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "saveDateTime" field.</summary>
+    public const int SaveDateTimeFieldNumber = 2;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp saveDateTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SaveDateTime {
+      get { return saveDateTime_; }
+      set {
+        saveDateTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetSaveRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetSaveRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SaveName != other.SaveName) return false;
+      if (!object.Equals(SaveDateTime, other.SaveDateTime)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SaveName.Length != 0) hash ^= SaveName.GetHashCode();
+      if (saveDateTime_ != null) hash ^= SaveDateTime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SaveName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SaveName);
+      }
+      if (saveDateTime_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SaveDateTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SaveName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SaveName);
+      }
+      if (saveDateTime_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SaveDateTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SaveName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SaveName);
+      }
+      if (saveDateTime_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SaveDateTime);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetSaveRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SaveName.Length != 0) {
+        SaveName = other.SaveName;
+      }
+      if (other.saveDateTime_ != null) {
+        if (saveDateTime_ == null) {
+          SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SaveDateTime.MergeFrom(other.SaveDateTime);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            SaveName = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (saveDateTime_ == null) {
+              SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SaveDateTime);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SaveName = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (saveDateTime_ == null) {
+              SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SaveDateTime);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SaveData : pb::IMessage<SaveData>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SaveData> _parser = new pb::MessageParser<SaveData>(() => new SaveData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SaveData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveData(SaveData other) : this() {
+      ig_ = other.ig_;
+      nmas_ = other.nmas_;
+      km_ = other.km_;
+      kp_ = other.kp_;
+      kq_ = other.kq_;
+      kpj6_ = other.kpj6_;
+      ik_ = other.ik_;
+      j1_ = other.j1_;
+      icr_ = other.icr_;
+      jcr_ = other.jcr_;
+      nzruData_ = other.nzruData_ != null ? other.nzruData_.Clone() : null;
+      nlTableData_ = other.nlTableData_ != null ? other.nlTableData_.Clone() : null;
+      rk_ = other.rk_;
+      utep_ = other.utep_;
+      zkon_ = other.zkon_;
+      akl1_ = other.akl1_;
+      u0_ = other.u0_;
+      uekvip_ = other.uekvip_.Clone();
+      bnorm_ = other.bnorm_;
+      abm_ = other.abm_;
+      bm_ = other.bm_.Clone();
+      aik_ = other.aik_.Clone();
+      ht_ = other.ht_;
+      dz_ = other.dz_;
+      dtok_ = other.dtok_;
+      hq1_ = other.hq1_;
+      ar1S_ = other.ar1S_;
+      saveName_ = other.saveName_;
+      saveDateTime_ = other.saveDateTime_ != null ? other.saveDateTime_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveData Clone() {
+      return new SaveData(this);
+    }
+
+    /// <summary>Field number for the "ig" field.</summary>
+    public const int IgFieldNumber = 1;
+    private int ig_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Ig {
+      get { return ig_; }
+      set {
+        ig_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "nmas" field.</summary>
+    public const int NmasFieldNumber = 2;
+    private int nmas_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Nmas {
+      get { return nmas_; }
+      set {
+        nmas_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "km" field.</summary>
+    public const int KmFieldNumber = 3;
+    private int km_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Km {
+      get { return km_; }
+      set {
+        km_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "kp" field.</summary>
+    public const int KpFieldNumber = 4;
+    private int kp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Kp {
+      get { return kp_; }
+      set {
+        kp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "kq" field.</summary>
+    public const int KqFieldNumber = 5;
+    private int kq_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Kq {
+      get { return kq_; }
+      set {
+        kq_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "kpj6" field.</summary>
+    public const int Kpj6FieldNumber = 6;
+    private int kpj6_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Kpj6 {
+      get { return kpj6_; }
+      set {
+        kpj6_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ik" field.</summary>
+    public const int IkFieldNumber = 7;
+    private int ik_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Ik {
+      get { return ik_; }
+      set {
+        ik_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "j1" field.</summary>
+    public const int J1FieldNumber = 8;
+    private int j1_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int J1 {
+      get { return j1_; }
+      set {
+        j1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "icr" field.</summary>
+    public const int IcrFieldNumber = 9;
+    private int icr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Icr {
+      get { return icr_; }
+      set {
+        icr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "jcr" field.</summary>
+    public const int JcrFieldNumber = 10;
+    private int jcr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Jcr {
+      get { return jcr_; }
+      set {
+        jcr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "nzruData" field.</summary>
+    public const int NzruDataFieldNumber = 11;
+    private global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData nzruData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData NzruData {
+      get { return nzruData_; }
+      set {
+        nzruData_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "nlTableData" field.</summary>
+    public const int NlTableDataFieldNumber = 12;
+    private global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData nlTableData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData NlTableData {
+      get { return nlTableData_; }
+      set {
+        nlTableData_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "rk" field.</summary>
+    public const int RkFieldNumber = 13;
+    private double rk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Rk {
+      get { return rk_; }
+      set {
+        rk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "utep" field.</summary>
+    public const int UtepFieldNumber = 14;
+    private double utep_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Utep {
+      get { return utep_; }
+      set {
+        utep_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "zkon" field.</summary>
+    public const int ZkonFieldNumber = 15;
+    private double zkon_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Zkon {
+      get { return zkon_; }
+      set {
+        zkon_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "akl1" field.</summary>
+    public const int Akl1FieldNumber = 16;
+    private double akl1_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Akl1 {
+      get { return akl1_; }
+      set {
+        akl1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "u0" field.</summary>
+    public const int U0FieldNumber = 17;
+    private double u0_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double U0 {
+      get { return u0_; }
+      set {
+        u0_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "uekvip" field.</summary>
+    public const int UekvipFieldNumber = 18;
+    private static readonly pb::FieldCodec<double> _repeated_uekvip_codec
+        = pb::FieldCodec.ForDouble(146);
+    private readonly pbc::RepeatedField<double> uekvip_ = new pbc::RepeatedField<double>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<double> Uekvip {
+      get { return uekvip_; }
+    }
+
+    /// <summary>Field number for the "bnorm" field.</summary>
+    public const int BnormFieldNumber = 19;
+    private double bnorm_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Bnorm {
+      get { return bnorm_; }
+      set {
+        bnorm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "abm" field.</summary>
+    public const int AbmFieldNumber = 20;
+    private double abm_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Abm {
+      get { return abm_; }
+      set {
+        abm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bm" field.</summary>
+    public const int BmFieldNumber = 21;
+    private static readonly pb::FieldCodec<double> _repeated_bm_codec
+        = pb::FieldCodec.ForDouble(170);
+    private readonly pbc::RepeatedField<double> bm_ = new pbc::RepeatedField<double>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<double> Bm {
+      get { return bm_; }
+    }
+
+    /// <summary>Field number for the "aik" field.</summary>
+    public const int AikFieldNumber = 22;
+    private static readonly pb::FieldCodec<double> _repeated_aik_codec
+        = pb::FieldCodec.ForDouble(178);
+    private readonly pbc::RepeatedField<double> aik_ = new pbc::RepeatedField<double>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<double> Aik {
+      get { return aik_; }
+    }
+
+    /// <summary>Field number for the "ht" field.</summary>
+    public const int HtFieldNumber = 23;
+    private double ht_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Ht {
+      get { return ht_; }
+      set {
+        ht_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dz" field.</summary>
+    public const int DzFieldNumber = 24;
+    private double dz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Dz {
+      get { return dz_; }
+      set {
+        dz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dtok" field.</summary>
+    public const int DtokFieldNumber = 25;
+    private double dtok_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Dtok {
+      get { return dtok_; }
+      set {
+        dtok_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hq1" field.</summary>
+    public const int Hq1FieldNumber = 26;
+    private double hq1_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Hq1 {
+      get { return hq1_; }
+      set {
+        hq1_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ar1s" field.</summary>
+    public const int Ar1SFieldNumber = 27;
+    private double ar1S_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Ar1S {
+      get { return ar1S_; }
+      set {
+        ar1S_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "saveName" field.</summary>
+    public const int SaveNameFieldNumber = 28;
+    private string saveName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SaveName {
+      get { return saveName_; }
+      set {
+        saveName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "saveDateTime" field.</summary>
+    public const int SaveDateTimeFieldNumber = 29;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp saveDateTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SaveDateTime {
+      get { return saveDateTime_; }
+      set {
+        saveDateTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SaveData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SaveData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Ig != other.Ig) return false;
+      if (Nmas != other.Nmas) return false;
+      if (Km != other.Km) return false;
+      if (Kp != other.Kp) return false;
+      if (Kq != other.Kq) return false;
+      if (Kpj6 != other.Kpj6) return false;
+      if (Ik != other.Ik) return false;
+      if (J1 != other.J1) return false;
+      if (Icr != other.Icr) return false;
+      if (Jcr != other.Jcr) return false;
+      if (!object.Equals(NzruData, other.NzruData)) return false;
+      if (!object.Equals(NlTableData, other.NlTableData)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Rk, other.Rk)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Utep, other.Utep)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Zkon, other.Zkon)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Akl1, other.Akl1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(U0, other.U0)) return false;
+      if(!uekvip_.Equals(other.uekvip_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Bnorm, other.Bnorm)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Abm, other.Abm)) return false;
+      if(!bm_.Equals(other.bm_)) return false;
+      if(!aik_.Equals(other.aik_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Ht, other.Ht)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Dz, other.Dz)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Dtok, other.Dtok)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Hq1, other.Hq1)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Ar1S, other.Ar1S)) return false;
+      if (SaveName != other.SaveName) return false;
+      if (!object.Equals(SaveDateTime, other.SaveDateTime)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Ig != 0) hash ^= Ig.GetHashCode();
+      if (Nmas != 0) hash ^= Nmas.GetHashCode();
+      if (Km != 0) hash ^= Km.GetHashCode();
+      if (Kp != 0) hash ^= Kp.GetHashCode();
+      if (Kq != 0) hash ^= Kq.GetHashCode();
+      if (Kpj6 != 0) hash ^= Kpj6.GetHashCode();
+      if (Ik != 0) hash ^= Ik.GetHashCode();
+      if (J1 != 0) hash ^= J1.GetHashCode();
+      if (Icr != 0) hash ^= Icr.GetHashCode();
+      if (Jcr != 0) hash ^= Jcr.GetHashCode();
+      if (nzruData_ != null) hash ^= NzruData.GetHashCode();
+      if (nlTableData_ != null) hash ^= NlTableData.GetHashCode();
+      if (Rk != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Rk);
+      if (Utep != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Utep);
+      if (Zkon != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Zkon);
+      if (Akl1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Akl1);
+      if (U0 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(U0);
+      hash ^= uekvip_.GetHashCode();
+      if (Bnorm != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Bnorm);
+      if (Abm != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Abm);
+      hash ^= bm_.GetHashCode();
+      hash ^= aik_.GetHashCode();
+      if (Ht != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Ht);
+      if (Dz != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Dz);
+      if (Dtok != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Dtok);
+      if (Hq1 != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Hq1);
+      if (Ar1S != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Ar1S);
+      if (SaveName.Length != 0) hash ^= SaveName.GetHashCode();
+      if (saveDateTime_ != null) hash ^= SaveDateTime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Ig != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Ig);
+      }
+      if (Nmas != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Nmas);
+      }
+      if (Km != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Km);
+      }
+      if (Kp != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Kp);
+      }
+      if (Kq != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Kq);
+      }
+      if (Kpj6 != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Kpj6);
+      }
+      if (Ik != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Ik);
+      }
+      if (J1 != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(J1);
+      }
+      if (Icr != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Icr);
+      }
+      if (Jcr != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(Jcr);
+      }
+      if (nzruData_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(NzruData);
+      }
+      if (nlTableData_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(NlTableData);
+      }
+      if (Rk != 0D) {
+        output.WriteRawTag(105);
+        output.WriteDouble(Rk);
+      }
+      if (Utep != 0D) {
+        output.WriteRawTag(113);
+        output.WriteDouble(Utep);
+      }
+      if (Zkon != 0D) {
+        output.WriteRawTag(121);
+        output.WriteDouble(Zkon);
+      }
+      if (Akl1 != 0D) {
+        output.WriteRawTag(129, 1);
+        output.WriteDouble(Akl1);
+      }
+      if (U0 != 0D) {
+        output.WriteRawTag(137, 1);
+        output.WriteDouble(U0);
+      }
+      uekvip_.WriteTo(output, _repeated_uekvip_codec);
+      if (Bnorm != 0D) {
+        output.WriteRawTag(153, 1);
+        output.WriteDouble(Bnorm);
+      }
+      if (Abm != 0D) {
+        output.WriteRawTag(161, 1);
+        output.WriteDouble(Abm);
+      }
+      bm_.WriteTo(output, _repeated_bm_codec);
+      aik_.WriteTo(output, _repeated_aik_codec);
+      if (Ht != 0D) {
+        output.WriteRawTag(185, 1);
+        output.WriteDouble(Ht);
+      }
+      if (Dz != 0D) {
+        output.WriteRawTag(193, 1);
+        output.WriteDouble(Dz);
+      }
+      if (Dtok != 0D) {
+        output.WriteRawTag(201, 1);
+        output.WriteDouble(Dtok);
+      }
+      if (Hq1 != 0D) {
+        output.WriteRawTag(209, 1);
+        output.WriteDouble(Hq1);
+      }
+      if (Ar1S != 0D) {
+        output.WriteRawTag(217, 1);
+        output.WriteDouble(Ar1S);
+      }
+      if (SaveName.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(SaveName);
+      }
+      if (saveDateTime_ != null) {
+        output.WriteRawTag(234, 1);
+        output.WriteMessage(SaveDateTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Ig != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Ig);
+      }
+      if (Nmas != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Nmas);
+      }
+      if (Km != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Km);
+      }
+      if (Kp != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Kp);
+      }
+      if (Kq != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Kq);
+      }
+      if (Kpj6 != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Kpj6);
+      }
+      if (Ik != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Ik);
+      }
+      if (J1 != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(J1);
+      }
+      if (Icr != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Icr);
+      }
+      if (Jcr != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(Jcr);
+      }
+      if (nzruData_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(NzruData);
+      }
+      if (nlTableData_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(NlTableData);
+      }
+      if (Rk != 0D) {
+        output.WriteRawTag(105);
+        output.WriteDouble(Rk);
+      }
+      if (Utep != 0D) {
+        output.WriteRawTag(113);
+        output.WriteDouble(Utep);
+      }
+      if (Zkon != 0D) {
+        output.WriteRawTag(121);
+        output.WriteDouble(Zkon);
+      }
+      if (Akl1 != 0D) {
+        output.WriteRawTag(129, 1);
+        output.WriteDouble(Akl1);
+      }
+      if (U0 != 0D) {
+        output.WriteRawTag(137, 1);
+        output.WriteDouble(U0);
+      }
+      uekvip_.WriteTo(ref output, _repeated_uekvip_codec);
+      if (Bnorm != 0D) {
+        output.WriteRawTag(153, 1);
+        output.WriteDouble(Bnorm);
+      }
+      if (Abm != 0D) {
+        output.WriteRawTag(161, 1);
+        output.WriteDouble(Abm);
+      }
+      bm_.WriteTo(ref output, _repeated_bm_codec);
+      aik_.WriteTo(ref output, _repeated_aik_codec);
+      if (Ht != 0D) {
+        output.WriteRawTag(185, 1);
+        output.WriteDouble(Ht);
+      }
+      if (Dz != 0D) {
+        output.WriteRawTag(193, 1);
+        output.WriteDouble(Dz);
+      }
+      if (Dtok != 0D) {
+        output.WriteRawTag(201, 1);
+        output.WriteDouble(Dtok);
+      }
+      if (Hq1 != 0D) {
+        output.WriteRawTag(209, 1);
+        output.WriteDouble(Hq1);
+      }
+      if (Ar1S != 0D) {
+        output.WriteRawTag(217, 1);
+        output.WriteDouble(Ar1S);
+      }
+      if (SaveName.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(SaveName);
+      }
+      if (saveDateTime_ != null) {
+        output.WriteRawTag(234, 1);
+        output.WriteMessage(SaveDateTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Ig != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Ig);
+      }
+      if (Nmas != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Nmas);
+      }
+      if (Km != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Km);
+      }
+      if (Kp != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Kp);
+      }
+      if (Kq != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Kq);
+      }
+      if (Kpj6 != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Kpj6);
+      }
+      if (Ik != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Ik);
+      }
+      if (J1 != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(J1);
+      }
+      if (Icr != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Icr);
+      }
+      if (Jcr != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Jcr);
+      }
+      if (nzruData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NzruData);
+      }
+      if (nlTableData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NlTableData);
+      }
+      if (Rk != 0D) {
+        size += 1 + 8;
+      }
+      if (Utep != 0D) {
+        size += 1 + 8;
+      }
+      if (Zkon != 0D) {
+        size += 1 + 8;
+      }
+      if (Akl1 != 0D) {
+        size += 2 + 8;
+      }
+      if (U0 != 0D) {
+        size += 2 + 8;
+      }
+      size += uekvip_.CalculateSize(_repeated_uekvip_codec);
+      if (Bnorm != 0D) {
+        size += 2 + 8;
+      }
+      if (Abm != 0D) {
+        size += 2 + 8;
+      }
+      size += bm_.CalculateSize(_repeated_bm_codec);
+      size += aik_.CalculateSize(_repeated_aik_codec);
+      if (Ht != 0D) {
+        size += 2 + 8;
+      }
+      if (Dz != 0D) {
+        size += 2 + 8;
+      }
+      if (Dtok != 0D) {
+        size += 2 + 8;
+      }
+      if (Hq1 != 0D) {
+        size += 2 + 8;
+      }
+      if (Ar1S != 0D) {
+        size += 2 + 8;
+      }
+      if (SaveName.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SaveName);
+      }
+      if (saveDateTime_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SaveDateTime);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SaveData other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Ig != 0) {
+        Ig = other.Ig;
+      }
+      if (other.Nmas != 0) {
+        Nmas = other.Nmas;
+      }
+      if (other.Km != 0) {
+        Km = other.Km;
+      }
+      if (other.Kp != 0) {
+        Kp = other.Kp;
+      }
+      if (other.Kq != 0) {
+        Kq = other.Kq;
+      }
+      if (other.Kpj6 != 0) {
+        Kpj6 = other.Kpj6;
+      }
+      if (other.Ik != 0) {
+        Ik = other.Ik;
+      }
+      if (other.J1 != 0) {
+        J1 = other.J1;
+      }
+      if (other.Icr != 0) {
+        Icr = other.Icr;
+      }
+      if (other.Jcr != 0) {
+        Jcr = other.Jcr;
+      }
+      if (other.nzruData_ != null) {
+        if (nzruData_ == null) {
+          NzruData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData();
+        }
+        NzruData.MergeFrom(other.NzruData);
+      }
+      if (other.nlTableData_ != null) {
+        if (nlTableData_ == null) {
+          NlTableData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData();
+        }
+        NlTableData.MergeFrom(other.NlTableData);
+      }
+      if (other.Rk != 0D) {
+        Rk = other.Rk;
+      }
+      if (other.Utep != 0D) {
+        Utep = other.Utep;
+      }
+      if (other.Zkon != 0D) {
+        Zkon = other.Zkon;
+      }
+      if (other.Akl1 != 0D) {
+        Akl1 = other.Akl1;
+      }
+      if (other.U0 != 0D) {
+        U0 = other.U0;
+      }
+      uekvip_.Add(other.uekvip_);
+      if (other.Bnorm != 0D) {
+        Bnorm = other.Bnorm;
+      }
+      if (other.Abm != 0D) {
+        Abm = other.Abm;
+      }
+      bm_.Add(other.bm_);
+      aik_.Add(other.aik_);
+      if (other.Ht != 0D) {
+        Ht = other.Ht;
+      }
+      if (other.Dz != 0D) {
+        Dz = other.Dz;
+      }
+      if (other.Dtok != 0D) {
+        Dtok = other.Dtok;
+      }
+      if (other.Hq1 != 0D) {
+        Hq1 = other.Hq1;
+      }
+      if (other.Ar1S != 0D) {
+        Ar1S = other.Ar1S;
+      }
+      if (other.SaveName.Length != 0) {
+        SaveName = other.SaveName;
+      }
+      if (other.saveDateTime_ != null) {
+        if (saveDateTime_ == null) {
+          SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SaveDateTime.MergeFrom(other.SaveDateTime);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Ig = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Nmas = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Km = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Kp = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Kq = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            Kpj6 = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            Ik = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            J1 = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            Icr = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            Jcr = input.ReadInt32();
+            break;
+          }
+          case 90: {
+            if (nzruData_ == null) {
+              NzruData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData();
+            }
+            input.ReadMessage(NzruData);
+            break;
+          }
+          case 98: {
+            if (nlTableData_ == null) {
+              NlTableData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData();
+            }
+            input.ReadMessage(NlTableData);
+            break;
+          }
+          case 105: {
+            Rk = input.ReadDouble();
+            break;
+          }
+          case 113: {
+            Utep = input.ReadDouble();
+            break;
+          }
+          case 121: {
+            Zkon = input.ReadDouble();
+            break;
+          }
+          case 129: {
+            Akl1 = input.ReadDouble();
+            break;
+          }
+          case 137: {
+            U0 = input.ReadDouble();
+            break;
+          }
+          case 146:
+          case 145: {
+            uekvip_.AddEntriesFrom(input, _repeated_uekvip_codec);
+            break;
+          }
+          case 153: {
+            Bnorm = input.ReadDouble();
+            break;
+          }
+          case 161: {
+            Abm = input.ReadDouble();
+            break;
+          }
+          case 170:
+          case 169: {
+            bm_.AddEntriesFrom(input, _repeated_bm_codec);
+            break;
+          }
+          case 178:
+          case 177: {
+            aik_.AddEntriesFrom(input, _repeated_aik_codec);
+            break;
+          }
+          case 185: {
+            Ht = input.ReadDouble();
+            break;
+          }
+          case 193: {
+            Dz = input.ReadDouble();
+            break;
+          }
+          case 201: {
+            Dtok = input.ReadDouble();
+            break;
+          }
+          case 209: {
+            Hq1 = input.ReadDouble();
+            break;
+          }
+          case 217: {
+            Ar1S = input.ReadDouble();
+            break;
+          }
+          case 226: {
+            SaveName = input.ReadString();
+            break;
+          }
+          case 234: {
+            if (saveDateTime_ == null) {
+              SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SaveDateTime);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Ig = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Nmas = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Km = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Kp = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            Kq = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            Kpj6 = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            Ik = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            J1 = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            Icr = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            Jcr = input.ReadInt32();
+            break;
+          }
+          case 90: {
+            if (nzruData_ == null) {
+              NzruData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData();
+            }
+            input.ReadMessage(NzruData);
+            break;
+          }
+          case 98: {
+            if (nlTableData_ == null) {
+              NlTableData = new global::ElectronFlowSim.AnalysisService.GRPC.Protos.NLTableData();
+            }
+            input.ReadMessage(NlTableData);
+            break;
+          }
+          case 105: {
+            Rk = input.ReadDouble();
+            break;
+          }
+          case 113: {
+            Utep = input.ReadDouble();
+            break;
+          }
+          case 121: {
+            Zkon = input.ReadDouble();
+            break;
+          }
+          case 129: {
+            Akl1 = input.ReadDouble();
+            break;
+          }
+          case 137: {
+            U0 = input.ReadDouble();
+            break;
+          }
+          case 146:
+          case 145: {
+            uekvip_.AddEntriesFrom(ref input, _repeated_uekvip_codec);
+            break;
+          }
+          case 153: {
+            Bnorm = input.ReadDouble();
+            break;
+          }
+          case 161: {
+            Abm = input.ReadDouble();
+            break;
+          }
+          case 170:
+          case 169: {
+            bm_.AddEntriesFrom(ref input, _repeated_bm_codec);
+            break;
+          }
+          case 178:
+          case 177: {
+            aik_.AddEntriesFrom(ref input, _repeated_aik_codec);
+            break;
+          }
+          case 185: {
+            Ht = input.ReadDouble();
+            break;
+          }
+          case 193: {
+            Dz = input.ReadDouble();
+            break;
+          }
+          case 201: {
+            Dtok = input.ReadDouble();
+            break;
+          }
+          case 209: {
+            Hq1 = input.ReadDouble();
+            break;
+          }
+          case 217: {
+            Ar1S = input.ReadDouble();
+            break;
+          }
+          case 226: {
+            SaveName = input.ReadString();
+            break;
+          }
+          case 234: {
+            if (saveDateTime_ == null) {
+              SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SaveDateTime);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class NZRUTableData : pb::IMessage<NZRUTableData>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<NZRUTableData> _parser = new pb::MessageParser<NZRUTableData>(() => new NZRUTableData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<NZRUTableData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NZRUTableData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NZRUTableData(NZRUTableData other) : this() {
+      electrodes_ = other.electrodes_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NZRUTableData Clone() {
+      return new NZRUTableData(this);
+    }
+
+    /// <summary>Field number for the "electrodes" field.</summary>
+    public const int ElectrodesFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData> _repeated_electrodes_codec
+        = pb::FieldCodec.ForMessage(10, global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData.Parser);
+    private readonly pbc::RepeatedField<global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData> electrodes_ = new pbc::RepeatedField<global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ElectronFlowSim.AnalysisService.GRPC.Protos.ElectrodeData> Electrodes {
+      get { return electrodes_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as NZRUTableData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(NZRUTableData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!electrodes_.Equals(other.electrodes_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= electrodes_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      electrodes_.WriteTo(output, _repeated_electrodes_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      electrodes_.WriteTo(ref output, _repeated_electrodes_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += electrodes_.CalculateSize(_repeated_electrodes_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(NZRUTableData other) {
+      if (other == null) {
+        return;
+      }
+      electrodes_.Add(other.electrodes_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            electrodes_.AddEntriesFrom(input, _repeated_electrodes_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            electrodes_.AddEntriesFrom(ref input, _repeated_electrodes_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ElectrodeData : pb::IMessage<ElectrodeData>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ElectrodeData> _parser = new pb::MessageParser<ElectrodeData>(() => new ElectrodeData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ElectrodeData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectrodeData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectrodeData(ElectrodeData other) : this() {
+      n_ = other.n_.Clone();
+      z_ = other.z_.Clone();
+      r_ = other.r_.Clone();
+      u_ = other.u_;
+      workpieceType_ = other.workpieceType_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectrodeData Clone() {
+      return new ElectrodeData(this);
+    }
+
+    /// <summary>Field number for the "n" field.</summary>
+    public const int NFieldNumber = 1;
+    private static readonly pb::FieldCodec<int> _repeated_n_codec
+        = pb::FieldCodec.ForInt32(10);
+    private readonly pbc::RepeatedField<int> n_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> N {
+      get { return n_; }
+    }
+
+    /// <summary>Field number for the "z" field.</summary>
+    public const int ZFieldNumber = 2;
+    private static readonly pb::FieldCodec<double> _repeated_z_codec
+        = pb::FieldCodec.ForDouble(18);
+    private readonly pbc::RepeatedField<double> z_ = new pbc::RepeatedField<double>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<double> Z {
+      get { return z_; }
+    }
+
+    /// <summary>Field number for the "r" field.</summary>
+    public const int RFieldNumber = 3;
+    private static readonly pb::FieldCodec<double> _repeated_r_codec
+        = pb::FieldCodec.ForDouble(26);
+    private readonly pbc::RepeatedField<double> r_ = new pbc::RepeatedField<double>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<double> R {
+      get { return r_; }
+    }
+
+    /// <summary>Field number for the "u" field.</summary>
+    public const int UFieldNumber = 4;
+    private double u_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double U {
+      get { return u_; }
+      set {
+        u_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "workpieceType" field.</summary>
+    public const int WorkpieceTypeFieldNumber = 5;
+    private string workpieceType_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string WorkpieceType {
+      get { return workpieceType_; }
+      set {
+        workpieceType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ElectrodeData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ElectrodeData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!n_.Equals(other.n_)) return false;
+      if(!z_.Equals(other.z_)) return false;
+      if(!r_.Equals(other.r_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(U, other.U)) return false;
+      if (WorkpieceType != other.WorkpieceType) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= n_.GetHashCode();
+      hash ^= z_.GetHashCode();
+      hash ^= r_.GetHashCode();
+      if (U != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(U);
+      if (WorkpieceType.Length != 0) hash ^= WorkpieceType.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      n_.WriteTo(output, _repeated_n_codec);
+      z_.WriteTo(output, _repeated_z_codec);
+      r_.WriteTo(output, _repeated_r_codec);
+      if (U != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(U);
+      }
+      if (WorkpieceType.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(WorkpieceType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      n_.WriteTo(ref output, _repeated_n_codec);
+      z_.WriteTo(ref output, _repeated_z_codec);
+      r_.WriteTo(ref output, _repeated_r_codec);
+      if (U != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(U);
+      }
+      if (WorkpieceType.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(WorkpieceType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += n_.CalculateSize(_repeated_n_codec);
+      size += z_.CalculateSize(_repeated_z_codec);
+      size += r_.CalculateSize(_repeated_r_codec);
+      if (U != 0D) {
+        size += 1 + 8;
+      }
+      if (WorkpieceType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(WorkpieceType);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ElectrodeData other) {
+      if (other == null) {
+        return;
+      }
+      n_.Add(other.n_);
+      z_.Add(other.z_);
+      r_.Add(other.r_);
+      if (other.U != 0D) {
+        U = other.U;
+      }
+      if (other.WorkpieceType.Length != 0) {
+        WorkpieceType = other.WorkpieceType;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            n_.AddEntriesFrom(input, _repeated_n_codec);
+            break;
+          }
+          case 18:
+          case 17: {
+            z_.AddEntriesFrom(input, _repeated_z_codec);
+            break;
+          }
+          case 26:
+          case 25: {
+            r_.AddEntriesFrom(input, _repeated_r_codec);
+            break;
+          }
+          case 33: {
+            U = input.ReadDouble();
+            break;
+          }
+          case 42: {
+            WorkpieceType = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            n_.AddEntriesFrom(ref input, _repeated_n_codec);
+            break;
+          }
+          case 18:
+          case 17: {
+            z_.AddEntriesFrom(ref input, _repeated_z_codec);
+            break;
+          }
+          case 26:
+          case 25: {
+            r_.AddEntriesFrom(ref input, _repeated_r_codec);
+            break;
+          }
+          case 33: {
+            U = input.ReadDouble();
+            break;
+          }
+          case 42: {
+            WorkpieceType = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class NLTableData : pb::IMessage<NLTableData>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<NLTableData> _parser = new pb::MessageParser<NLTableData>(() => new NLTableData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<NLTableData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NLTableData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NLTableData(NLTableData other) : this() {
+      n_ = other.n_.Clone();
+      l_ = other.l_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NLTableData Clone() {
+      return new NLTableData(this);
+    }
+
+    /// <summary>Field number for the "n" field.</summary>
+    public const int NFieldNumber = 1;
+    private static readonly pb::FieldCodec<int> _repeated_n_codec
+        = pb::FieldCodec.ForInt32(10);
+    private readonly pbc::RepeatedField<int> n_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> N {
+      get { return n_; }
+    }
+
+    /// <summary>Field number for the "l" field.</summary>
+    public const int LFieldNumber = 2;
+    private static readonly pb::FieldCodec<int> _repeated_l_codec
+        = pb::FieldCodec.ForInt32(18);
+    private readonly pbc::RepeatedField<int> l_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> L {
+      get { return l_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as NLTableData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(NLTableData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!n_.Equals(other.n_)) return false;
+      if(!l_.Equals(other.l_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= n_.GetHashCode();
+      hash ^= l_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      n_.WriteTo(output, _repeated_n_codec);
+      l_.WriteTo(output, _repeated_l_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      n_.WriteTo(ref output, _repeated_n_codec);
+      l_.WriteTo(ref output, _repeated_l_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += n_.CalculateSize(_repeated_n_codec);
+      size += l_.CalculateSize(_repeated_l_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(NLTableData other) {
+      if (other == null) {
+        return;
+      }
+      n_.Add(other.n_);
+      l_.Add(other.l_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            n_.AddEntriesFrom(input, _repeated_n_codec);
+            break;
+          }
+          case 18:
+          case 16: {
+            l_.AddEntriesFrom(input, _repeated_l_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            n_.AddEntriesFrom(ref input, _repeated_n_codec);
+            break;
+          }
+          case 18:
+          case 16: {
+            l_.AddEntriesFrom(ref input, _repeated_l_codec);
             break;
           }
         }
@@ -1316,7 +3737,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[1]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1414,6 +3835,167 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(EmptyResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class EmptyRequest : pb::IMessage<EmptyRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<EmptyRequest> _parser = new pb::MessageParser<EmptyRequest>(() => new EmptyRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<EmptyRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EmptyRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EmptyRequest(EmptyRequest other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EmptyRequest Clone() {
+      return new EmptyRequest(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as EmptyRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(EmptyRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(EmptyRequest other) {
       if (other == null) {
         return;
       }

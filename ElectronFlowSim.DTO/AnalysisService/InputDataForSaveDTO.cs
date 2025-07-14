@@ -1,14 +1,13 @@
-﻿using ElectronFlowSim.Domain.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace ElectronFlowSim.AnalysisService.Domain.Entities
+namespace ElectronFlowSim.DTO.AnalysisService
 {
-    public class InputData : Entity
+    public class InputDataForSaveDTO
     {
         /// <summary>
         /// число границ пушки
@@ -95,31 +94,9 @@ namespace ElectronFlowSim.AnalysisService.Domain.Entities
         ///// </summary>
         //public required double[] rbr { get; set; }
 
-        ///// <summary>
-        ///// значения точек
-        ///// радиальная координата по оси ординат
-        ///// </summary>
-        //public required double[] r { get; set; }
+        public List<NZRUTableDTO> NZRUTableDatas { get; set; }
 
-        ///// <summary>
-        ///// значения точек
-        ///// продольная координата по оси абсцисс
-        ///// </summary>
-        //public required double[] z { get; set; }
-
-        ///// <summary>
-        ///// массив потенциалов в узловых точках (нормирован)
-        ///// </summary>
-        //public required double[] u { get; set; }
-
-        public List<NZRUTableData> NZRUTableDatas { get; set; }
-
-        ///// <summary>
-        ///// количество интервалов, на которые разбит контур
-        ///// </summary>
-        //public required int[] l { get; set; }
-
-        public NLTableData NLTableData { get; set; }
+        public NLTableDTO NLTableData { get; set; }
 
         /// <summary>
         /// радиус кривизны катода
@@ -204,8 +181,7 @@ namespace ElectronFlowSim.AnalysisService.Domain.Entities
         /// </summary>
         public required double ar1s { get; set; }
 
-        public DateTime? SaveDateTime { get; set; }
-
+        [JsonIgnore]
         public string? SaveName { get; set; }
     }
 }
