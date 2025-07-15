@@ -129,7 +129,7 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             var repository = unitOfWork.GetRepository<InputData>();
 
             var data = await repository.GetFirstOrDefaultAsync(predicate: x => x.SaveName == saveName && x.SaveDateTime == dateTime.ToUniversalTime(),
-                include: x => x.Include(x => x.NLTableData).Include(x => x.NLTableData));
+                include: x => x.Include(x => x.NZRUTableDatas).Include(x => x.NLTableData));
 
             return data;
         }

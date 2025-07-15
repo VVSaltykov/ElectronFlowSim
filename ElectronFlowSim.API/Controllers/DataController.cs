@@ -105,11 +105,18 @@ namespace ElectronFlowSim.API.Controllers
         public async Task<IActionResult> GetSaveNames()
         {
             var result = await dBCommunicationClient.GetSaveNamesAsync(new EmptyRequest());
-            return Ok(result);
+            // Преобразуем protobuf Timestamp в удобочитаемый формат
+            var response = result.Items.Select(item => new
+            {
+                Name = item.Name,
+                SaveDateTime = item.SaveDateTime.ToDateTime() // Конвертирует Timestamp в DateTime
+            }).ToList();
+
+            return Ok(response);
         }
 
         [HttpGet("get-save")]
-        public async Task<IActionResult> GetSave([FromBody] string saveName, DateTime saveDateTime)
+        public async Task<IActionResult> GetSave([FromQuery] string saveName, DateTime saveDateTime)
         {
             var getSaveRequest = new AnalysisService.GRPC.Protos.GetSaveRequest
             {
