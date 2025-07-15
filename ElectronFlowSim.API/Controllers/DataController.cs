@@ -83,14 +83,22 @@ namespace ElectronFlowSim.API.Controllers
 
             var grpcResponse = await dBCommunicationClient.CreateSaveAsync(inputDataDTO);
 
-            return Ok(grpcResponse);
+            return Ok(new
+            {
+                Request = grpcResponse,
+                Message = "Данные сохранены."
+            });
         }
 
         [HttpGet("get-last-save")]
         public async Task<IActionResult> GetLastSave()
         {
             var result = await dBCommunicationClient.GetLastSaveAsync(new EmptyRequest());
-            return Ok(result);
+            return Ok(new
+            {
+                Request = result,
+                Message = "Загружено последнее сохранение"
+            });
         }
 
         [HttpGet("get-save-names")]
@@ -110,7 +118,11 @@ namespace ElectronFlowSim.API.Controllers
             };
 
             var result = await dBCommunicationClient.GetSaveAsync(getSaveRequest);
-            return Ok(result);
+            return Ok(new
+            {
+                Request = result,
+                Message = $"Загружено сохранение {result.SaveName} от {result.SaveDateTime}"
+            });
         }
     }
 }

@@ -34,10 +34,10 @@ public class ElectronFlowController : ControllerBase
 
         await _electronFlowService.DrawingFlow(inputDataDTO, requestId, connectionId);
 
-        return Ok(new
+        return Accepted(new
         {
             RequestId = requestId,
-            Message = "Processing started"
+            Message = "Процесс запущен."
         });
     }
 
@@ -47,7 +47,11 @@ public class ElectronFlowController : ControllerBase
         var grpcRequest = new FileRequest { Folderid = folderId };
         var grpcResponse = await _electronFlowGrpcClient.ParseFileAsync(grpcRequest);
 
-        return Ok(grpcResponse);
+        return Ok(new
+        {
+            Request = grpcResponse,
+            Message = "Результаты процесса получены."
+        });
     }
 
     [HttpPost("get-magnetic-fields")]
@@ -69,7 +73,11 @@ public class ElectronFlowController : ControllerBase
 
         var grpcResponse = await _magneticFieldsGrpcClient.GetMagneticFieldsFromFileAsync(grpcRequest);
 
-        return Ok(grpcResponse);
+        return Ok(new
+        {
+            Request = grpcResponse,
+            Message = "Данные подгружены."
+        });
     }
 
     [HttpPost("get-nzru-data")]
@@ -85,7 +93,11 @@ public class ElectronFlowController : ControllerBase
 
         var grpcResponse = await _magneticFieldsGrpcClient.GetNZRUTableDataFromFileAsync(grpcRequest);
 
-        return Ok(grpcResponse);
+        return Ok(new
+        {
+            Request = grpcResponse,
+            Message = "Данные подгружены."
+        });
     }
 
     [HttpPost("get-nl-data")]
@@ -101,6 +113,10 @@ public class ElectronFlowController : ControllerBase
 
         var grpcResponse = await _magneticFieldsGrpcClient.GetNLTableDataFromFileAsync(grpcRequest);
 
-        return Ok(grpcResponse);
+        return Ok(new
+        {
+            Request = grpcResponse,
+            Message = "Данные подгружены."
+        });
     }
 }
