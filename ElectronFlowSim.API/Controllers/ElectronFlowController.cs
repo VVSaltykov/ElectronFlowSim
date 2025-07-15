@@ -24,6 +24,12 @@ public class ElectronFlowController : ControllerBase
         _magneticFieldsGrpcClient = magneticFieldsGrpcClient;
     }
 
+    /// <summary>
+    /// Запуск .exe
+    /// </summary>
+    /// <param name="inputDataDTO"></param>
+    /// <param name="connectionId"></param>
+    /// <returns></returns>
     [HttpPost("drawing-flow")]
     public async Task<IActionResult> DrawingFlow([FromBody] InputDataDTO inputDataDTO,
         [FromHeader(Name = "X-Connection-ID")] string? connectionId = null)
@@ -41,6 +47,11 @@ public class ElectronFlowController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Получение результатов
+    /// </summary>
+    /// <param name="folderId"></param>
+    /// <returns></returns>
     [HttpGet("get-drawing-result")]
     public async Task<IActionResult> GetDrawingResult([FromQuery] string folderId)
     {
@@ -54,6 +65,11 @@ public class ElectronFlowController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Получение данных магнитных полей
+    /// </summary>
+    /// <param name="magneticFieldsDTO"></param>
+    /// <returns></returns>
     [HttpPost("get-magnetic-fields")]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> GetMagneticFields([FromForm] MagneticFieldsDTO magneticFieldsDTO)
@@ -80,6 +96,11 @@ public class ElectronFlowController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Получение данных для таблицы NZRU
+    /// </summary>
+    /// <param name="formFile"></param>
+    /// <returns></returns>
     [HttpPost("get-nzru-data")]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> GetNZRUData(IFormFile formFile)
@@ -100,6 +121,11 @@ public class ElectronFlowController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Получение данных для таблицы NL
+    /// </summary>
+    /// <param name="formFile"></param>
+    /// <returns></returns>
     [HttpPost("get-nl-data")]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> GetNLData(IFormFile formFile)

@@ -15,6 +15,14 @@ public class ElectronFlowService : IElectronFlowService
         _producerService = producerService;
         _txtFileService = txtFileService;
     }
+
+    /// <summary>
+    /// Отправка данных через Kafka для асинхронного запуска .exe
+    /// </summary>
+    /// <param name="inputDataDTO"></param>
+    /// <param name="requestId"></param>
+    /// <param name="connectionId"></param>
+    /// <returns></returns>
     public async Task DrawingFlow(InputDataDTO inputDataDTO, string requestId, string connectionId)
     {
         string fileContent = await _txtFileService.CreateInputFile(inputDataDTO);

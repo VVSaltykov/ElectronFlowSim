@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace ElectronFlowSim.DTO.AnalysisService;
 
+/// <summary>
+/// DTO для отправки входных данных в .exe
+/// </summary>
 public class InputDataDTO
 {
     /// <summary>

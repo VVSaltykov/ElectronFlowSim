@@ -2,6 +2,8 @@
 
 package electronflow;
 
+//Протобуфер для получения выходных данных
+
 service ElectronFlow {
   rpc ParseFile (FileRequest) returns (OutputDataResponse);
 }

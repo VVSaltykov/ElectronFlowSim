@@ -2,6 +2,9 @@
 
 namespace ElectronFlowSim.DTO.AnalysisService;
 
+/// <summary>
+/// DTO для получения выходных данных
+/// </summary>
 public class OutputDataDTO
 {
     public List<TrajectoryPoint> TrajectoryPoints { get; set; } = new();

@@ -2,6 +2,9 @@
 
 namespace ElectronFlowSim.AnalysisService.BackGroundServices;
 
+/// <summary>
+/// Настройка Kafka Consumer как внешний поток для постоянного прослушивания входящих сообщений
+/// </summary>
 public class KafkaBackgroundService : BackgroundService
 {
     private readonly IKafkaConsumerService _consumerService;

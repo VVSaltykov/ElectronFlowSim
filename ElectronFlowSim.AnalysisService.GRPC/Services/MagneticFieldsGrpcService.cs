@@ -10,6 +10,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services;
 
 public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
 {
+    /// <summary>
+    /// Получение данных для таблицы с магнитными полями из Excel
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<MagneticFieldsOutputResponse> GetMagneticFieldsFromFile(MagneticFieldsFileRequest request, ServerCallContext context)
     {
         using var memoryStream = new MemoryStream(request.FileContent.ToByteArray());
@@ -24,6 +30,12 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
         };
     }
 
+    /// <summary>
+    /// Получение данных для таблицы NZRU из Excel
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<NZRUTableDataOutputResponse> GetNZRUTableDataFromFile(NZRUTableDataFileRequest request, ServerCallContext context)
     {
         using var memoryStream = new MemoryStream(request.FileContent.ToByteArray());
@@ -50,6 +62,12 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
         return response;
     }
 
+    /// <summary>
+    /// Получение данных для таблицы NL из Excel
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<NLTableDataOutputResponse> GetNLTableDataFromFile(NLTableDataFileRequest request, ServerCallContext context)
     {
         using var memoryStream = new MemoryStream(request.FileContent.ToByteArray());
@@ -62,6 +80,14 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
         return outputResponse;
     }
 
+    /// <summary>
+    /// Парсер Excel файла с магнитными полями
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <param name="startPoint"></param>
+    /// <param name="endPoint"></param>
+    /// <param name="step"></param>
+    /// <returns></returns>
     private BMDataDTO ParseMagneticFieldsFromStream(Stream stream, double startPoint, double endPoint, double step)
     {
         try
@@ -163,6 +189,12 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
         }
     }
 
+    /// <summary>
+    /// Парсер Excel файла с данными для NZRU таблицы
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
     private List<NZRUTableDTO> ParseNZRUDataFromStream(Stream stream)
     {
         var workbook = new XSSFWorkbook(stream);
@@ -250,6 +282,11 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
         return result;
     }
 
+    /// <summary>
+    /// Парсер Excel файла с данными для таблицы NL
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <returns></returns>
     private NLTableDTO ParseNLDataFromStream(Stream stream)
     {
         var workbook = new XSSFWorkbook(stream);

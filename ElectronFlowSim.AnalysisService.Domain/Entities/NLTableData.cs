@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.AnalysisService.Domain.Entities
 {
+    /// <summary>
+    /// Данные для таблицы NL
+    /// </summary>
     public class NLTableData : Entity
     {
         public List<int> N { get; set; }

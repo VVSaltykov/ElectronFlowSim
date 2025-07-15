@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.DTO.API
 {
+    /// <summary>
+    /// DTO для получение магнитных полей
+    /// </summary>
     public class MagneticFieldsDTO
     {
         [Required]

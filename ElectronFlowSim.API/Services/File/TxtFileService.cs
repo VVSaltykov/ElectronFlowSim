@@ -6,6 +6,11 @@ namespace ElectronFlowSim.API.Services.File;
 
 public class TxtFileService : ITxtFileService
 {
+    /// <summary>
+    /// Создание входного файла для запуска .exe
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     public async Task<string> CreateInputFile(InputDataDTO input)
     {
         var sb = new StringBuilder();

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.AnalysisService.Data.EntityConfigurations
 {
+    /// <summary>
+    /// Конфигурация БД для входных данных 
+    /// </summary>
     public class InputDataConfiguration : IEntityTypeConfiguration<InputData>
     {
         public void Configure(EntityTypeBuilder<InputData> builder)

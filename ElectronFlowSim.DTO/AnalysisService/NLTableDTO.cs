@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.DTO.AnalysisService
 {
+    /// <summary>
+    /// DTO для данных таблицы NL
+    /// </summary>
     public class NLTableDTO
     {
         public List<int> N { get; set; }

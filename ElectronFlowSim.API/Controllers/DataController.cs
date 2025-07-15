@@ -18,6 +18,12 @@ namespace ElectronFlowSim.API.Controllers
             this.dBCommunicationClient = dBCommunicationClient;
         }
 
+        /// <summary>
+        /// Сохранение входных данных
+        /// </summary>
+        /// <param name="_inputDataDTO"></param>
+        /// <param name="saveName"></param>
+        /// <returns></returns>
         [HttpPost("save-data")]
         public async Task<IActionResult> CreateSave([FromBody] InputDataForSaveDTO _inputDataDTO, string saveName)
         {
@@ -90,6 +96,10 @@ namespace ElectronFlowSim.API.Controllers
             });
         }
 
+        /// <summary>
+        /// Получение последнего сохранения
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("get-last-save")]
         public async Task<IActionResult> GetLastSave()
         {
@@ -101,6 +111,10 @@ namespace ElectronFlowSim.API.Controllers
             });
         }
 
+        /// <summary>
+        /// Получение названий сохранений для выбора
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("get-save-names")]
         public async Task<IActionResult> GetSaveNames()
         {
@@ -115,6 +129,12 @@ namespace ElectronFlowSim.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Получение определенного сохранения
+        /// </summary>
+        /// <param name="saveName"></param>
+        /// <param name="saveDateTime"></param>
+        /// <returns></returns>
         [HttpGet("get-save")]
         public async Task<IActionResult> GetSave([FromQuery] string saveName, DateTime saveDateTime)
         {

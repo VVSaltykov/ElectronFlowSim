@@ -8,6 +8,9 @@
 using grpc = global::Grpc.Core;
 
 namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
+  /// <summary>
+  ///Функции для работы с БД
+  /// </summary>
   public static partial class DBCommunication
   {
     static readonly string __ServiceName = "DBCommunication";

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.AnalysisService.Domain.Entities
 {
+    /// <summary>
+    /// Данные для таблицы NZRU
+    /// </summary>
     public class NZRUTableData : Entity
     {
         public List<int> N { get; set; }

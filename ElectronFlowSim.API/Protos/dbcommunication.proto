@@ -4,6 +4,7 @@ option csharp_namespace = "ElectronFlowSim.AnalysisService.GRPC.Protos";
 
 import "google/protobuf/timestamp.proto";
 
+//Функции для работы с БД
 service DBCommunication {
   rpc CreateSave (InputDataDTO) returns (EmptyResponse);
   rpc GetLastSave (EmptyRequest) returns (InputDataDTO);

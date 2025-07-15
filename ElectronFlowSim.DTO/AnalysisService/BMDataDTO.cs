@@ -1,5 +1,8 @@
 ﻿namespace ElectronFlowSim.DTO.AnalysisService;
 
+/// <summary>
+/// DTO данных магнитных полей
+/// </summary>
 public class BMDataDTO
 {
     /// <summary>

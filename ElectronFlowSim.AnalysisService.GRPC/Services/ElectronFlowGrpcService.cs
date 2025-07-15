@@ -23,6 +23,13 @@ public class ElectronFlowGrpcService : ElectronFlow.ElectronFlowBase
         if (string.IsNullOrEmpty(_outFilePath))
             throw new InvalidOperationException("Excel file path is not configured.");
     }
+
+    /// <summary>
+    /// Получение данных из файла с выходными данными из .exe
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<OutputDataResponse> ParseFile(FileRequest request, ServerCallContext context)
     {
         OutputDataDTO parsed = await ParseOutputDataAsync(request.Folderid);
@@ -120,6 +127,12 @@ public class ElectronFlowGrpcService : ElectronFlow.ElectronFlowBase
         return response;
     }
 
+    /// <summary>
+    /// Парсер выходного файла
+    /// </summary>
+    /// <param name="folderId"></param>
+    /// <returns></returns>
+    /// <exception cref="RpcException"></exception>
     private async Task<OutputDataDTO> ParseOutputDataAsync(string folderId)
     {
         var path = Path.Combine($"{_outFilePath}/{folderId}", "out");

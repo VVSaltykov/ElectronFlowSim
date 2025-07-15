@@ -110,12 +110,20 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             }
         }
 
+        /// <summary>
+        /// Получение последнего времени сохранения
+        /// </summary>
+        /// <returns></returns>
         public async Task<DateTime?> GetMaxSaveDateTime()
         {
             var repository = unitOfWork.GetRepository<InputData>();
             return await repository.MaxAsync(x => x.SaveDateTime);
         }
 
+        /// <summary>
+        /// Получение имен сохранений
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<(string SaveName, DateTime? SaveDate)>?> GetSaveNames()
         {
             var repository = unitOfWork.GetRepository<InputData>();
@@ -124,6 +132,13 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             return data.Select(x => (x.SaveName, x.SaveDateTime)).ToList();
         }
 
+
+        /// <summary>
+        /// Получение сохранения
+        /// </summary>
+        /// <param name="saveName"></param>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
         public async Task<InputData> GetSaveData(string saveName, DateTime dateTime)
         {
             var repository = unitOfWork.GetRepository<InputData>();

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.DTO.AnalysisService
 {
+    /// <summary>
+    /// DTO для данных таблицы NZRU
+    /// </summary>
     public class NZRUTableDTO
     {
         public WorkpieceType WorkpieceType { get; set; }

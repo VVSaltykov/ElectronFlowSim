@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.DTO.AnalysisService
 {
+    /// <summary>
+    /// DTO для сохранения входных данных
+    /// </summary>
     public class InputDataForSaveDTO
     {
         /// <summary>

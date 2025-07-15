@@ -4,7 +4,10 @@ using ElectronFlowSim.DTO.AnalysisService;
 
 namespace ElectronFlowSim.AnalysisService.Common.Mappers
 {
-    public class InputDataMapperConfiguration : Profile
+    /// <summary>
+    /// Маппер сохранения входных данных 
+    /// </summary>
+    public class InputDataMapperConfiguration : Profile //TODO:разнести по разным конфигурациям
     {
         public InputDataMapperConfiguration()
         {
@@ -12,7 +15,7 @@ namespace ElectronFlowSim.AnalysisService.Common.Mappers
 
             CreateMap<InputData, InputDataDTO>();
 
-            CreateMap<NZRUTableDTO, NZRUTableData>()
+            CreateMap<NZRUTableDTO, NZRUTableData>() 
                 .ForMember(dest => dest.N, opt => opt.MapFrom(src => src.N))
                 .ForMember(dest => dest.Z, opt => opt.MapFrom(src => src.Z))
                 .ForMember(dest => dest.R, opt => opt.MapFrom(src => src.R))

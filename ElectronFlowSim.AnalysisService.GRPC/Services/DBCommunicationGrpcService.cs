@@ -19,6 +19,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
             this.inputDataRepository = inputDataRepository;
         }
 
+        /// <summary>
+        /// Создание сохранения входных данных
+        /// </summary>
+        /// <param name="_inputDataDTO"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override async Task<EmptyResponse> CreateSave(Protos.InputDataDTO _inputDataDTO, ServerCallContext context)
         {
             var inputDataDTO = new DTO.AnalysisService.InputDataForSaveDTO
@@ -82,6 +88,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
             return new EmptyResponse();
         }
 
+        /// <summary>
+        /// Получение последнего сохранения
+        /// </summary>
+        /// <param name="emptyRequest"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override async Task<Protos.InputDataDTO> GetLastSave(EmptyRequest emptyRequest, ServerCallContext context)
         {
             var maxDate = await inputDataRepository.GetMaxSaveDateTime();
@@ -148,6 +160,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
             return _inputDataDTO;
         }
 
+        /// <summary>
+        /// Получение всех созданных сохранений
+        /// </summary>
+        /// <param name="emptyRequest"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override async Task<SaveNames> GetSaveNames(EmptyRequest emptyRequest, ServerCallContext context)
         {
             var saveData = await inputDataRepository.GetSaveNames();
@@ -172,6 +190,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
             return response;
         }
 
+        /// <summary>
+        /// Получение определенного сохранения
+        /// </summary>
+        /// <param name="getSaveRequest"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override async Task<SaveData> GetSave(GetSaveRequest getSaveRequest, ServerCallContext context)
         {
             var result = await inputDataRepository.GetSaveData(getSaveRequest.SaveName, getSaveRequest.SaveDateTime.ToDateTime());

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.AnalysisService.Domain.Enum
 {
+    /// <summary>
+    /// Тип устройства
+    /// </summary>
     public enum WorkpieceType
     {
         Cathode,

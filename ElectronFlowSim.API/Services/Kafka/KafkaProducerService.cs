@@ -3,6 +3,9 @@ using Confluent.Kafka;
 
 namespace ElectronFlowSim.API.Services.Kafka;
 
+/// <summary>
+/// Настройка Kafka Producer
+/// </summary>
 public class KafkaProducerService : IKafkaProducerService, IDisposable
 {
     private readonly IProducer<string, string> _producer;
@@ -31,6 +34,13 @@ public class KafkaProducerService : IKafkaProducerService, IDisposable
         await ProduceRawAsync(topic, key, value);
     }
 
+    /// <summary>
+    /// Отправка сообщения в топик
+    /// </summary>
+    /// <param name="topic"></param>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public async Task ProduceRawAsync(string topic, string key, string value)
     {
         try

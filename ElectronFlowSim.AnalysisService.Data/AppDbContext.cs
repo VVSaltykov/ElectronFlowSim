@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ElectronFlowSim.AnalysisService.Data
 {
+    /// <summary>
+    /// БД контекст
+    /// </summary>
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)

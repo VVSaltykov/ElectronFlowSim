@@ -4,6 +4,8 @@ package electronflow;
 
 import "google/protobuf/empty.proto";
 
+// Протобуфер для получения данных из загружаемых Excel файлов
+
 service MagneticFields {
   rpc GetMagneticFieldsFromFile (MagneticFieldsFileRequest) returns (MagneticFieldsOutputResponse);
   rpc GetNZRUTableDataFromFile (NZRUTableDataFileRequest) returns (NZRUTableDataOutputResponse);
