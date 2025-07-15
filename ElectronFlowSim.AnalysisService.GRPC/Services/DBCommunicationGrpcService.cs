@@ -3,6 +3,7 @@ using ElectronFlowSim.AnalysisService.Domain.Entities;
 using ElectronFlowSim.AnalysisService.GRPC.Protos;
 using ElectronFlowSim.DTO.AnalysisService;
 using ElectronFlowSim.DTO.AnalysisService.Enum;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -58,7 +59,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                     var tableDto = new NZRUTableDTO
                     {
                         U = electrode.U,
-                        WorkpieceType = Enum.Parse<WorkpieceType>(electrode.WorkpieceType),
+                        WorkpieceType = System.Enum.Parse<WorkpieceType>(electrode.WorkpieceType),
                         N = electrode.N.ToList(),
                         Z = electrode.Z.ToList(),
                         R = electrode.R.ToList()
@@ -149,13 +150,26 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
 
         public override async Task<SaveNames> GetSaveNames(EmptyRequest emptyRequest, ServerCallContext context)
         {
-            var saveNames = await inputDataRepository.GetSaveNames();
+            var saveData = await inputDataRepository.GetSaveNames();
 
-            var data = new SaveNames();
+            var response = new SaveNames();
 
-            data.Names.AddRange(saveNames);
+            if (saveData != null)
+            {
+                foreach (var item in saveData)
+                {
+                    var saveInfo = new SaveInfo
+                    {
+                        Name = item.SaveName,
+                        SaveDateTime = item.SaveDate.HasValue
+                            ? Timestamp.FromDateTime(item.SaveDate.Value.ToUniversalTime())
+                            : null
+                    };
+                    response.Items.Add(saveInfo);
+                }
+            }
 
-            return data;
+            return response;
         }
 
         public override async Task<SaveData> GetSave(GetSaveRequest getSaveRequest, ServerCallContext context)

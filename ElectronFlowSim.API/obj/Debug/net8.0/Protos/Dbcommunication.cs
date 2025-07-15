@@ -34,36 +34,39 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
             "EgwKBGFrbDEYECABKAESCgoCdTAYESABKAESDgoGdWVrdmlwGBIgAygBEg0K",
             "BWJub3JtGBMgASgBEgsKA2FibRgUIAEoARIKCgJibRgVIAMoARILCgNhaWsY",
             "FiADKAESCgoCaHQYFyABKAESCgoCZHoYGCABKAESDAoEZHRvaxgZIAEoARIL",
-            "CgNocTEYGiABKAESDAoEYXIxcxgbIAEoARIQCghzYXZlTmFtZRgcIAEoCSIa",
-            "CglTYXZlTmFtZXMSDQoFbmFtZXMYASADKAkiVAoOR2V0U2F2ZVJlcXVlc3QS",
-            "EAoIc2F2ZU5hbWUYASABKAkSMAoMc2F2ZURhdGVUaW1lGAIgASgLMhouZ29v",
-            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcCLZAwoIU2F2ZURhdGESCgoCaWcYASAB",
-            "KAUSDAoEbm1hcxgCIAEoBRIKCgJrbRgDIAEoBRIKCgJrcBgEIAEoBRIKCgJr",
-            "cRgFIAEoBRIMCgRrcGo2GAYgASgFEgoKAmlrGAcgASgFEgoKAmoxGAggASgF",
-            "EgsKA2ljchgJIAEoBRILCgNqY3IYCiABKAUSIAoIbnpydURhdGEYCyABKAsy",
-            "Di5OWlJVVGFibGVEYXRhEiEKC25sVGFibGVEYXRhGAwgASgLMgwuTkxUYWJs",
-            "ZURhdGESCgoCcmsYDSABKAESDAoEdXRlcBgOIAEoARIMCgR6a29uGA8gASgB",
-            "EgwKBGFrbDEYECABKAESCgoCdTAYESABKAESDgoGdWVrdmlwGBIgAygBEg0K",
-            "BWJub3JtGBMgASgBEgsKA2FibRgUIAEoARIKCgJibRgVIAMoARILCgNhaWsY",
-            "FiADKAESCgoCaHQYFyABKAESCgoCZHoYGCABKAESDAoEZHRvaxgZIAEoARIL",
-            "CgNocTEYGiABKAESDAoEYXIxcxgbIAEoARIQCghzYXZlTmFtZRgcIAEoCRIw",
-            "CgxzYXZlRGF0ZVRpbWUYHSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wIjMKDU5aUlVUYWJsZURhdGESIgoKZWxlY3Ryb2RlcxgBIAMoCzIOLkVs",
-            "ZWN0cm9kZURhdGEiUgoNRWxlY3Ryb2RlRGF0YRIJCgFuGAEgAygFEgkKAXoY",
-            "AiADKAESCQoBchgDIAMoARIJCgF1GAQgASgBEhUKDXdvcmtwaWVjZVR5cGUY",
-            "BSABKAkiIwoLTkxUYWJsZURhdGESCQoBbhgBIAMoBRIJCgFsGAIgAygFIg8K",
-            "DUVtcHR5UmVzcG9uc2UiDgoMRW1wdHlSZXF1ZXN0Mr0BCg9EQkNvbW11bmlj",
-            "YXRpb24SKwoKQ3JlYXRlU2F2ZRINLklucHV0RGF0YURUTxoOLkVtcHR5UmVz",
-            "cG9uc2USKwoLR2V0TGFzdFNhdmUSDS5FbXB0eVJlcXVlc3QaDS5JbnB1dERh",
-            "dGFEVE8SKQoMR2V0U2F2ZU5hbWVzEg0uRW1wdHlSZXF1ZXN0GgouU2F2ZU5h",
-            "bWVzEiUKB0dldFNhdmUSDy5HZXRTYXZlUmVxdWVzdBoJLlNhdmVEYXRhQi6q",
-            "AitFbGVjdHJvbkZsb3dTaW0uQW5hbHlzaXNTZXJ2aWNlLkdSUEMuUHJvdG9z",
-            "YgZwcm90bzM="));
+            "CgNocTEYGiABKAESDAoEYXIxcxgbIAEoARIQCghzYXZlTmFtZRgcIAEoCSJK",
+            "CghTYXZlSW5mbxIMCgRuYW1lGAEgASgJEjAKDHNhdmVEYXRlVGltZRgCIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiJQoJU2F2ZU5hbWVzEhgK",
+            "BWl0ZW1zGAEgAygLMgkuU2F2ZUluZm8iVAoOR2V0U2F2ZVJlcXVlc3QSEAoI",
+            "c2F2ZU5hbWUYASABKAkSMAoMc2F2ZURhdGVUaW1lGAIgASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcCLZAwoIU2F2ZURhdGESCgoCaWcYASABKAUS",
+            "DAoEbm1hcxgCIAEoBRIKCgJrbRgDIAEoBRIKCgJrcBgEIAEoBRIKCgJrcRgF",
+            "IAEoBRIMCgRrcGo2GAYgASgFEgoKAmlrGAcgASgFEgoKAmoxGAggASgFEgsK",
+            "A2ljchgJIAEoBRILCgNqY3IYCiABKAUSIAoIbnpydURhdGEYCyABKAsyDi5O",
+            "WlJVVGFibGVEYXRhEiEKC25sVGFibGVEYXRhGAwgASgLMgwuTkxUYWJsZURh",
+            "dGESCgoCcmsYDSABKAESDAoEdXRlcBgOIAEoARIMCgR6a29uGA8gASgBEgwK",
+            "BGFrbDEYECABKAESCgoCdTAYESABKAESDgoGdWVrdmlwGBIgAygBEg0KBWJu",
+            "b3JtGBMgASgBEgsKA2FibRgUIAEoARIKCgJibRgVIAMoARILCgNhaWsYFiAD",
+            "KAESCgoCaHQYFyABKAESCgoCZHoYGCABKAESDAoEZHRvaxgZIAEoARILCgNo",
+            "cTEYGiABKAESDAoEYXIxcxgbIAEoARIQCghzYXZlTmFtZRgcIAEoCRIwCgxz",
+            "YXZlRGF0ZVRpbWUYHSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "IjMKDU5aUlVUYWJsZURhdGESIgoKZWxlY3Ryb2RlcxgBIAMoCzIOLkVsZWN0",
+            "cm9kZURhdGEiUgoNRWxlY3Ryb2RlRGF0YRIJCgFuGAEgAygFEgkKAXoYAiAD",
+            "KAESCQoBchgDIAMoARIJCgF1GAQgASgBEhUKDXdvcmtwaWVjZVR5cGUYBSAB",
+            "KAkiIwoLTkxUYWJsZURhdGESCQoBbhgBIAMoBRIJCgFsGAIgAygFIg8KDUVt",
+            "cHR5UmVzcG9uc2UiDgoMRW1wdHlSZXF1ZXN0Mr0BCg9EQkNvbW11bmljYXRp",
+            "b24SKwoKQ3JlYXRlU2F2ZRINLklucHV0RGF0YURUTxoOLkVtcHR5UmVzcG9u",
+            "c2USKwoLR2V0TGFzdFNhdmUSDS5FbXB0eVJlcXVlc3QaDS5JbnB1dERhdGFE",
+            "VE8SKQoMR2V0U2F2ZU5hbWVzEg0uRW1wdHlSZXF1ZXN0GgouU2F2ZU5hbWVz",
+            "EiUKB0dldFNhdmUSDy5HZXRTYXZlUmVxdWVzdBoJLlNhdmVEYXRhQi6qAitF",
+            "bGVjdHJvbkZsb3dTaW0uQW5hbHlzaXNTZXJ2aWNlLkdSUEMuUHJvdG9zYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO), global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO.Parser, new[]{ "Ig", "Nmas", "Km", "Kp", "Kq", "Kpj6", "Ik", "J1", "Icr", "Jcr", "NzruData", "NlTableData", "Rk", "Utep", "Zkon", "Akl1", "U0", "Uekvip", "Bnorm", "Abm", "Bm", "Aik", "Ht", "Dz", "Dtok", "Hq1", "Ar1S", "SaveName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames), global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames.Parser, new[]{ "Names" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo), global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo.Parser, new[]{ "Name", "SaveDateTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames), global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveNames.Parser, new[]{ "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest), global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest.Parser, new[]{ "SaveName", "SaveDateTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData), global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData.Parser, new[]{ "Ig", "Nmas", "Km", "Kp", "Kq", "Kpj6", "Ik", "J1", "Icr", "Jcr", "NzruData", "NlTableData", "Rk", "Utep", "Zkon", "Akl1", "U0", "Uekvip", "Bnorm", "Abm", "Bm", "Aik", "Ht", "Dz", "Dtok", "Hq1", "Ar1S", "SaveName", "SaveDateTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData), global::ElectronFlowSim.AnalysisService.GRPC.Protos.NZRUTableData.Parser, new[]{ "Electrodes" }, null, null, null, null),
@@ -1335,16 +1338,16 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class SaveNames : pb::IMessage<SaveNames>
+  public sealed partial class SaveInfo : pb::IMessage<SaveInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SaveNames> _parser = new pb::MessageParser<SaveNames>(() => new SaveNames());
+    private static readonly pb::MessageParser<SaveInfo> _parser = new pb::MessageParser<SaveInfo>(() => new SaveInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SaveNames> Parser { get { return _parser; } }
+    public static pb::MessageParser<SaveInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1360,7 +1363,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SaveNames() {
+    public SaveInfo() {
       OnConstruction();
     }
 
@@ -1368,44 +1371,59 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SaveNames(SaveNames other) : this() {
-      names_ = other.names_.Clone();
+    public SaveInfo(SaveInfo other) : this() {
+      name_ = other.name_;
+      saveDateTime_ = other.saveDateTime_ != null ? other.saveDateTime_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SaveNames Clone() {
-      return new SaveNames(this);
+    public SaveInfo Clone() {
+      return new SaveInfo(this);
     }
 
-    /// <summary>Field number for the "names" field.</summary>
-    public const int NamesFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_names_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> names_ = new pbc::RepeatedField<string>();
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<string> Names {
-      get { return names_; }
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "saveDateTime" field.</summary>
+    public const int SaveDateTimeFieldNumber = 2;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp saveDateTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SaveDateTime {
+      get { return saveDateTime_; }
+      set {
+        saveDateTime_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SaveNames);
+      return Equals(other as SaveInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SaveNames other) {
+    public bool Equals(SaveInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!names_.Equals(other.names_)) return false;
+      if (Name != other.Name) return false;
+      if (!object.Equals(SaveDateTime, other.SaveDateTime)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1413,7 +1431,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= names_.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (saveDateTime_ != null) hash ^= SaveDateTime.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1432,7 +1451,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      names_.WriteTo(output, _repeated_names_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (saveDateTime_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SaveDateTime);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1443,7 +1469,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      names_.WriteTo(ref output, _repeated_names_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (saveDateTime_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SaveDateTime);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1454,7 +1487,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += names_.CalculateSize(_repeated_names_codec);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (saveDateTime_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SaveDateTime);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1463,11 +1501,19 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SaveNames other) {
+    public void MergeFrom(SaveInfo other) {
       if (other == null) {
         return;
       }
-      names_.Add(other.names_);
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.saveDateTime_ != null) {
+        if (saveDateTime_ == null) {
+          SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SaveDateTime.MergeFrom(other.SaveDateTime);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1488,7 +1534,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            names_.AddEntriesFrom(input, _repeated_names_codec);
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (saveDateTime_ == null) {
+              SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SaveDateTime);
             break;
           }
         }
@@ -1511,7 +1564,201 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            names_.AddEntriesFrom(ref input, _repeated_names_codec);
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (saveDateTime_ == null) {
+              SaveDateTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SaveDateTime);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SaveNames : pb::IMessage<SaveNames>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SaveNames> _parser = new pb::MessageParser<SaveNames>(() => new SaveNames());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SaveNames> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveNames() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveNames(SaveNames other) : this() {
+      items_ = other.items_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SaveNames Clone() {
+      return new SaveNames(this);
+    }
+
+    /// <summary>Field number for the "items" field.</summary>
+    public const int ItemsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo.Parser);
+    private readonly pbc::RepeatedField<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo> items_ = new pbc::RepeatedField<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveInfo> Items {
+      get { return items_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SaveNames);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SaveNames other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!items_.Equals(other.items_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= items_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      items_.WriteTo(output, _repeated_items_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      items_.WriteTo(ref output, _repeated_items_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += items_.CalculateSize(_repeated_items_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SaveNames other) {
+      if (other == null) {
+        return;
+      }
+      items_.Add(other.items_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            items_.AddEntriesFrom(input, _repeated_items_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            items_.AddEntriesFrom(ref input, _repeated_items_codec);
             break;
           }
         }
@@ -1536,7 +1783,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[2]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1780,7 +2027,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[3]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3014,7 +3261,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[4]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3201,7 +3448,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[5]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3520,7 +3767,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[6]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3737,7 +3984,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[7]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3898,7 +4145,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[8]; }
+      get { return global::ElectronFlowSim.AnalysisService.GRPC.Protos.DbcommunicationReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

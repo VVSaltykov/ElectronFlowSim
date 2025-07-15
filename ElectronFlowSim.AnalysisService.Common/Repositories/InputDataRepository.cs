@@ -116,12 +116,12 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             return await repository.MaxAsync(x => x.SaveDateTime);
         }
 
-        public async Task<List<string>?> GetSaveNames()
+        public async Task<List<(string SaveName, DateTime? SaveDate)>?> GetSaveNames()
         {
             var repository = unitOfWork.GetRepository<InputData>();
             var data = repository.GetAll(trackingType: TrackingType.NoTracking).ToList();
 
-            return data.Select(x => x.SaveName).ToList();
+            return data.Select(x => (x.SaveName, x.SaveDateTime)).ToList();
         }
 
         public async Task<InputData> GetSaveData(string saveName, DateTime dateTime)
