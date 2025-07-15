@@ -4,6 +4,7 @@ using ElectronFlowSim.DTO.AnalysisService.Enum;
 using Grpc.Core;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using System.Globalization;
 
 namespace ElectronFlowSim.AnalysisService.GRPC.Services;
 
@@ -81,22 +82,78 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
 
                 if (zCell == null || b0Cell == null) continue;
 
-                double z = zCell.NumericCellValue;
-                double b0 = b0Cell.NumericCellValue;
+                double z = GetCellDoubleValue(zCell);
+                double b0 = GetCellDoubleValue(b0Cell);
 
                 data.Add((z, b0));
             }
 
             var filteredData = data
                 .Where(d => d.z >= startPoint && d.z <= endPoint)
-                .Where((d, index) => index % (int)(step * 10) == 0)
                 .OrderBy(d => d.z)
                 .ToList();
 
+            if (step == 0.1)
+            {
+                return new BMDataDTO
+                {
+                    z = filteredData.Select(d => d.z).ToList(),
+                    bm = filteredData.Select(d => d.b0).ToList(),
+                    bnorm = bnorm
+                };
+            }
+
+            var interpolatedData = new List<(double z, double b0)>();
+            double currentZ = startPoint;
+            double epsilon = 1e-6;
+
+            int maxIterations = 100000;
+            int iterations = 0;
+
+            while (currentZ <= endPoint + epsilon && iterations < maxIterations)
+            {
+                Console.WriteLine($"Start: {startPoint}, End: {endPoint}, Step: {step}");
+
+                iterations++;
+
+                var nextPoint = filteredData.FirstOrDefault(d => d.z >= currentZ - epsilon);
+                var prevPoint = filteredData.LastOrDefault(d => d.z <= currentZ + epsilon);
+
+                double interpolatedB0;
+
+                if (nextPoint.Equals(default((double, double))))
+                {
+                    interpolatedB0 = prevPoint.b0;
+                }
+                else if (prevPoint.Equals(default((double, double))))
+                {
+                    interpolatedB0 = nextPoint.b0;
+                }
+                else if (Math.Abs(nextPoint.z - prevPoint.z) < epsilon)
+                {
+                    interpolatedB0 = nextPoint.b0;
+                }
+                else
+                {
+                    double weight = (currentZ - prevPoint.z) / (nextPoint.z - prevPoint.z);
+                    interpolatedB0 = prevPoint.b0 + weight * (nextPoint.b0 - prevPoint.b0);
+                }
+
+                interpolatedData.Add((Math.Round(currentZ, 3), interpolatedB0));
+
+                currentZ += step;
+                currentZ = Math.Round(currentZ, 3);
+            }
+
+            if (iterations == maxIterations)
+            {
+                throw new Exception("Интерполяция зациклилась — проверь входные параметры.");
+            }
+
             return new BMDataDTO
             {
-                z = filteredData.Select(d => d.z).ToList(),
-                bm = filteredData.Select(d => d.b0).ToList(),
+                z = interpolatedData.Select(d => d.z).ToList(),
+                bm = interpolatedData.Select(d => d.b0).ToList(),
                 bnorm = bnorm
             };
         }
@@ -262,5 +319,33 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
         }
 
         return null;
+    }
+
+    private double GetCellDoubleValue(ICell cell)
+    {
+        if (cell == null)
+            return 0;
+
+        try
+        {
+            if (cell.CellType == CellType.Numeric)
+            {
+                return cell.NumericCellValue;
+            }
+            else if (cell.CellType == CellType.String)
+            {
+                var value = cell.StringCellValue.Replace(',', '.');
+                if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out double result))
+                    return result;
+            }
+            else if (cell.CellType == CellType.Formula)
+            {
+                if (cell.CachedFormulaResultType == CellType.Numeric)
+                    return cell.NumericCellValue;
+            }
+        }
+        catch { }
+
+        return 0;
     }
 }
