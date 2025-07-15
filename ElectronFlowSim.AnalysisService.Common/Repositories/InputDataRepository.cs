@@ -27,11 +27,22 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             {
                 var inputData = mapper.Map<InputData>(entity);
 
-                var repository = unitOfWork.GetRepository<InputData>();
+                var nlTableDataRepository = unitOfWork.GetRepository<NLTableData>();
+
+                await nlTableDataRepository.InsertAsync(inputData.NLTableData);
+
+                var nzruTableDataRepository = unitOfWork.GetRepository<NZRUTableData>();
+
+                foreach (var nzruTableData in inputData.NZRUTableDatas)
+                {
+                    await nzruTableDataRepository.InsertAsync(nzruTableData);
+                }
+
+                var inputDataRepository = unitOfWork.GetRepository<InputData>();
 
                 inputData.SaveDateTime = DateTime.UtcNow;
 
-                await repository.InsertAsync(inputData);
+                await inputDataRepository.InsertAsync(inputData);
 
                 await unitOfWork.SaveChangesAsync();
             }
