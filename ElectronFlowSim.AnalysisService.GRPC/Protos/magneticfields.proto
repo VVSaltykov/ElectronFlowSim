@@ -31,6 +31,7 @@ message NZRUTableDataFileRequest {
 
 message NZRUTableDataOutputResponse {
     repeated ElectrodeData electrodes = 1;
+    double maxU = 2;
 }
 
 message ElectrodeData {

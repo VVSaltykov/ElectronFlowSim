@@ -26,26 +26,27 @@ message MagneticFieldsOutputResponse {
 }
 
 message NZRUTableDataFileRequest {
-	bytes fileContent = 1;
+  bytes fileContent = 1;
 }
 
 message NZRUTableDataOutputResponse {
-    repeated ElectrodeData electrodes = 1;
+  repeated ElectrodeData electrodes = 1;
+  double maxU = 2;
 }
 
 message ElectrodeData {
-    repeated int32 n = 1;      
-    repeated double z = 2;     
-    repeated double r = 3;     
-    double u = 4;              
-    string workpieceType = 5;   
+  repeated int32 n = 1;
+  repeated double z = 2;
+  repeated double r = 3;
+  double u = 4;
+  string workpieceType = 5;
 }
 
 message NLTableDataFileRequest {
-	bytes fileContent = 1;
+  bytes fileContent = 1;
 }
 
 message NLTableDataOutputResponse {
-    repeated int32 n = 1; 
-    repeated int32 l = 2;
+  repeated int32 n = 1;
+  repeated int32 l = 2;
 }
