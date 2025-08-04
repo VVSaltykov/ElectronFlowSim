@@ -14,7 +14,9 @@
 /ElectronFlowSim.API/obj
 /ElectronFlowSim.API/bin/Debug/net8.0
 /ElectronFlowSim.AnalysisService.Data
-/ElectronFlowSim.AnalysisService.Domain
 /ElectronFlowSim.AnalysisService.GRPC/bin/Debug/net8.0
 /ElectronFlowSim.AnalysisService.GRPC/obj/Debug/net8.0
 /ElectronFlowSim.AnalysisService.GRPC/obj
+/ElectronFlowSim.AnalysisService.Domain/bin/Debug/net8.0
+/ElectronFlowSim.AnalysisService.Domain/obj/Debug/net8.0
+/ElectronFlowSim.AnalysisService.Domain/obj

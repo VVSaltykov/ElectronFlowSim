@@ -44,19 +44,18 @@ namespace ElectronFlowSim.API.Controllers
                 Zkon = _inputDataDTO.zkon,
                 Akl1 = _inputDataDTO.akl1,
                 U0 = _inputDataDTO.u0,
-                Bnorm = _inputDataDTO.bnorm,
                 Abm = _inputDataDTO.abm,
                 Ht = _inputDataDTO.ht,
                 Dz = _inputDataDTO.dz,
                 Dtok = _inputDataDTO.dtok,
                 Hq1 = _inputDataDTO.hq1,
                 Ar1S = _inputDataDTO.ar1s,
-                SaveName = saveName
+                SaveName = saveName,
+                Nl = _inputDataDTO.nl,
             };
 
 
             inputDataDTO.Uekvip.AddRange(_inputDataDTO.uekvip);
-            inputDataDTO.Bm.AddRange(_inputDataDTO.bm);
             inputDataDTO.Aik.AddRange(_inputDataDTO.aik);
 
             if (_inputDataDTO.NZRUTableDatas != null && _inputDataDTO.NZRUTableDatas.Any())
@@ -85,6 +84,15 @@ namespace ElectronFlowSim.API.Controllers
                 nlTableData.N.AddRange(_inputDataDTO.NLTableData.N ?? new List<int>());
                 nlTableData.L.AddRange(_inputDataDTO.NLTableData.L ?? new List<int>());
                 inputDataDTO.NlTableData = nlTableData;
+            }
+
+            if (_inputDataDTO.BMTableData != null)
+            {
+                var bmTableData = new BMTableData();
+                bmTableData.Z.AddRange(_inputDataDTO.BMTableData.z ?? new List<double>());
+                bmTableData.Bm.AddRange(_inputDataDTO.BMTableData.bm ?? new List<double>());
+                bmTableData.Bnorm = _inputDataDTO.BMTableData.bnorm;
+                inputDataDTO.BmTableData = bmTableData;
             }
 
             var grpcResponse = await dBCommunicationClient.CreateSaveAsync(inputDataDTO);
@@ -149,6 +157,23 @@ namespace ElectronFlowSim.API.Controllers
             {
                 Request = result,
                 Message = $"Загружено сохранение {result.SaveName} от {result.SaveDateTime}"
+            });
+        }
+
+        [HttpDelete("delete-save")]
+        public async Task<IActionResult> DeleteSave([FromQuery] string saveName, DateTime saveDateTime)
+        {
+            var deleteSaveRequest = new AnalysisService.GRPC.Protos.DeleteSaveRequest
+            {
+                SaveName = saveName,
+                SaveDateTime = saveDateTime.ToTimestamp()
+            };
+
+            await dBCommunicationClient.DeleteSaveAsync(deleteSaveRequest);
+
+            return Ok(new
+            {
+                Message = $"Сохранение удалено"
             });
         }
     }

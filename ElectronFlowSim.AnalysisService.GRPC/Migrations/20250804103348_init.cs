@@ -13,6 +13,20 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "BMTableData",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Z = table.Column<List<double>>(type: "double precision[]", nullable: false),
+                    Bm = table.Column<List<double>>(type: "double precision[]", nullable: false),
+                    bnorm = table.Column<double>(type: "double precision", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BMTableData", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NLTableDatas",
                 columns: table => new
                 {
@@ -53,6 +67,7 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                     kq = table.Column<int>(type: "integer", nullable: false),
                     kpj6 = table.Column<int>(type: "integer", nullable: false),
                     ik = table.Column<int>(type: "integer", nullable: false),
+                    nl = table.Column<int>(type: "integer", nullable: false),
                     j1 = table.Column<int>(type: "integer", nullable: false),
                     icr = table.Column<int>(type: "integer", nullable: false),
                     jcr = table.Column<int>(type: "integer", nullable: false),
@@ -63,9 +78,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                     akl1 = table.Column<double>(type: "double precision", nullable: false),
                     u0 = table.Column<double>(type: "double precision", nullable: false),
                     uekvip = table.Column<double[]>(type: "double precision[]", nullable: false),
-                    bnorm = table.Column<double>(type: "double precision", nullable: false),
                     abm = table.Column<double>(type: "double precision", nullable: false),
-                    bm = table.Column<double[]>(type: "double precision[]", nullable: false),
+                    BMTableDataId = table.Column<Guid>(type: "uuid", nullable: false),
                     aik = table.Column<double[]>(type: "double precision[]", nullable: false),
                     ht = table.Column<double>(type: "double precision", nullable: false),
                     dz = table.Column<double>(type: "double precision", nullable: false),
@@ -78,6 +92,12 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_InputDatas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_InputDatas_BMTableData_BMTableDataId",
+                        column: x => x.BMTableDataId,
+                        principalTable: "BMTableData",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_InputDatas_NLTableDatas_NLTableDataId",
                         column: x => x.NLTableDataId,
@@ -116,6 +136,11 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                 column: "NZRUTableDatasId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_InputDatas_BMTableDataId",
+                table: "InputDatas",
+                column: "BMTableDataId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_InputDatas_NLTableDataId",
                 table: "InputDatas",
                 column: "NLTableDataId");
@@ -132,6 +157,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
 
             migrationBuilder.DropTable(
                 name: "NZRUTableDatas");
+
+            migrationBuilder.DropTable(
+                name: "BMTableData");
 
             migrationBuilder.DropTable(
                 name: "NLTableDatas");

@@ -10,6 +10,7 @@ service DBCommunication {
   rpc GetLastSave (EmptyRequest) returns (InputDataDTO);
   rpc GetSaveNames (EmptyRequest) returns (SaveNames);
   rpc GetSave (GetSaveRequest) returns (SaveData);
+  rpc DeleteSave (DeleteSaveRequest) returns (EmptyResponse);
 }
 
 message InputDataDTO {
@@ -64,32 +65,31 @@ message InputDataDTO {
   // массив эквипотенциалов
   repeated double uekvip = 18;
   
-  // нормирующее магнитное поле
-  double bnorm = 19;
-  
   // кэоффициент корректировки магнитного поля
-  double abm = 20;
+  double abm = 19;
   
   // массив значений магнитных полей
-  repeated double bm = 21;
+  BMTableData bmTableData = 20;
   
   // массив значений тока режим заданного тока
-  repeated double aik = 22;
+  repeated double aik = 21;
   
   // шаг интегрирования по времени
-  double ht = 23;
+  double ht = 22;
   
   // расстояние от точек старта до поверхности
-  double dz = 24;
+  double dz = 23;
   
   // расстояние от катода до поверхности, где ток считается по закону 3/2
-  double dtok = 25;
+  double dtok = 24;
   
-  double hq1 = 26;
+  double hq1 = 25;
   
-  double ar1s = 27;
+  double ar1s = 26;
 
-  string saveName = 28;
+  string saveName = 27;
+
+  int32 nl = 28;
 }
 
 message SaveInfo {
@@ -102,6 +102,11 @@ message SaveNames {
 }
 
 message GetSaveRequest {
+  string saveName = 1;
+  google.protobuf.Timestamp saveDateTime = 2;
+}
+
+message DeleteSaveRequest {
   string saveName = 1;
   google.protobuf.Timestamp saveDateTime = 2;
 }
@@ -125,17 +130,17 @@ message SaveData{
     double akl1 = 16;
     double u0 = 17;
     repeated double uekvip = 18;
-    double bnorm = 19;
-    double abm = 20;
-    repeated double bm = 21;
-    repeated double aik = 22;
-    double ht = 23;
-    double dz = 24;
-    double dtok = 25;
-    double hq1 = 26;
-    double ar1s = 27;
-    string saveName = 28;
-    google.protobuf.Timestamp saveDateTime = 29;
+    double abm = 19;
+    BMTableData bmTableData = 20;
+    repeated double aik = 21;
+    double ht = 22;
+    double dz = 23;
+    double dtok = 24;
+    double hq1 = 25;
+    double ar1s = 26;
+    string saveName = 27;
+    google.protobuf.Timestamp saveDateTime = 28;
+    int32 nl = 29;
 } 
 
 message NZRUTableData{
@@ -153,6 +158,12 @@ message ElectrodeData {
 message NLTableData {
     repeated int32 n = 1; 
     repeated int32 l = 2;
+}
+
+message BMTableData {
+    repeated double z = 1;
+    repeated double bm = 2;
+    double bnorm = 3;
 }
 
 message EmptyResponse {}

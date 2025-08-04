@@ -45,16 +45,15 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                 akl1 = _inputDataDTO.Akl1,
                 u0 = _inputDataDTO.U0,
                 uekvip = _inputDataDTO.Uekvip.ToArray(),
-                bnorm = _inputDataDTO.Bnorm,
                 abm = _inputDataDTO.Abm,
-                bm = _inputDataDTO.Bm.ToArray(),
                 aik = _inputDataDTO.Aik.ToArray(),
                 ht = _inputDataDTO.Ht,
                 dz = _inputDataDTO.Dz,
                 dtok = _inputDataDTO.Dtok,
                 hq1 = _inputDataDTO.Hq1,
                 ar1s = _inputDataDTO.Ar1S,
-                SaveName = _inputDataDTO.SaveName
+                SaveName = _inputDataDTO.SaveName,
+                nl = _inputDataDTO.Nl,
             };
 
             if (_inputDataDTO.NzruData != null)
@@ -80,6 +79,16 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                 {
                     N = _inputDataDTO.NlTableData.N.ToList(),
                     L = _inputDataDTO.NlTableData.L.ToList()
+                };
+            }
+
+            if (_inputDataDTO.BmTableData != null)
+            {
+                inputDataDTO.BMTableData = new BMDataDTO
+                {
+                    z = _inputDataDTO.BmTableData.Z.ToList(),
+                    bm = _inputDataDTO.BmTableData.Bm.ToList(),
+                    bnorm = _inputDataDTO.BmTableData.Bnorm
                 };
             }
 
@@ -116,7 +125,6 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                 Zkon = inputDataDTO.zkon,
                 Akl1 = inputDataDTO.akl1,
                 U0 = inputDataDTO.u0,
-                Bnorm = inputDataDTO.bnorm,
                 Abm = inputDataDTO.abm,
                 Ht = inputDataDTO.ht,
                 Dz = inputDataDTO.dz,
@@ -126,7 +134,6 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
             };
 
             _inputDataDTO.Uekvip.AddRange(inputDataDTO.uekvip);
-            _inputDataDTO.Bm.AddRange(inputDataDTO.bm);
             _inputDataDTO.Aik.AddRange(inputDataDTO.aik);
 
             if (inputDataDTO.NZRUTableDatas != null && inputDataDTO.NZRUTableDatas.Any())
@@ -155,6 +162,15 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                 nlTableData.N.AddRange(inputDataDTO.NLTableData.N ?? new List<int>());
                 nlTableData.L.AddRange(inputDataDTO.NLTableData.L ?? new List<int>());
                 _inputDataDTO.NlTableData = nlTableData;
+            }
+
+            if (_inputDataDTO.BmTableData != null)
+            {
+                var bmTableData = new Protos.BMTableData();
+                bmTableData.Z.AddRange(inputDataDTO.BMTableData.Z ?? new List<double>());
+                bmTableData.Bm.AddRange(inputDataDTO.BMTableData.Bm ?? new List<double>());
+                bmTableData.Bnorm = inputDataDTO.BMTableData.bnorm;
+                _inputDataDTO.BmTableData = bmTableData;
             }
 
             return _inputDataDTO;
@@ -217,7 +233,6 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                 Zkon = result.zkon,
                 Akl1 = result.akl1,
                 U0 = result.u0,
-                Bnorm = result.bnorm,
                 Abm = result.abm,
                 Ht = result.ht,
                 Dz = result.dz,
@@ -227,7 +242,6 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
             };
 
             data.Uekvip.AddRange(result.uekvip);
-            data.Bm.AddRange(result.bm);
             data.Aik.AddRange(result.aik);
 
             if (result.NZRUTableDatas != null && result.NZRUTableDatas.Any())
@@ -258,7 +272,26 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
                 data.NlTableData = nlTableData;
             }
 
+            if (result.BMTableData != null)
+            {
+                var bmTableData = new Protos.BMTableData();
+                bmTableData.Z.AddRange(result.BMTableData.Z ?? new List<double>());
+                bmTableData.Bm.AddRange(result.BMTableData.Bm ?? new List<double>());
+                bmTableData.Bnorm = result.BMTableData.bnorm;
+                data.BmTableData = bmTableData;
+            }
+
             return data;
+        }
+
+        public override async Task<EmptyResponse> DeleteSave(DeleteSaveRequest request, ServerCallContext context)
+        {
+            var save = await inputDataRepository.Read(predicate: x => x.SaveName == request.SaveName
+                && x.SaveDateTime == Convert.ToDateTime(request.SaveDateTime));
+
+            await inputDataRepository.Delete(save.Id);
+
+            return new EmptyResponse();
         }
     }
 }

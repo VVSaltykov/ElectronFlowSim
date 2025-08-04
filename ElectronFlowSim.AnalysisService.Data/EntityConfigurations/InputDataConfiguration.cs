@@ -22,6 +22,10 @@ namespace ElectronFlowSim.AnalysisService.Data.EntityConfigurations
 
             builder.HasMany<NZRUTableData>(a => a.NZRUTableDatas)
             .WithMany();
+
+            builder.HasOne(a => a.BMTableData)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

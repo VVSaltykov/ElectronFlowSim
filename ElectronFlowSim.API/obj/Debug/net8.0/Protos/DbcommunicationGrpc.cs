@@ -60,6 +60,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
     static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest> __Marshaller_GetSaveRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData> __Marshaller_SaveData = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest> __Marshaller_DeleteSaveRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> __Method_CreateSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.InputDataDTO, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse>(
@@ -92,6 +94,14 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
         "GetSave",
         __Marshaller_GetSaveRequest,
         __Marshaller_SaveData);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> __Method_DeleteSave = new grpc::Method<global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest, global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteSave",
+        __Marshaller_DeleteSaveRequest,
+        __Marshaller_EmptyResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -205,6 +215,26 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Protos {
       public virtual grpc::AsyncUnaryCall<global::ElectronFlowSim.AnalysisService.GRPC.Protos.SaveData> GetSaveAsync(global::ElectronFlowSim.AnalysisService.GRPC.Protos.GetSaveRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetSave, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse DeleteSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteSave(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse DeleteSave(global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteSave, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> DeleteSaveAsync(global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteSaveAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::ElectronFlowSim.AnalysisService.GRPC.Protos.EmptyResponse> DeleteSaveAsync(global::ElectronFlowSim.AnalysisService.GRPC.Protos.DeleteSaveRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteSave, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

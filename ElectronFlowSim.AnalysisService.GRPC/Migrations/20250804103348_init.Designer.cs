@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250714114153_init")]
+    [Migration("20250804103348_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -26,10 +26,35 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("ElectronFlowSim.AnalysisService.Domain.Entities.BMTableData", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.PrimitiveCollection<List<double>>("Bm")
+                        .IsRequired()
+                        .HasColumnType("double precision[]");
+
+                    b.PrimitiveCollection<List<double>>("Z")
+                        .IsRequired()
+                        .HasColumnType("double precision[]");
+
+                    b.Property<double>("bnorm")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BMTableData");
+                });
+
             modelBuilder.Entity("ElectronFlowSim.AnalysisService.Domain.Entities.InputData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BMTableDataId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("NLTableDataId")
@@ -52,13 +77,6 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<double>("ar1s")
-                        .HasColumnType("double precision");
-
-                    b.PrimitiveCollection<double[]>("bm")
-                        .IsRequired()
-                        .HasColumnType("double precision[]");
-
-                    b.Property<double>("bnorm")
                         .HasColumnType("double precision");
 
                     b.Property<double>("dtok")
@@ -100,6 +118,9 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                     b.Property<int>("kq")
                         .HasColumnType("integer");
 
+                    b.Property<int>("nl")
+                        .HasColumnType("integer");
+
                     b.Property<int>("nmas")
                         .HasColumnType("integer");
 
@@ -120,6 +141,8 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
                         .HasColumnType("double precision");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BMTableDataId");
 
                     b.HasIndex("NLTableDataId");
 
@@ -191,11 +214,19 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Migrations
 
             modelBuilder.Entity("ElectronFlowSim.AnalysisService.Domain.Entities.InputData", b =>
                 {
+                    b.HasOne("ElectronFlowSim.AnalysisService.Domain.Entities.BMTableData", "BMTableData")
+                        .WithMany()
+                        .HasForeignKey("BMTableDataId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("ElectronFlowSim.AnalysisService.Domain.Entities.NLTableData", "NLTableData")
                         .WithMany()
                         .HasForeignKey("NLTableDataId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("BMTableData");
 
                     b.Navigation("NLTableData");
                 });

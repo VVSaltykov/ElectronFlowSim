@@ -48,10 +48,10 @@ namespace ElectronFlowSim.DTO.AnalysisService
         /// </summary>
         public required int ik { get; set; }
 
-        ///// <summary>
-        ///// число основных электронов односкоростного пучка (нормальные к поверхности катода)
-        ///// </summary>
-        //public required int nl { get; set; }
+        /// <summary>
+        /// число основных электронов односкоростного пучка (нормальные к поверхности катода)
+        /// </summary>
+        public required int nl { get; set; }
 
         /// <summary>
         /// параметр, определяющий число дополнительных электронов для многоскоростного пучка
@@ -138,11 +138,6 @@ namespace ElectronFlowSim.DTO.AnalysisService
         public required double[] uekvip { get; set; }
 
         /// <summary>
-        /// нормирующее магнитное поле
-        /// </summary>
-        public required double bnorm { get; set; }
-
-        /// <summary>
         /// кэоффициент корректировки магнитного поля
         /// </summary>
         public required double abm { get; set; }
@@ -150,7 +145,7 @@ namespace ElectronFlowSim.DTO.AnalysisService
         /// <summary>
         /// массив значений магнитных полей
         /// </summary>
-        public required double[] bm { get; set; }
+        public BMDataDTO BMTableData { get; set; }
 
         /// <summary>
         /// массив значений тока

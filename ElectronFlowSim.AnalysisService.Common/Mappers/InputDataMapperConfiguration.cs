@@ -26,6 +26,11 @@ namespace ElectronFlowSim.AnalysisService.Common.Mappers
                 .ForMember(dest => dest.N, opt => opt.MapFrom(src => src.N))
                 .ForMember(dest => dest.L, opt => opt.MapFrom(src => src.L));
 
+            CreateMap<BMDataDTO, BMTableData>()
+                .ForMember(dest => dest.Z, opt => opt.MapFrom(src => src.z))
+                .ForMember(dest => dest.Bm, opt => opt.MapFrom(src => src.bm))
+                .ForMember(dest => dest.bnorm, opt => opt.MapFrom(src => src.bnorm));
+
             CreateMap<InputDataForSaveDTO, InputData>()
                 .ForMember(dest => dest.NZRUTableDatas, opt => opt.MapFrom(src => src.NZRUTableDatas))
                 .ForMember(dest => dest.NLTableData, opt => opt.MapFrom(src => src.NLTableData));
