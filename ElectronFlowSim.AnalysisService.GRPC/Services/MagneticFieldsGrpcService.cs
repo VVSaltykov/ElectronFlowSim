@@ -58,6 +58,8 @@ public class MagneticFieldsGrpcService : MagneticFields.MagneticFieldsBase
 
             response.Electrodes.Add(electrodeResponse);
         }
+        
+        response.MaxU = parsedDataList.Max(x => x.U);
 
         return response;
     }

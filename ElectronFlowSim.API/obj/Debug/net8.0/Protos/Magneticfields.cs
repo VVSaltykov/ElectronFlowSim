@@ -31,28 +31,28 @@ namespace Electronflow {
             "Z25ldGljRmllbGRzT3V0cHV0UmVzcG9uc2USHAoUbWFnbmV0aWNGaWVsZHNQ",
             "b2ludHMYASADKAESHAoUbWFnbmV0aWNGaWVsZHNWYWx1ZXMYAiADKAESHgoW",
             "bWFnbmV0aWNGaWVsZE1heFZhbHVlcxgDIAEoASIvChhOWlJVVGFibGVEYXRh",
-            "RmlsZVJlcXVlc3QSEwoLZmlsZUNvbnRlbnQYASABKAwiTgobTlpSVVRhYmxl",
+            "RmlsZVJlcXVlc3QSEwoLZmlsZUNvbnRlbnQYASABKAwiXAobTlpSVVRhYmxl",
             "RGF0YU91dHB1dFJlc3BvbnNlEi8KCmVsZWN0cm9kZXMYASADKAsyGy5lbGVj",
-            "dHJvbmZsb3cuRWxlY3Ryb2RlRGF0YSJSCg1FbGVjdHJvZGVEYXRhEgkKAW4Y",
-            "ASADKAUSCQoBehgCIAMoARIJCgFyGAMgAygBEgkKAXUYBCABKAESFQoNd29y",
-            "a3BpZWNlVHlwZRgFIAEoCSItChZOTFRhYmxlRGF0YUZpbGVSZXF1ZXN0EhMK",
-            "C2ZpbGVDb250ZW50GAEgASgMIjEKGU5MVGFibGVEYXRhT3V0cHV0UmVzcG9u",
-            "c2USCQoBbhgBIAMoBRIJCgFsGAIgAygFMtoCCg5NYWduZXRpY0ZpZWxkcxJw",
-            "ChlHZXRNYWduZXRpY0ZpZWxkc0Zyb21GaWxlEicuZWxlY3Ryb25mbG93Lk1h",
-            "Z25ldGljRmllbGRzRmlsZVJlcXVlc3QaKi5lbGVjdHJvbmZsb3cuTWFnbmV0",
-            "aWNGaWVsZHNPdXRwdXRSZXNwb25zZRJtChhHZXROWlJVVGFibGVEYXRhRnJv",
-            "bUZpbGUSJi5lbGVjdHJvbmZsb3cuTlpSVVRhYmxlRGF0YUZpbGVSZXF1ZXN0",
-            "GikuZWxlY3Ryb25mbG93Lk5aUlVUYWJsZURhdGFPdXRwdXRSZXNwb25zZRJn",
-            "ChZHZXROTFRhYmxlRGF0YUZyb21GaWxlEiQuZWxlY3Ryb25mbG93Lk5MVGFi",
-            "bGVEYXRhRmlsZVJlcXVlc3QaJy5lbGVjdHJvbmZsb3cuTkxUYWJsZURhdGFP",
-            "dXRwdXRSZXNwb25zZWIGcHJvdG8z"));
+            "dHJvbmZsb3cuRWxlY3Ryb2RlRGF0YRIMCgRtYXhVGAIgASgBIlIKDUVsZWN0",
+            "cm9kZURhdGESCQoBbhgBIAMoBRIJCgF6GAIgAygBEgkKAXIYAyADKAESCQoB",
+            "dRgEIAEoARIVCg13b3JrcGllY2VUeXBlGAUgASgJIi0KFk5MVGFibGVEYXRh",
+            "RmlsZVJlcXVlc3QSEwoLZmlsZUNvbnRlbnQYASABKAwiMQoZTkxUYWJsZURh",
+            "dGFPdXRwdXRSZXNwb25zZRIJCgFuGAEgAygFEgkKAWwYAiADKAUy2gIKDk1h",
+            "Z25ldGljRmllbGRzEnAKGUdldE1hZ25ldGljRmllbGRzRnJvbUZpbGUSJy5l",
+            "bGVjdHJvbmZsb3cuTWFnbmV0aWNGaWVsZHNGaWxlUmVxdWVzdBoqLmVsZWN0",
+            "cm9uZmxvdy5NYWduZXRpY0ZpZWxkc091dHB1dFJlc3BvbnNlEm0KGEdldE5a",
+            "UlVUYWJsZURhdGFGcm9tRmlsZRImLmVsZWN0cm9uZmxvdy5OWlJVVGFibGVE",
+            "YXRhRmlsZVJlcXVlc3QaKS5lbGVjdHJvbmZsb3cuTlpSVVRhYmxlRGF0YU91",
+            "dHB1dFJlc3BvbnNlEmcKFkdldE5MVGFibGVEYXRhRnJvbUZpbGUSJC5lbGVj",
+            "dHJvbmZsb3cuTkxUYWJsZURhdGFGaWxlUmVxdWVzdBonLmVsZWN0cm9uZmxv",
+            "dy5OTFRhYmxlRGF0YU91dHB1dFJlc3BvbnNlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.MagneticFieldsFileRequest), global::Electronflow.MagneticFieldsFileRequest.Parser, new[]{ "StartPoint", "EndPoint", "Step", "FileContent" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.MagneticFieldsOutputResponse), global::Electronflow.MagneticFieldsOutputResponse.Parser, new[]{ "MagneticFieldsPoints", "MagneticFieldsValues", "MagneticFieldMaxValues" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.NZRUTableDataFileRequest), global::Electronflow.NZRUTableDataFileRequest.Parser, new[]{ "FileContent" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.NZRUTableDataOutputResponse), global::Electronflow.NZRUTableDataOutputResponse.Parser, new[]{ "Electrodes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.NZRUTableDataOutputResponse), global::Electronflow.NZRUTableDataOutputResponse.Parser, new[]{ "Electrodes", "MaxU" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.ElectrodeData), global::Electronflow.ElectrodeData.Parser, new[]{ "N", "Z", "R", "U", "WorkpieceType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.NLTableDataFileRequest), global::Electronflow.NLTableDataFileRequest.Parser, new[]{ "FileContent" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Electronflow.NLTableDataOutputResponse), global::Electronflow.NLTableDataOutputResponse.Parser, new[]{ "N", "L" }, null, null, null, null)
@@ -859,6 +859,7 @@ namespace Electronflow {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public NZRUTableDataOutputResponse(NZRUTableDataOutputResponse other) : this() {
       electrodes_ = other.electrodes_.Clone();
+      maxU_ = other.maxU_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -879,6 +880,18 @@ namespace Electronflow {
       get { return electrodes_; }
     }
 
+    /// <summary>Field number for the "maxU" field.</summary>
+    public const int MaxUFieldNumber = 2;
+    private double maxU_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double MaxU {
+      get { return maxU_; }
+      set {
+        maxU_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -895,6 +908,7 @@ namespace Electronflow {
         return true;
       }
       if(!electrodes_.Equals(other.electrodes_)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(MaxU, other.MaxU)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -903,6 +917,7 @@ namespace Electronflow {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= electrodes_.GetHashCode();
+      if (MaxU != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(MaxU);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -922,6 +937,10 @@ namespace Electronflow {
       output.WriteRawMessage(this);
     #else
       electrodes_.WriteTo(output, _repeated_electrodes_codec);
+      if (MaxU != 0D) {
+        output.WriteRawTag(17);
+        output.WriteDouble(MaxU);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -933,6 +952,10 @@ namespace Electronflow {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       electrodes_.WriteTo(ref output, _repeated_electrodes_codec);
+      if (MaxU != 0D) {
+        output.WriteRawTag(17);
+        output.WriteDouble(MaxU);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -944,6 +967,9 @@ namespace Electronflow {
     public int CalculateSize() {
       int size = 0;
       size += electrodes_.CalculateSize(_repeated_electrodes_codec);
+      if (MaxU != 0D) {
+        size += 1 + 8;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -957,6 +983,9 @@ namespace Electronflow {
         return;
       }
       electrodes_.Add(other.electrodes_);
+      if (other.MaxU != 0D) {
+        MaxU = other.MaxU;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -980,6 +1009,10 @@ namespace Electronflow {
             electrodes_.AddEntriesFrom(input, _repeated_electrodes_codec);
             break;
           }
+          case 17: {
+            MaxU = input.ReadDouble();
+            break;
+          }
         }
       }
     #endif
@@ -1001,6 +1034,10 @@ namespace Electronflow {
             break;
           case 10: {
             electrodes_.AddEntriesFrom(ref input, _repeated_electrodes_codec);
+            break;
+          }
+          case 17: {
+            MaxU = input.ReadDouble();
             break;
           }
         }
