@@ -21,6 +21,7 @@ namespace ElectronFlowSim.AnalysisService.Data
         public DbSet<InputData> InputDatas { get; set; }
         public DbSet<NLTableData> NLTableDatas { get; set; }
         public DbSet<NZRUTableData> NZRUTableDatas { get; set; }
+        public DbSet<BMTableData> BMTableDatas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

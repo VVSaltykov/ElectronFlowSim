@@ -16,16 +16,11 @@ namespace ElectronFlowSim.AnalysisService.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<InputData> builder)
         {
-            builder.HasOne<NLTableData>(a => a.NLTableData)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Restrict);
+            builder.OwnsOne(a => a.NLTableData);
 
-            builder.HasMany<NZRUTableData>(a => a.NZRUTableDatas)
-            .WithMany();
+            builder.OwnsMany(a => a.NZRUTableDatas);
 
-            builder.HasOne(a => a.BMTableData)
-                .WithMany()
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.OwnsOne(a => a.BMTableData);
         }
     }
 }

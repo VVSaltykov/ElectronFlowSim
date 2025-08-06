@@ -27,17 +27,6 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             {
                 var inputData = mapper.Map<InputData>(entity);
 
-                var nlTableDataRepository = unitOfWork.GetRepository<NLTableData>();
-
-                await nlTableDataRepository.InsertAsync(inputData.NLTableData);
-
-                var nzruTableDataRepository = unitOfWork.GetRepository<NZRUTableData>();
-
-                foreach (var nzruTableData in inputData.NZRUTableDatas)
-                {
-                    await nzruTableDataRepository.InsertAsync(nzruTableData);
-                }
-
                 var inputDataRepository = unitOfWork.GetRepository<InputData>();
 
                 inputData.SaveDateTime = DateTime.UtcNow;
@@ -56,8 +45,6 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
         {
             try
             {
-                await unitOfWork.BeginTransactionAsync();
-
                 var repository = unitOfWork.GetRepository<InputData>();
 
                 var entity = await repository.GetFirstOrDefaultAsync(predicate: x => x.Id == entityId);
@@ -65,6 +52,7 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
                 {
                     throw new KeyNotFoundException($"Сущность с ID {entityId} не найдена");
                 }
+
                 repository.Delete(entity);
 
                 await unitOfWork.SaveChangesAsync();
@@ -144,7 +132,7 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             var repository = unitOfWork.GetRepository<InputData>();
 
             var data = await repository.GetFirstOrDefaultAsync(predicate: x => x.SaveName == saveName && x.SaveDateTime == dateTime.ToUniversalTime(),
-                include: x => x.Include(x => x.NZRUTableDatas).Include(x => x.NLTableData));
+                include: x => x.Include(x => x.NZRUTableDatas).Include(x => x.NLTableData).Include(x => x.BMTableData));
 
             return data;
         }

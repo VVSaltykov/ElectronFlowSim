@@ -20,3 +20,4 @@
 /ElectronFlowSim.AnalysisService.Domain/bin/Debug/net8.0
 /ElectronFlowSim.AnalysisService.Domain/obj/Debug/net8.0
 /ElectronFlowSim.AnalysisService.Domain/obj
+/ElectronFlowSim.API/obj/Debug/net8.0/Protos/Magneticfields.cs

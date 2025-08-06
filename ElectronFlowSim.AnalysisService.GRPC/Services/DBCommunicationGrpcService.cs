@@ -286,8 +286,10 @@ namespace ElectronFlowSim.AnalysisService.GRPC.Services
 
         public override async Task<EmptyResponse> DeleteSave(DeleteSaveRequest request, ServerCallContext context)
         {
+            DateTime saveDateTime = request.SaveDateTime.ToDateTime();
+
             var save = await inputDataRepository.Read(predicate: x => x.SaveName == request.SaveName
-                && x.SaveDateTime == Convert.ToDateTime(request.SaveDateTime));
+                && x.SaveDateTime == saveDateTime);
 
             await inputDataRepository.Delete(save.Id);
 
