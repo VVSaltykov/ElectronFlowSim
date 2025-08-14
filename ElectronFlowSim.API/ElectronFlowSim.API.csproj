@@ -36,6 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ElectronFlowSim.AnalysisService.GRPC\ElectronFlowSim.AnalysisService.GRPC.csproj" />
       <ProjectReference Include="..\ElectronFlowSim.Common\ElectronFlowSim.Common.csproj" />
       <ProjectReference Include="..\ElectronFlowSim.DTO\ElectronFlowSim.DTO.csproj" />
     </ItemGroup>

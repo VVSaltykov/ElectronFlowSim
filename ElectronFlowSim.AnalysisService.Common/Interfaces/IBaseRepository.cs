@@ -47,9 +47,9 @@ namespace ElectronFlowSim.AnalysisService.Common.Interfaces
         /// <summary>
         /// Обновление сущности
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="dto"></param>
         /// <returns></returns>
-        Task Update(TEntityDTO entity);
+        Task Update(TEntityDTO dto);
 
         /// <summary>
         /// Удаление сущности

@@ -1,43 +1,41 @@
-﻿using AutoMapper;
-using Calabonga.UnitOfWork;
+﻿using Calabonga.UnitOfWork;
 using ElectronFlowSim.AnalysisService.Common.Interfaces;
 using ElectronFlowSim.AnalysisService.Domain.Entities;
 using ElectronFlowSim.DTO.AnalysisService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using System;
 using System.Linq.Expressions;
+using ElectronFlowSim.AnalysisService.Common.Extensions;
+using ElectronFlowSim.AnalysisService.Common.Mappers;
 
 namespace ElectronFlowSim.AnalysisService.Common.Repositories
 {
     public class InputDataRepository : IBaseRepository<InputData, InputDataForSaveDTO> 
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
 
-        public InputDataRepository(IUnitOfWork unitOfWork, IMapper mapper)
+        public InputDataRepository(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
         }
 
-        public async Task Create(InputDataForSaveDTO entity)
+        public async Task Create(InputDataForSaveDTO dto)
         {
             try
             {
-                var inputData = mapper.Map<InputData>(entity);
-
-                var inputDataRepository = unitOfWork.GetRepository<InputData>();
+                var inputData = dto.MapToEntity<InputData, InputDataForSaveDTO, InputDataForSaveMapper>();
 
                 inputData.SaveDateTime = DateTime.UtcNow;
+
+                var inputDataRepository = unitOfWork.GetRepository<InputData>();
 
                 await inputDataRepository.InsertAsync(inputData);
 
                 await unitOfWork.SaveChangesAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception();
+                throw;
             }
         }
 
@@ -78,13 +76,13 @@ namespace ElectronFlowSim.AnalysisService.Common.Repositories
             return result.ToList();
         }
 
-        public async Task Update(InputDataForSaveDTO entity)
+        public async Task Update(InputDataForSaveDTO dto)
         {
             try
             {
                 await unitOfWork.BeginTransactionAsync();
 
-                var inputData = mapper.Map<InputData>(entity);
+                var inputData = dto.MapToEntity<InputData, InputDataForSaveDTO, InputDataForSaveMapper>();
 
                 var repository = unitOfWork.GetRepository<InputData>();
 
